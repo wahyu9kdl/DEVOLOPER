@@ -28,3 +28,21 @@ jobs:
       with:
         message: Thanks for taking this issue! Let us know if you have any questions!
 ```
+## LICENSE 
+
+<!---
+wahyu9kdl/wahyu9kdl is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+---><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Lisensi Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Ciptaan disebarluaskan di bawah <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Lisensi Creative Commons Atribusi 4.0 Internasional</a>.
+Copyright (c) 2021, Aw Score Code - AL HIKMAH [ Desain by : Aw Group Channel ] All rights reserved.
+For licensing, <a rel="license" href="https://www.alhikmah.my.id/p/license.html">see LICENSE.html</a>
+
+Copyright (c) 2021, Aw Score Code - Desain by : Aw Group Channel All rights reserved.
+For licensing, <a rel="license" href="https://www.awgroupchannel.my.id/p/license.html">see LICENSE.html</a>
+<!--
+Copyright (c) 2021, Aw Score Code - AL HIKMAH [ Desain by : Aw Group Channel ] All rights reserved.
+For licensing, see LICENSE.html or https://kata-h.blogspot.com/p/license.html-->
+<!--
+Copyright (c) 2021, Aw Score Code - Desain by : Aw Group Channel All rights reserved.
+For licensing, see LICENSE.html or https://www.awgroupchannel.my.id/p/license.html
+-->
