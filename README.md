@@ -13,3 +13,69 @@ Donasi via PayPal
 PayPal.me https://paypal.me/wahyudi9kdl?locale.x=id_ID
 </body>
 </html>
+
+##
+<h2>
+Ekspor
+widget</h2>
+<script src="https://opencollective.com/wahyu9kdl/banner.js"></script>
+Ekspor gambar tingkat
+Anda dapat mengekspor gambar yang menunjukkan kontributor keuangan untuk setiap tingkatan.
+
+<h2>
+♡Kontribusi</h2>
+
+🏅 Lencana tingkat
+
+🏅 buka lencana kolektif
+
+https://opencollective.com/wahyu9kdl/tiers/backer/badge.svg?label=backer&color=brightgreen
+
+<img alt="buka lencana kolektif" src="https://opencollective.com/wahyu9kdl/tiers/backer/badge.svg?label=backer&color=brightgreen" />
+
+<h2>Parameter</h2>
+
+Parameter	Keterangan	Nilai default
+label	label lencana	nama tingkat (pendukung)
+warna	warna lencana (hijau terang, hijau, kuning hijau, kuning, oranye, merah, abu-abu muda, biru)	hijau terang
+Widget kontributor keuangan
+
+https://opencollective.com/wahyu9kdl/tiers/backer.svg?avatarHeight=36
+<object type="image/svg+xml" data="https://opencollective.com/wahyu9kdl/tiers/backer.svg?avatarHeight=36&width=600"></object>
+
+<h2>Parameter</h2>
+Parameter	Keterangan	Nilai default
+lebar	lebar gambar	
+tinggi	tinggi gambar	
+membatasi	kontributor maksimal untuk ditampilkan	(tak terbatas)
+avatarTinggi	tinggi avatar/logo maksimal	
+tombol	tampilkan tombol "menjadi kontributor"	benar
+format	format gambar (ganti .svg dengan .png atau .jpg)	
+Semua lencana kontributor keuangan
+
+https://opencollective.com/wahyu9kdl/tiers/badge.svg
+
+🏅 buka lencana kolektif
+
+Ekspor CSV
+Ekspor data kontributor Anda dalam format CSV
+
+Ekspor CSV
+Ekspor JSON
+
+<h2>
+Ekspor data kontributor Anda dalam format JSON
+</h2>
+🎗Semua kontributor: https://opencollective.com/wahyu9kdl/members/all.json
+🎗Hanya individu: https://opencollective.com/wahyu9kdl/members/users.json
+🎗Hanya organisasi: https://opencollective.com/wahyu9kdl/members/organizations.json
+
+##Parameter
+
+membatasi	jumlah kontributor untuk kembali
+mengimbangi	jumlah kontributor untuk dilewati (untuk paging)
+
+TierId	hanya kembalikan kontributor yang termasuk dalam Tingkat ini (pilih tingkat di halaman Kolektif Anda dan lihat URL untuk menemukan ID-nya).
+misalnya,
+
+https://opencollective.com/wahyu9kdl/members/all.json?limit=10&offset=0&TierId=34845
