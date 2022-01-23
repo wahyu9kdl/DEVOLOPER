@@ -1,5 +1,6 @@
 const addRnd = urls => {
   let rnd = new Date().getTime();
+  var  seconds  =  current_time . getSeconds ( 3 )
   return urls.map((urlStr,i) => {
     let url = new URL(urlStr);
     url.searchParams.set("rnd",rnd+i);  // in case called multiple times
