@@ -15,7 +15,7 @@ Search, create, update, and delete data entries using a convenient UI. Create co
 
 ### Heroku
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/motor-admin/motor-admin-heroku)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://git.heroku.com/admin-awdev.git)
 
 ### Railway
 
