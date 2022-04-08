@@ -30,27 +30,91 @@
 
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=wahyu9kdl&theme=Javascript-dark&hide_border=true&date_format=M%20j%5B%2C%20Y%5D)](https://github.com/wahyu9kdl/wahyu9kdl/blob/main/README.md)
 
-<h2>DEV</h2>
-<a href="https://dev.to/wahyu9kdl">PROFILE DEV </a>
-Ahmad Wahyudi
-Developer <a href="www.alhikmah.my.id">AL HIKMAH </a>
-Rencana Projects Coding APLICATION <a href="https://www.alhikmah.my.id/p/mp3-al-quran.html?m=1"> Mp3 Al - QUR'AN </a>
+## DEVOLOPER
 
-Indonesia
-Joined on 
-10 Okt 2021
-
-
-<h2>PROJECT DESAING WEBSITE AND APLICATION </h2>
-1. Website ISLAMIC <a href="https://kata-h.blogspot.com/">[ AL HIKMAH ]</a>
+<b>Site :</b>
+1. <a href="https://kata-h.blogspot.com/">[ AL HIKMAH ]</a>
 2. <a href="https://awsos.blogspot.com/">Awgroupchannel [ Comunity ] </a>
 3. <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/iframe-generator.html">IFRAME GENERATOR TOOLS </a>
-4. Aw Channel <a href="https://youtube.com/channel/UC7CRa3nkxakAZx_aRsMwRyA">Preview Youtube Channel</a>
+4. <a href="https://youtube.com/channel/UC7CRa3nkxakAZx_aRsMwRyA">Preview Youtube Channel</a>
 5. <a href="https://jali.me/Profesional">Aw Landing Page </a>
 6. <a href="https://inpage.es/UOAg">Aw Marketplace</a>
 7. <a href="https://sfile.mobi/inv.php?id=358103">Aw Upload File </a>
 8. <a href="https://cse.google.co.id/cse?cx=4a26c594511b8cd0c#gsc.tab=0">Aw Browser</a> Menggunakan CSE Google Seacrh Enggine
 9. <a href="https://www.file-upload.com/users/Awfanspage/89315/FREE DOWNLOADER">Project ( Listing Downloader File 💯 free )</a>
+10. <a href="www.alhikmah.my.id">ALHIKMAH.MY.ID</a>
+11. <a href="https://www.alhikmah.my.id/p/mp3-al-quran.html?m=1"> Mp3 Al - QUR'AN </a>
+
+[AWDEV](https://dev.to/wahyu9kdl)
+,
+Indonesia
+Joined on 
+9 April 2022
+
+# FEATURED
+
+- [HOME PAGE](https://wahyu9kdl.github.io/wahyu9kdl/)
+- [PROFILE](https://wahyu9kdl.github.io)
+- [LOGIN](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fwahyu9kdl)
+- [AW DEV](https://wahyu9kdl.github.io/AwDev.html)
+- [ADS](https://wahyu9kdl.github.io/Ads.html)
+- [UNIQE Text](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/UNIQEText.html)
+- [ 𝐔𝐍𝐈𝐐𝐄𝐓𝐞𝐱𝐭 to Handwriting ](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/Handwriting.html)
+- [Page Coding](https://wahyu9kdl.github.io/HTML/Coding.html)
+- [Markdown](https://wahyu9kdl.github.io/HTML/TOOLS/Markdown.html)
+- [SPOILER](https://wahyu9kdl.github.io/HTML/Spoiler.html)
+- [Neumorphism Clock](https://wahyu9kdl.github.io/HTML/Clock.html)
+- [Neumorphism Calculator](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CALCULATOR.html)
+- [CANVAS](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Canvas.html)
+- [CSS ANIMATION](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/CssAnimasi.html)
+- [CANVAS ANIMATION BACKGROUND](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/background.html)
+- [Expanding Cards Github](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Expanding%20Cards%20Github.html)
+- [ANIMATION FADE](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/FADE.html)
+- [ANIMATION GERHANA](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/GERHANA.html)
+- [Newton's Css Cradle Animation](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Cradle.html)
+- [CSS BOX ANIMATION](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/box.html)
+- [GENERATOR COLOR](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Generator-Color.html)
+- [HOVERBOARD](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Hoverboard.html)
+- [NAVI ANIMATION](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/NAVI-Animation.html)
+- [NAVIGATION](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Navigation.html)
+- [RGB COLOR](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/RGB-COLOR.html)
+- [SHOLAWAT](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Sholawat.html)
+- [TEXT ANIMASI](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/TEXT.html)
+- [ANIMATION](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/index.html)
+- [AWFANSPAGE](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/FACEBOOK/Awfanspage.html)
+- [Pin Page (Catatan Kang Wahyu9kdl)](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/PAGE/PIN.html)
+- [CATUR](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/CATUR.html)
+- [MINESWEEPER](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Minesweeper.html)
+- [Puzzle Game](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/puzzle.html)
+- [Game Tic Tac Toe](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/TicTacToe.html)
+- [Game Flappy Bird](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Flappy.html)
+- [Game Brick and Ball](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Ball.html)
+- [Game Tetris](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Tetris.html)
+- [Bubble Shooter Game](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/Bubble.html)
+- [Archer's Island Game](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/archers-island-master/index.html)
+- [MIKROVER HOSTING ](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/MIKROVER/HOSTING.html)
+- [MIKROTIK DNS](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/MIKROVER/Mikrotik-DNS.html)
+- [MIKROVER PING](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/MIKROVER/Ping.html)
+- [IN BROWSHER](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/BROWSHER.html)
+- [Awspotify](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/PAGE/AWSPOTIFY.html)
+- [Awmedia](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/PAGE/Awmedia.html)
+- [I-Frame](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/PAGE/IFRAME.html)
+- [Protector](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/PAGE/protector.html)
+- [Twitter](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/TWITTER/update.html)
+- [Jquery Youtube Loop](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/YOUTUBE/jyl.html)
+- [Youtube Loop](https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/YOUTUBE/loop.html)
+- [MOVIE](https://wahyu9kdl.github.io/DASHBOARD/TEMPLATES/Movie.html)
+- [i-Frame Generator](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/iframe-generator.html)
+- [Downloader](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/DOWNLODER/index.html)
+- [Attack](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/AUTO%20VISITOR/Attack.html)
+- [Auto Visitor](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/AUTO%20VISITOR/index.html)
+- [404](https://wahyu9kdl.github.io/404.html)
+- [FAQ](https://wahyu9kdl.github.io/faq.html)
+
+
+
+
+
 
 ## My Skill Set  
 <table><tr><td valign="top" width="33%">
