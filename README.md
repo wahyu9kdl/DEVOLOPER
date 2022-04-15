@@ -6,6 +6,8 @@ DEVOLOPER AWDEV
 
 BY SITE www.awdev.eu.org
 
+Deploy Cloudflare https://www.devoloper.awdev.eu.org
+
 <h2>REGISTRASI</h2>
     
 <div class="separator" style="clear: both; text-align: center;"><a href="https://1.bp.blogspot.com/-xwgalvayaDY/YKaidG77kUI/AAAAAAAADEI/In9kiUxqvewERr7lEx6QDv1f2RinhTswgCLcBGAsYHQ/s225/anigif.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="225" data-original-width="225" height="400" src="https://1.bp.blogspot.com/-xwgalvayaDY/YKaidG77kUI/AAAAAAAADEI/In9kiUxqvewERr7lEx6QDv1f2RinhTswgCLcBGAsYHQ/w400-h400/anigif.gif" width="400" /></a></div><br />
