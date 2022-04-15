@@ -6,7 +6,7 @@ DEVOLOPER AWDEV
 
 BY SITE www.awdev.eu.org
 
-Deploy Cloudflare https://www.devoloper.awdev.eu.org
+Deploy Cloudflare https://devoloper.awdev.eu.org
 
 <h2>REGISTRASI</h2>
     
