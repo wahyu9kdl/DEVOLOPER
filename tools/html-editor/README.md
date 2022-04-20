@@ -17,6 +17,9 @@ HTML Editor support following features.
 
 Demo are available at [https://devoloper.awdev.eu.org/html-editor/](https://devoloper.awdev.eu.org/html-editor/)
 
+[https://devoloper.awdev.eu.org/tools/html-editor/scr/index.html](https://devoloper.awdev.eu.org/tools/html-editor/scr/index.html)
+
+
 ![Demo HTML Editor](https://s3.amazonaws.com/rioastamal-assets/html-editor/html-editor-demo.gif)
 
 ## Run
@@ -80,7 +83,7 @@ This application is written by Awdev Devoloper \<cs@awdev.eu.org>
     <a href="https://www.alhikmah.my.id"><img align="center" src="https://raw.githubusercontent.com/wahyu9kdl/wahyu9kdl/main/logo.png " alt="Logo ALHIKMAH.MY.ID" height="30" /></a>
     
     
-    </div>
+    
     
 ## License
 
