@@ -15,7 +15,7 @@ HTML Editor support following features.
 - Responsive design for mobile
 - Works offline
 
-Demo are available at [https://rioastamal.net/html-editor/](https://rioastamal.net/html-editor/)
+Demo are available at [https://devoloper.awdev.eu.org/tools/html-editor/src/index.html](https://devoloper.awdev.eu.org/tools/html-editor/src/index.html)
 
 ![Demo HTML Editor](https://s3.amazonaws.com/rioastamal-assets/html-editor/html-editor-demo.gif)
 
@@ -58,7 +58,10 @@ You can try to open file `build/index.html` using web browser.
 
 ## Author
 
-This application is written by Rio Astamal \<rio@rioastamal.net>
+This application is written by Awdev Devoloper \<cs@awdev.eu.org>
+My Project on The Blooger [Awdev](https://www.awdev.eu.org)
+github [Profile](https://wahyu9kdl.github.io)
+Site [Islami](https://www.alhikmah.my.id)
 
 ## License
 
