@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 # @desc Generate single file index.html of HTML editor
-# @author Awdev Devoloper <cs@awdev.eu.org>
-# @link https://wahyu9kdl.github.io
+# @author Rio Astamal <rio@rioastamal.net>
+# @link https://github.com/rioastamal/html-editor
 #
 [ ! -f src/lib/codemirror.js ] && {
     echo "Error: Make sure you run this script on root directory of html-editor." >&2
@@ -32,10 +32,10 @@ sed -i "" "s/{{APP_VERSION}}/${APP_VERSION}/g" $BUILD_FILE
     OG_DESCRIPTION=$META_DESCRIPTION
 }
 [ -z "$OG_URL" ] && {
-    OG_URL="https://devoloper.awdev.eu.org/DEVOLOPER/tools/html-editor/"
+    OG_URL="https://rioastamal.net/html-editor/"
 }
 [ -z "$OG_IMAGE" ] && {
-    OG_IMAGE=" https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSWomyHoNzn2GfEYwfghDJkEQyVH-0E9RonYGeR-R0OcbGkJ93hcFUhi2w2gMAkAH6Lk5Y7GvVI7s9400-W1LRonals6vwHheDjSODMGrWUfguXbCzsqE6GJAwEf7C1hwKpUrk9F4oCwAP6pPtLV01ZFTFV44Osp20ZDATH8OsN_-muefYCHasHK8q/w320-h320/HTML-EDITOR.awdev.eu.org.jpg"
+    OG_IMAGE="https://rioastamal-assets.s3.amazonaws.com/html-editor/html-editor-og-url.png"
 }
 
 for keyword in META_DESCRIPTION META_KEYWORDS OG_TITLE OG_DESCRIPTION OG_URL OG_IMAGE
