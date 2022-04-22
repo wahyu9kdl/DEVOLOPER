@@ -9,7 +9,7 @@ Url Site : https://www.awdev.eu.org or https://devoloper.awdev.eu.org
 # PROFILE
 - 👋 Hi, I’m <a href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fwahyu9kdl">@wahyu9kdl</a>
 - 👀 I'm Developer , I'm Creator 
-- 🌱 about.me/ahmadwahyudi ( https://about.me/ahmadwahyudi )
+- 🌱 [about.me](https://about.me/ahmadwahyudi)
 - 🖥 [Desainner Situs website information and academic](https://devoloper.awdev.eu.org/devoloper.html)
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=blod&color=%2336BCF7&size=30&lines=%F0%9F%91%8B+Hi%2C+I%E2%80%99m+%40wahyu9kdl+;%F0%9F%98%8A+I'm+Developer+and+Desaigner;%F0%9F%8C%B1+about.me%2Fahmadwahyudi+(+https%3A%2F%2Fabout.me%2Fahmadwahyudi+)+-+%F0%9F%93%AB+Desainner+Situs+website+information+and+academic)](https://git.io/typing-svg)
