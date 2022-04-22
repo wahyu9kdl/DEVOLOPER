@@ -1,31 +1,27 @@
+# DEVOLOPER
+This Project Github For Awdev Devoloper
+Read on This doct on [This Document Page](https://www.awdev.eu.org)
+
+Url Site : https://www.awdev.eu.org or https://devoloper.awdev.eu.org
+
+
+
 # PROFILE
 - 👋 Hi, I’m <a href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fwahyu9kdl">@wahyu9kdl</a>
 - 👀 I'm Developer , I'm Creator 
 - 🌱 about.me/ahmadwahyudi ( https://about.me/ahmadwahyudi )
-- 📫 Desainner Situs website information and academic
+- 🖥 [Desainner Situs website information and academic](https://devoloper.awdev.eu.org/devoloper.html)
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=blod&color=%2336BCF7&size=30&lines=%F0%9F%91%8B+Hi%2C+I%E2%80%99m+%40wahyu9kdl+;%F0%9F%98%8A+I'm+Developer+and+Desaigner;%F0%9F%8C%B1+about.me%2Fahmadwahyudi+(+https%3A%2F%2Fabout.me%2Fahmadwahyudi+)+-+%F0%9F%93%AB+Desainner+Situs+website+information+and+academic)](https://git.io/typing-svg)
 
 ## SERVICE
 
 
-<iframe
-      id="JotFormIFrame-211958944889075"
-      title="Formulir"
-      onload="window.parent.scrollTo(0,0)"
-      allowtransparency="true"
-      allowfullscreen="true"
-      allow="geolocation; microphone; camera"
-      src="https://form.jotform.com/Awfanspage/formulir"
-      frameborder="0"
-      style="
-      min-width: 100%;
-      height:600px;
-      border:none;"
-      scrolling="yes"
-    >
-    </iframe>
+From My Service [📩](https://form.jotform.com/Awfanspage/formulir)
+    [📬](https://form.jotform.com/Awfanspage/formulir)
+    [Jot From Service](https://form.jotform.com/Awfanspage/formulir)
     
+
 ## 🔥 GitHub Readme Streak Stats
 
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=wahyu9kdl&theme=Javascript-dark&hide_border=true&date_format=M%20j%5B%2C%20Y%5D)](https://github.com/wahyu9kdl/wahyu9kdl/blob/main/README.md)
@@ -40,7 +36,7 @@
 5. <a href="https://jali.me/Profesional">Aw Landing Page </a>
 6. <a href="https://inpage.es/UOAg">Aw Marketplace</a>
 7. <a href="https://sfile.mobi/inv.php?id=358103">Aw Upload File </a>
-8. <a href="https://cse.google.co.id/cse?cx=4a26c594511b8cd0c#gsc.tab=0">Aw Browser</a> Menggunakan CSE Google Seacrh Enggine
+8. <a href="https://cse.google.co.id/cse?cx=4a26c594511b8cd0c#gsc.tab=0">Aw Browser</a> 
 9. <a href="https://www.file-upload.com/users/Awfanspage/89315/FREE DOWNLOADER">Project ( Listing Downloader File 💯 free )</a>
 10. <a href="www.alhikmah.my.id">ALHIKMAH.MY.ID</a>
 11. <a href="https://www.alhikmah.my.id/p/mp3-al-quran.html?m=1"> Mp3 Al - QUR'AN </a>
