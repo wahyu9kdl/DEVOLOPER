@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form label {
+  font-weight: 600;
+}
+.form input {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.form input[type="submit"] {
+  background: dodgerblue;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
