@@ -13,7 +13,7 @@ function init() {
     element = INSTALL.createElement(options.location, element)
 
     // Set the app attribute to your app's dash-delimited alias.
-    element.setAttribute("app", "your-app-name")
+    element.setAttribute("app", "AWDEV")
     element.innerHTML = options.message
   }
 
