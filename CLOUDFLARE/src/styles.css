@@ -1,5 +1,5 @@
 /* Set the app attribute to your app's dash-delimited alias. */
-cloudflare-app[app="your-app-name"] {
+cloudflare-app[app="AWDEV"] {
   display: block;
   margin: 0.5em 0.2em;
   outline: 1px dotted;
@@ -7,23 +7,23 @@ cloudflare-app[app="your-app-name"] {
 }
 
 /* Use native elements when you'd like to inherit some styles from the page. */
-cloudflare-app[app="your-app-name"] p {
+cloudflare-app[app="AWDEV"] p {
   text-indent: 0;
 }
 
 /* Use em units to scale elements for different inherited styles. */
-cloudflare-app[app="your-app-name"] h1 {
+cloudflare-app[app="AWDEV"] h1 {
   font-size: 1.8em;
   font-weight: bold;
 }
 
 /* Use custom elements to avoid style inheritance. */
-cloudflare-app[app="your-app-name"] example-button {
+cloudflare-app[app="AWDEV"] example-button {
   border: 1px solid;
 }
 
 /* Prefix classes with your app's alias to avoid style collisions. */
-cloudflare-app[app="your-app-name"] .example-highlighted {
+cloudflare-app[app="AWDEV"] .example-highlighted {
   background-color: yellow;
   outline: 0.2em solid yellow;
 }
