@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+  border: 1px solid dodgerblue;
+  border-collapse: collapse;
+  text-align: center;
+}
+th,
+td {
+  border: 1px solid dodgerblue;
+  padding: 0.5rem;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.viewBtn,
+.updateBtn,
+.deleteBtn {
+  border: none;
+  padding: 0.2rem 0.5rem;
+  color: #fff;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.viewBtn {
+  background: dodgerblue;
+}
+.updateBtn {
+  background: darkcyan;
+}
+.deleteBtn {
+  background: crimson;
+}
