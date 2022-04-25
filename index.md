@@ -25,42 +25,7 @@
 
 - ⚡ Fun fact **I think and I am Funny**
 
-### Blogs posts
-<!-- BLOG-POST-LIST:START -->
-<div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://alhikmah-1.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>
-<script id="dsq-count-scr" src="https://alhikmah-1.disqus.com/count.js" async></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
-     crossorigin="anonymous"></script>
-<!-- awsos_main_AdSense2_1x1_as -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5295583488737876"
-     data-ad-slot="1111426252"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
-<!-- BLOG-POST-LIST:END -->
 
 
 
@@ -254,6 +219,43 @@ The existence of unlimited liability that forces the owner to be able to account
 🔄  Come join us and become our partner and discover various interesting opportunities with us
 
 ▶️  ♥️ Join [ Now ](https://form.jotform.com/Awfanspage/formulir)
+
+### Blogs posts
+<!-- BLOG-POST-LIST:START -->
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://alhikmah-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>
+<script id="dsq-count-scr" src="https://alhikmah-1.disqus.com/count.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+     crossorigin="anonymous"></script>
+<!-- awsos_main_AdSense2_1x1_as -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5295583488737876"
+     data-ad-slot="1111426252"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- BLOG-POST-LIST:END -->
 
 ## DESAIN LOGO
 
