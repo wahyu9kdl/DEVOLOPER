@@ -10,13 +10,13 @@
 - 🔭 I’m currently working on Awdev Devoloper [Awdev](https://devoloper.awdev.eu.org)
 
 - 👯 I’m looking to collaborate on [Awdev Devoloper On Github](https://github.com/wahyu9kdl/DEVOLOPER)
-
-- 🤝 I’m looking for help with [Awdev Support](https://devoloper.awdev.eu.org/support)
-
-- 👨‍💻 All of my projects are available at [https://wahyu9kdl.github.uo](https://wahyu9kdl.github.uo)
+    [Github Log](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fwahyu9kdl)
+- 🤝 I’m looking for help with [Awdev Support](https://wahyu9kdl.github.io/faq.html)
+  Create And [Send Your' Problem](https://form.jotform.com/awfanspage/formulir)
+- 👨‍💻 All of my projects are available at [https://wahyu9kdl.github.io](https://wahyu9kdl.github.io)
 
 - 📝 I regularly write articles on [https://www.awdev.eu.org](https://www.awdev.eu.org)
-
+[https://www.alhikmah.my.id](https://www.alhikmah.my.id)
 - 💬 Ask me about **react,vue,firabase,bloog,console,cloud,npm**
 
 - 📫 How to reach me **cs@awdev.eu.org**
@@ -27,6 +27,39 @@
 
 ### Blogs posts
 <!-- BLOG-POST-LIST:START -->
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://alhikmah-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>
+<script id="dsq-count-scr" src="https://alhikmah-1.disqus.com/count.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+     crossorigin="anonymous"></script>
+<!-- awsos_main_AdSense2_1x1_as -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5295583488737876"
+     data-ad-slot="1111426252"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <!-- BLOG-POST-LIST:END -->
 
 
