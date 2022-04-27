@@ -26,7 +26,7 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 
 ### And that's it!
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+If you're having trouble with your GitHub account, contact [Support](https://wahyu9kdl.github.io/FAQ.html).
 
 That's how you can easily become a member of the GitHub Documentation community. :sparkles:
 
