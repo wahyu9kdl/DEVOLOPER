@@ -14,6 +14,43 @@ _Important:_ As this library is targeted for newer API v2, it requires v2
 permissions (i.e. `wallet:accounts:read`). If you're still using v1, please use
 the [older version][2] of this library.
 
+Untuk membuat panggilan API pertama Anda, coba jalankan di konsol:
+ ```
+ curl https://api.coinbase.com/v2/user -H "Authorization: Bearer 2f75e1ea0ee1e807ba1286464ad9b20b455c39a994f7de870cc00b5001719c89"
+ ```
+
+Tokan akses hanya berlaku selama 30 menit
+ ID Klien:
+```
+016759b46f7866bedd8c9aa632807444a316a7c5557c339ae25d89136db9bb13
+```
+
+Rahasia Klien:
+```
+****************************************************************
+```
+URI Penerusan:
+```
+https://www.awdev.eu.org/p/login.html
+```
+URL Pengesahan Sampel:
+```
+https://www.coinbase.com/oauth/authorize?client_id=016759b46f7866bedd8c9aa632807444a316a7c5557c339ae25d89136db9bb13&redirect_uri=https%3A%2F%2Fwww.awdev.eu.org%2Fp%2Flogin.html&response_type=code&scope=wallet%3Auser%3Aread
+```
+URL Pemberitahuan:
+```
+https://www.awdev.eu.org/p/notification.html
+```
+Batasan lingkup:
+```
+wallet:transactions:send is limited $1,00/day per user
+wallet:transactions:send:bypass-2fa is disabled
+```
+
+Send
+```
+3CLzzdVtYxAeKLTwovPiejxGjitHktUtit
+```
 ## Installation
 
 Install the library using Composer. Please read the [Composer Documentation](https://getcomposer.org/doc/01-basic-usage.md) if you are unfamiliar with Composer or dependency managers in general.
@@ -727,3 +764,166 @@ phpunit --group integration
 [4]: https://developers.coinbase.com/api/v2#pagination
 [5]: https://packagist.org/search/?q=oauth2%20client
 [6]: https://packagist.org/packages/league/oauth2-client
+
+
+ Semua aset
+ Aset	alamat	Label	Dibuat	
+ Balancer	
+```
+ 0xBd2ea5f07588F3F254bFF3b3bD862cd093a56Ce1
+ ```
+Awdev send	25 menit yang lalu	
+ Detail
+ Bitcoin	
+```
+ 31vW66vcCa2YFYDuJECs7jXGfF1Hpbf6Wi
+```
+ Awdev F	5 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 38rGSQPds2yA51BhgrsPE2P65b8VSf9rWN
+ ```
+ + Tambah
+ 5 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3LSGhagimv7g8KKBAqpQYarWndkQnwb7EW
+ ```
+ + Tambah
+ 95 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3MvB44eJ8GvMS2UdfVBNskpaqzper3V7h4
+ ```
+ + Tambah
+ 95 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3BT2F3szskGEjd3rGpJdbDrLd74jCoAbR4
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 39GkWLaDTJeKqK7EbMdagN1LsfkfKbsf8u
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 327RrFkTgbCnEakhjdjaQkNjbm4QrF19f9
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3H4s9fDTZTivw3biyBUAXHzmNaYEQq7j55
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 39N3qhwLpsVwQ6FZvHfkUddasgbsVCYNw8
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3GjQF7hFBQr2BvRCCuiF5zTnxp1BiZja26
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3JtU3KH6CdaUcx7UqYPuBpuwaTE2nPAjof
+ ```
+ + Tambah
+ 236 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3McHYLXhJcNs2xbFmK2hY7rZSkBkM9LyjJ
+ ```
+ + Tambah
+ 432 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3N9Qq1QybpFXGwfZFMue6h9jvQXrn3MzHy
+ ```
+ + Tambah
+ 435 hari yang lalu	
+ Detail
+ Bitcoin	
+```
+ 3CwtL6xGNG73NEZyZMPcdDj3rxr9DsCqrk
+ ```
+ + Tambah
+ 452 hari yang lalu	
+ Detail
+ Bitcoin Cash	
+```
+ 1PnsiLHgEnaVtH7zZ9fgpYUajfM72UGNp8
+ ```
+ + Tambah
+ 370 hari yang lalu	
+ Detail
+ Ethereum	
+```
+ 0xf632a8f82A642E8b30dcD956AC1602a80F7d1FA6
+ ```
+Awdev Ethereum	95 hari yang lalu	
+ Detail
+ Ethereum Classic	
+```
+ 0xc03819702a97F53f2d8d6F2a1D3859eC7F1665B4
+ ```
+ + Tambah
+ 370 hari yang lalu	
+ Detail
+ IoTeX (ERC-20)	
+```
+ 0x96d51Fb943f75c0F8252De3c2Ecd2CD3522181A2
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ Liquity	
+```
+ 0xf81B6f3E3b8461FeA6c5E96eb7582bf0bab14b8c
+ ```
+ + Tambah
+ 101 hari yang lalu	
+ Detail
+ USD Coin	
+```
+ 0xC5198B9D6ee97979201766b074115037129eCa5f
+ ```
+Awdev USD Coin
+
+ 
+ # Cloning a repository
+```
+ ~/Projects/my-project$ gh repo clone coinbase/coinbase-php
+
+ Cloning into 'cli'...
+ remote: Enumerating objects: 99, done.
+ remote: Counting objects: 100% (99/99), done.
+ remote: Compressing objects: 100% (76/76), done.
+ remote: Total 21160 (delta 49), reused 35 (delta 18), pack-reused 21061
+ Receiving objects: 100% (21160/21160), 57.93 MiB | 10.82 MiB/s, done.
+ Resolving deltas: 100% (16051/16051), done.
+ 
+ ~/Projects/my-project$
+```
+
