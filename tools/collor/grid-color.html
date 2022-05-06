@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]--><!--[if IE 7]><html class="no-js ie7 oldie" lang="en-US"><![endif]--><!--[if IE 8]><html class="no-js ie8 oldie" lang="en-US"> <![endif]--><!--[if gt IE 8]><!--><!--<![endif]-->
+<html lang="pr-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="manifest" href="manifest.json">
+         <title>AWDEV - Generator Colors Grid</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <link href="style.css" rel="stylesheet">
+        <!--
+        
+        Name      : AWDEV CORPORATION
+        Template  : AWDEV Themplates
+        Version   : 1.6
+        Date      : April 11, 2022
+        Demo      : awdev.eu.org
+        Type      : Premium
+        Designer  : Awdev
+        Website   : www.awdev.eu.org
+        Provider  : 
+        www.devoloper.awdev.eu.org
+        www.wahyu9kdl.github.io
+        www.alhikmah.my.id
+        www.alhikmah.eu.org
+        ============================================================================
+        NOTE :
+        This theme is premium (paid).
+        You can only get it by purchasing officially.
+        If you get it for free through any method, that means you get it illegally.
+        Support Donation :
+        https://saweria.co/AwGroupChannel
+        
+        Github :
+        https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fwahyu9kdl
+        ============================================================================
+        
+        -->
+        <!-- Analytics Cloudflare --><script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876'/><!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+        <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-1J88ZV8SVS'/>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag(&#39;js&#39;, new Date());
+        
+        gtag(&#39;config&#39;, &#39;G-1J88ZV8SVS&#39;);
+        </script>
+        <meta content='AIzaSyDQggmZnrMq2IDoECbT4gV4JEomUwNiO3w' name='API key AWDEV'/><meta content='4b4a5829206d8da931c000b716709202' name='Zone ID'/>
+        <meta content='b2431a509af75aa572c48603871d6588fdf6f' name='Cloudflare APIs'/>
+        <meta conten='f9e5aeca80d442b9bf61151a19bcdd46' name='Web Analytics for awdev.eu.org Cloudflare'/><meta content='b9868b4b1c1746ed92624a6c9fcbd418' name='searchengine'/><meta content='9ddfdde0cc3c4a26affac0fe51043663' name='Client ID'/><!-- And Analytics Cloudflare -->
+        <style type="text/css">
+        body {
+        font-family: "Roboto", sans-serif;
+        }
+        
+        h1, h2 {
+        font-family: "Open Sans", sans-serif;
+        }
+        h1 {
+        color: tomato;
+        text-shadow: 0 0 1px black;
+        }
+        
+        .color-scheme {
+        height: 200px;
+        text-align: center;
+        margin: 0 0 3px 3px;
+        font-size: 1em;
+        user-select: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: box-shadow 0.5s;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 10em;
+        border: 1px solid lightgrey;
+        }
+        .color-scheme:hover {
+        box-shadow: 0 0 15px 5px tomato;
+        }
+        
+        .color-scheme span {
+        background-color: white;
+        padding: 3px;
+        border-radius: 5px;
+        float: right;
+        margin: 3px;
+        }
+        
+        .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: baseline;
+        }
+        
+        .add-button {
+        position: fixed;
+        top: 1px;
+        right: 0;
+        background-color: tomato;
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: 600;
+        margin: 5px 5px 0 0;
+        }
+        
+        .toast-top-center {
+        top: 10px;
+        }
+        </style>
+        <meta name="msapplication-TileColor" content="tomato">
+<!--        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">-->
+        <meta name="msapplication-TileImage" content="img/palettia-192x192.png">
+        <meta name="theme-color" content="tomato">
+
+    </head>
+    <body>
+        <h1>Awdev</h1>
+        <p> Scheme/Color Palette Generator | AWDEV Devoloper</p>
+        <label for="colorPicker">Choose a base color:</label>
+        <input type="color" value="#ff6347" id="colorPicker">
+        <button class="add-button"> + INSTAL</button>
+        <br>
+        <hr>
+        <h2>Generated:</h2>
+        <a href="https://devoloper.awdev.eu.org/devoloper.html" >
+        <button style="background-color:#00FFFF;"> 🎨 HOME </button></a>
+        <div class="container c1" title="waiting">waiting...</div>
+        <hr>
+        <amp-ad width="100vw" height="320"
+        type="adsense"
+        data-ad-client="ca-pub-5295583488737876"
+        data-ad-slot="4653012258"
+        data-auto-format="rspv"
+        data-full-width="">
+        <div overflow=""></div>
+        </amp-ad>
+        <h2>Complementares:</h2>
+        <div class="container c2" title="waiting">waiting...</div>
+        <script type="text/javascript">
+        /* Add to Homescreen v4.0.0 ~ (c) 2019 Chris Love ~ @license: https://love2dev.com/pwa/add-to-homescreen/ */
+        
+        
+        ( function ( window, document, undefined ) {
+        /*
+        _   _ _____     _____
+        ___ _| |_| |_   _|___|  |  |___ _____ ___ ___ ___ ___ ___ ___ ___
+        | .'| . | . | | | | . |     | . |     | -_|_ -|  _|  _| -_| -_|   |
+        |__,|___|___| |_| |___|__|__|___|_|_|_|___|___|___|_| |___|___|_|_|
+        by Matteo Spinelli ~ http://www.awdev.eu.org <-- No longer there :<
+        Upgraded for PWA Support by Awdev Devoloper ~ https://www.alhikmah.my.id
+        */
+        
+        // load session
+        var appID = "com.love2dev.addtohome",
+        session = localStorage.getItem( appID );
+        
+        if ( session && session.added ) {
+        return;
+        }
+        
+        window.addEventListener( "beforeinstallprompt", beforeInstallPrompt );
+        
+        window.addEventListener( "appinstalled", function ( evt ) {
+        
+        // TODO: update session object to reflect the PWA has been installed
+        _instance.doLog( "a2hs", "installed" );
+        
+        session.added = true;
+        
+        _instance.updateSession();
+        
+        if ( this.options.onInstall ) {
+        this.options.onInstall.call( this );
+        }
+        
+        } );
+        
+        var platform = {},
+        defaultPrompt = {
+        title: "Install this PWA?",
+        src: "imgs/pwa-logo-50x50.png",
+        cancelMsg: "Not Now",
+        installMsg: "Install"
+        };
+        
+        function checkPlatform() {
+        
+        // browser info and capability
+        var _ua = window.navigator.userAgent;
+        
+        platform.isIDevice = ( /iphone|ipod|ipad/i ).test( _ua );
+        platform.isSamsung = /Samsung/i.test( _ua );
+        platform.isFireFox = /Firefox/i.test( _ua );
+        platform.isOpera = /opr/i.test( _ua );
+        platform.isEdge = /edg/i.test( _ua );
+        
+        // Opera & FireFox only Trigger on Android
+        if ( platform.isFireFox ) {
+        platform.isFireFox = /android/i.test( _ua );
+        }
+        
+        if ( platform.isOpera ) {
+        platform.isOpera = /android/i.test( _ua );
+        }
+        
+        platform.isChromium = ( "onbeforeinstallprompt" in window );
+        platform.isInWebAppiOS = ( window.navigator.standalone === true );
+        platform.isInWebAppChrome = ( window.matchMedia( '(display-mode: standalone)' ).matches );
+        platform.isMobileSafari = platform.isIDevice && _ua.indexOf( 'Safari' ) > -1 && _ua.indexOf( 'CriOS' ) < 0;
+        platform.isStandalone = platform.isInWebAppiOS || platform.isInWebAppChrome;
+        platform.isiPad = ( platform.isMobileSafari && _ua.indexOf( 'iPad' ) > -1 );
+        platform.isiPhone = ( platform.isMobileSafari && _ua.indexOf( 'iPad' ) === -1 );
+        platform.isCompatible = platform.isChromium || platform.isMobileSafari ||
+        platform.isSamsung || platform.isFireFox || platform.isOpera;
+        
+        // console.log( "platform.isiPhone: ", platform.isiPhone );
+        // console.log( "platform.isMobileSafari: ", platform.isMobileSafari );
+        // console.log( "platform.isCompatible: ", platform.isCompatible );
+        // console.log( "platform.isInWebAppiOS: ", platform.isInWebAppiOS );
+        
+        }
+        
+        /* displays native A2HS prompt & stores results */
+        function triggerNativePrompt() {
+        
+        return _beforeInstallPrompt.prompt()
+        .then( function ( evt ) {
+        
+        // Wait for the user to respond to the prompt
+        return _beforeInstallPrompt.userChoice;
+        
+        } )
+        .then( function ( choiceResult ) {
+        
+        session.added = ( choiceResult.outcome === "accepted" );
+        
+        if ( session.added ) {
+        _instance.doLog( "User accepted the A2HS prompt" );
+        
+        if ( _instance.options.onAdd ) {
+        _instance.options.onAdd();
+        }
+        
+        } else {
+        
+        if ( _instance.options.onCancel ) {
+        _instance.options.onCancel();
+        }
+        
+        session.optedout = true;
+        _instance.doLog( "User dismissed the A2HS prompt" );
+        }
+        
+        _instance.updateSession();
+        
+        _beforeInstallPrompt = null;
+        
+        } )
+        .catch( function ( err ) {
+        
+        _instance.doLog( err.message );
+        
+        if ( err.message.indexOf( "user gesture" ) > -1 ) {
+        _instance.options.mustShowCustomPrompt = true;
+        _instance._delayedShow();
+        }
+        
+        } );
+        }
+        
+        function getPlatform( native ) {
+        
+        if ( _instance.options.debug &&
+        typeof _instance.options.debug === "string" ) {
+        return _instance.options.debug;
+        }
+        
+        if ( platform.isChromium && ( native === undefined && !native ) ) {
+        return "native";
+        } else if ( platform.isFireFox ) {
+        return "firefox";
+        } else if ( platform.isiPad ) {
+        return "ipad";
+        } else if ( platform.isiPhone ) {
+        return "iphone";
+        } else if ( platform.isOpera ) {
+        return "opera";
+        } else if ( platform.isSamsung ) {
+        return "samsung";
+        } else if ( platform.isEdge ) {
+        return "edge";
+        } else if ( platform.isChromium ) {
+        return "chromium";
+        } else {
+        return "";
+        }
+        
+        }
+        
+        function isVisble( ele ) {
+        
+        var dimensions = ele.getBoundingClientRect();
+        
+        return dimensions.width !== 0 && dimensions.height !== 0;
+        
+        }
+        
+        //show hint images for browsers without native prompt
+        /*
+        Currently: iOS Safari
+        FireFox Android
+        Samsung Android
+        Opera Android
+        */
+        function showPlatformGuidance( skipNative ) {
+        
+        var target = getPlatform( skipNative ),
+        ath_wrapper = document.querySelector( _instance.options.athWrapper );
+        
+        if ( ath_wrapper ) {
+        
+        if ( _instance.autoHideTimer ) {
+        clearTimeout( _instance.autoHideTimer );
+        }
+        
+        if ( !skipNative && target === "native" && _beforeInstallPrompt ) {
+        
+        platform.closePrompt();
+        triggerNativePrompt();
+        
+        } else {
+        
+        var promptTarget = Object.assign( {}, defaultPrompt, _instance.options.customPrompt, _instance.options.prompt[ target ] );
+        
+        var ath_body = ath_wrapper.querySelector( _instance.options.promptDlg.body );
+        
+        if ( promptTarget.imgs && promptTarget.imgs.length > 0 ) {
+        
+        ath_body.innerHTML = "";
+        ath_body.classList.add( _instance.options.athGuidance );
+        
+        for ( var index = 0; index < promptTarget.imgs.length; index++ ) {
+        
+        var img = new Image();
+        
+        img.src = promptTarget.imgs[ index ].src;
+        img.alt = promptTarget.imgs[ index ].alt;
+        
+        if ( promptTarget.imgs[ index ].classes ) {
+        
+        img.classList.add( ...promptTarget.imgs[ index ].classes );
+        
+        }
+        
+        img.classList.add( _instance.options.showClass );
+        
+        ath_body.appendChild( img );
+        
+        }
+        
+        }
+        
+        if ( !isVisble( ath_wrapper ) ) {
+        
+        ath_wrapper.classList.add( ...promptTarget.showClasses );
+        ath_wrapper.classList.remove( _instance.options.hideClass );
+        
+        }
+        
+        var hideAfter = ( _instance.options.lifespan >= 10 ) ? _instance.options.lifespan : 10;
+        
+        _instance.autoHideTimer = setTimeout( _instance.autoHide, hideAfter * 1000 );
+        
+        }
+        
+        }
+        
+        }
+        
+        //can be used to calculate the next prime number, a possible way to calculate when to next prompt
+        function nextPrime( value ) {
+        
+        while ( true ) {
+        
+        var isPrime = true;
+        
+        if ( isNaN( value ) ) {
+        value = 0;
+        }
+        
+        //increment the number by 1 each time
+        value += 1;
+        
+        var squaredNumber = Math.sqrt( value );
+        
+        //start at 2 and increment by 1 until it gets to the squared number
+        for ( var i = 2; i <= squaredNumber; i++ ) {
+        
+        //how do I check all i's?
+        if ( value % i == 0 ) {
+        isPrime = false;
+        break;
+        }
+        
+        }
+        
+        if ( isPrime ) {
+        return value;
+        }
+        
+        }
+        }
+        
+        // singleton
+        var _instance;
+        
+        function ath( options ) {
+        
+        //prevent duplicate instances
+        _instance = _instance || new ath.Class( options );
+        
+        return _instance;
+        }
+        
+        // default options
+        ath.defaults = {
+        appID: appID, // local storage name (no need to change)
+        appName: "Progressive Web App",
+        debug: false, // override browser checks
+        logging: false, // log reasons for showing or not showing to js console; defaults to true when debug is true
+        modal: false, // prevent further actions until the message is closed
+        mandatory: false, // you can't proceed if you don't add the app to the homescreen
+        autostart: true, // show the message automatically
+        skipFirstVisit: false, // show only to returning visitors (ie: skip the first time you visit)
+        minSessions: 0, //show only after minimum number of page views
+        startDelay: 1, // display the message after that many seconds from page load
+        lifespan: 15, // life of the message in seconds
+        displayPace: 1440, // minutes before the message is shown again (0: display every time, default 24 hours)
+        displayNextPrime: false,
+        mustShowCustomPrompt: false,
+        maxDisplayCount: 0, // absolute maximum number of times the message will be shown to the user (0: no limit)
+        validLocation: [], // list of pages where the message will be shown (array of regexes)
+        onInit: null, // executed on instance creation
+        onShow: null, // executed when the message is shown
+        onAdd: null, // when the application is launched the first time from the homescreen (guesstimate)
+        onInstall: null,
+        onCancel: null,
+        customCriteria: null,
+        manualPrompt: null,
+        customPrompt: {}, //allow customization of prompt content
+        athWrapper: ".ath-container",
+        athGuidance: "ath-guidance",
+        showClasses: [ "animated", "d-flex" ],
+        showClass: "d-flex",
+        hideClass: "d-none",
+        promptDlg: {
+        title: ".ath-banner-title",
+        body: ".ath-banner",
+        logo: ".ath-prompt-logo",
+        cancel: ".btn-cancel",
+        install: ".btn-install",
+        action: {
+        "ok": "Install",
+        "cancel": "Not Now"
+        }
+        },
+        prompt: {
+        "native": {
+        showClasses: [ "fadeInUp", "right-banner" ],
+        action: {
+        "ok": "Install",
+        "cancel": "Not Now"
+        }
+        },
+        "edge": {
+        showClasses: [ "edge-wrapper",
+        "animated", "fadeIn", "d-block", "right-banner"
+        ],
+        imgs: [ {
+        src: "imgs/edge-a2hs-icon.png",
+        alt: "Tap the Add to Homescreen Icon"
+        } ]
+        },
+        "chromium": {
+        showClasses: [ "chromium-wrapper",
+        "animated", "fadeIn", "d-block", "right-banner"
+        ],
+        imgs: [ {
+        src: "imgs/chromium-guidance.png",
+        alt: "Tap the Add to Homescreen Icon"
+        } ]
+        },
+        "iphone": {
+        showClasses: [ "iphone-wrapper",
+        "animated", "fadeIn", "d-block"
+        ],
+        imgs: [ {
+        src: "imgs/ios-safari-share-button-highlight.jpg",
+        alt: "Tap the Share Icon"
+        },
+        {
+        src: "imgs/iphone-a2hs-swipe-to-right.jpg",
+        classes: [ "animated", "fadeIn", "overlay-1",
+        "delay-2s"
+        ],
+        alt: "Swipe to the right"
+        },
+        {
+        src: "imgs/iphone-a2hs-icon-highlight.jpg",
+        classes: [ "animated", "fadeIn", "overlay-2",
+        "delay-4s"
+        ],
+        alt: "Tap the Add to Homescreen Icon"
+        }
+        ]
+        },
+        "ipad": {
+        showClasses: [ "ipad-wrapper", "animated", "fadeInUp", "d-block" ],
+        imgs: [ {
+        src: "imgs/safari-ipad-share-a2hs-right.jpg",
+        alt: "Tap the Add to Homescreen Icon"
+        } ]
+        },
+        "firefox": {
+        showClasses: [ "firefox-wrapper",
+        "animated", "fadeIn", "d-block"
+        ],
+        imgs: [ {
+        src: "imgs/firefox-a2hs-icon.png",
+        alt: "Tap the Add to Homescreen Icon"
+        } ]
+        },
+        "samsung": {
+        showClasses: [ "samsung-wrapper",
+        "animated", "fadeIn", "d-block"
+        ],
+        imgs: [ {
+        src: "imgs/samsung-internet-a2hs-icon.png",
+        alt: "Tap the Add to Homescreen Icon"
+        } ]
+        },
+        "opera": {
+        showClasses: [ "opera-home-screen-wrapper",
+        "animated", "fadeIn", "d-block"
+        ],
+        imgs: [ {
+        src: "imgs/opera-add-to-homescreen.png",
+        alt: "Tap the Add to Homescreen Icon"
+        } ]
+        }
+        }
+        };
+        
+        checkPlatform();
+        
+        var _defaultSession = {
+        lastDisplayTime: 0, // last time we displayed the message
+        returningVisitor: false, // is this the first time you visit
+        displayCount: 0, // number of times the message has been shown
+        optedout: false, // has the user opted out
+        added: false, // has been actually added to the homescreen
+        sessions: 0,
+        nextSession: 0 //tie this to nextPrime Counter
+        };
+        
+        session = session ? JSON.parse( session ) : _defaultSession;
+        
+        var _beforeInstallPrompt;
+        
+        function beforeInstallPrompt( evt ) {
+        
+        evt.preventDefault();
+        
+        _beforeInstallPrompt = evt;
+        
+        }
+        
+        ath.removeSession = function ( appID ) {
+        
+        localStorage.removeItem( appID || ath.defaults.appID );
+        
+        };
+        
+        ath.doLog = function ( logStr ) {
+        
+        if ( this.options.logging ) {
+        
+        console.log( logStr );
+        
+        }
+        
+        };
+        
+        platform.cancelPrompt = function ( evt ) {
+        
+        evt.preventDefault();
+        
+        if ( _instance.options.onCancel ) {
+        _instance.options.onCancel();
+        }
+        
+        platform.closePrompt();
+        
+        return false;
+        
+        };
+        
+        platform.closePrompt = function () {
+        
+        var ath_wrapper = document.querySelector( _instance.options.athWrapper );
+        
+        if ( ath_wrapper ) {
+        
+        ath_wrapper.classList.remove( ..._instance.options.showClasses );
+        
+        }
+        
+        };
+        
+        platform.handleInstall = function ( evt ) {
+        
+        if ( _instance.options.onInstall ) {
+        _instance.options.onInstall();
+        }
+        
+        if ( _beforeInstallPrompt &&
+        ( !_instance.options.debug || getPlatform() === "native" ) ) {
+        
+        platform.closePrompt();
+        triggerNativePrompt();
+        
+        } else {
+        
+        showPlatformGuidance( true );
+        
+        }
+        
+        return false;
+        };
+        
+        // TODO refactor long class method into smaller, more manageable functions
+        ath.Class = function ( options ) {
+        
+        // class methods
+        this.doLog = ath.doLog;
+        
+        // merge default options with user config
+        this.options = Object.assign( {}, ath.defaults, options );
+        
+        var manifestEle = document.querySelector( "[rel='manifest']" );
+        
+        if ( !manifestEle ) {
+        
+        //			console.log( "no manifest file" );
+        platform.isCompatible = false;
+        }
+        
+        navigator.serviceWorker.getRegistration().then( afterSWCheck );
+        
+        };
+        
+        function afterSWCheck( sw ) {
+        
+        _instance.sw = sw;
+        
+        if ( !_instance.sw ) {
+        
+        //			console.log( "no service worker" );
+        platform.isCompatible = false;
+        }
+        
+        session.sessions += 1;
+        _instance.updateSession();
+        
+        // override defaults that are dependent on each other
+        if ( _instance.options && _instance.options.debug && ( typeof _instance.options.logging === "undefined" ) ) {
+        _instance.options.logging = true;
+        }
+        
+        // normalize some options
+        _instance.options.mandatory = _instance.options.mandatory && ( 'standalone' in window.navigator ||
+        _instance.options.debug );
+        
+        //this is forcing the user to add to homescreen before anything can be done
+        //the ideal scenario for this would be an enterprise business application
+        //could also be a part of an onboarding workflow for a SAAS
+        _instance.options.modal = _instance.options.modal || _instance.options.mandatory;
+        
+        if ( _instance.options.mandatory ) {
+        _instance.options.startDelay = -0.5; // make the popup hasty
+        }
+        
+        // setup the debug environment
+        if ( _instance.options.debug ) {
+        
+        platform.isCompatible = true;
+        
+        }
+        
+        if ( _instance.options.onInit ) {
+        _instance.options.onInit.call( _instance );
+        }
+        
+        if ( _instance.options.autostart ) {
+        
+        _instance.doLog( "Add to homescreen: autostart displaying callout" );
+        
+        _instance.show();
+        
+        }
+        
+        }
+        
+        ath.Class.prototype = {
+        
+        _canPrompt: undefined,
+        
+        canPrompt: function () {
+        
+        //already evaluated the situation, so don't do it again
+        if ( this._canPrompt !== undefined ) {
+        return this._canPrompt;
+        }
+        
+        this._canPrompt = false;
+        
+        if ( _instance.options.customCriteria !== null || _instance.options.customCriteria !== undefined ) {
+        
+        var passCustom = false;
+        
+        if ( typeof _instance.options.customCriteria === "function" ) {
+        passCustom = _instance.options.customCriteria();
+        } else {
+        passCustom = !!_instance.options.customCriteria;
+        }
+        
+        if ( !passCustom ) {
+        
+        this.doLog( "Add to homescreen: not displaying callout because a custom criteria was not met." );
+        return false;
+        
+        }
+        
+        }
+        
+        //using a double negative here to detect if service workers are not supported
+        //if not then don't bother asking to add to install the PWA
+        if ( !( "serviceWorker" in navigator ) ) {
+        
+        this.doLog( "Add to homescreen: not displaying callout because service workers are not supported" );
+        return false;
+        
+        }
+        
+        // the device is not supported
+        if ( !platform.isCompatible ) {
+        this.doLog( "Add to homescreen: not displaying callout because device not supported" );
+        return false;
+        }
+        
+        var now = Date.now(),
+        lastDisplayTime = session.lastDisplayTime;
+        
+        // we obey the display pace (prevent the message to popup too often)
+        if ( now - lastDisplayTime < this.options.displayPace * 60000 ) {
+        this.doLog( "Add to homescreen: not displaying callout because displayed recently" );
+        return false;
+        }
+        
+        // obey the maximum number of display count
+        if ( this.options.maxDisplayCount && session.displayCount >= this.options.maxDisplayCount ) {
+        this.doLog( "Add to homescreen: not displaying callout because displayed too many times already" );
+        return false;
+        }
+        
+        // check if this is a valid location
+        // TODO: should include at least the home page here
+        // by default all pages are valid, which can cause issues on iOS
+        // TODO: maybe trigger a redirect back to the home page for iOS
+        var isValidLocation = !this.options.validLocation.length;
+        
+        for ( var i = this.options.validLocation.length; i--; ) {
+        
+        if ( this.options.validLocation[ i ].test( document.location.href ) ) {
+        isValidLocation = true;
+        break;
+        }
+        
+        }
+        
+        if ( !isValidLocation ) {
+        this.doLog( "Add to homescreen: not displaying callout because not a valid location" );
+        return false;
+        }
+        
+        if ( session.sessions < this.options.minSessions ) {
+        this.doLog( "Add to homescreen: not displaying callout because not enough visits" );
+        return false;
+        }
+        
+        if ( ( this.options.nextSession && this.options.nextSession > 0 ) &&
+        session.sessions >= this.options.nextSession ) {
+        this.doLog( "Add to homescreen: not displaying callout because waiting on session " + this.options.nextSession );
+        return false;
+        }
+        
+        // critical errors:
+        if ( session.optedout ) {
+        this.doLog( "Add to homescreen: not displaying callout because user opted out" );
+        return false;
+        }
+        
+        if ( session.added ) {
+        this.doLog( "Add to homescreen: not displaying callout because already added to the homescreen" );
+        return false;
+        }
+        
+        // check if the app is in stand alone mode
+        //this applies to iOS
+        if ( platform.isStandalone ) {
+        
+        // execute the onAdd event if we haven't already
+        if ( !session.added ) {
+        
+        session.added = true;
+        this.updateSession();
+        
+        if ( this.options.onAdd ) {
+        this.options.onAdd.call( this );
+        }
+        
+        }
+        
+        this.doLog( "Add to homescreen: not displaying callout because in standalone mode" );
+        return false;
+        }
+        
+        // check if this is a returning visitor
+        if ( !session.returningVisitor ) {
+        
+        session.returningVisitor = true;
+        this.updateSession();
+        
+        // we do not show the message if this is your first visit
+        if ( this.options.skipFirstVisit ) {
+        this.doLog( "Add to homescreen: not displaying callout because skipping first visit" );
+        return false;
+        }
+        
+        }
+        
+        this._canPrompt = true;
+        
+        return true;
+        
+        },
+        
+        show: function ( force ) {
+        
+        // message already on screen
+        if ( this.shown ) {
+        this.doLog( "Add to homescreen: not displaying callout because already shown on screen" );
+        return;
+        }
+        
+        this.shown = true;
+        
+        // increment the display count
+        session.lastDisplayTime = Date.now();
+        session.displayCount++;
+        
+        if ( _instance.options.displayNextPrime ) {
+        
+        session.nextSession = nextPrime( session.sessions );
+        
+        }
+        
+        this.updateSession();
+        
+        if ( document.readyState === "interactive" || document.readyState === "complete" ) {
+        
+        this._delayedShow();
+        
+        } else {
+        
+        document.onreadystatechange = function () {
+        
+        if ( document.readyState === 'complete' ) {
+        
+        this._delayedShow();
+        
+        }
+        
+        };
+        
+        }
+        
+        },
+        
+        _delayedShow: function ( e ) {
+        setTimeout( this._show.bind( this ), this.options.startDelay * 1000 + 500 );
+        },
+        
+        _show: function () {
+        
+        if ( _instance.canPrompt() ) {
+        
+        if ( _beforeInstallPrompt && !_instance.options.mustShowCustomPrompt ) {
+        
+        triggerNativePrompt();
+        
+        } else {
+        
+        var target = getPlatform(),
+        ath_wrapper = document.querySelector( _instance.options.athWrapper );
+        
+        if ( ath_wrapper && !session.optedout ) {
+        
+        ath_wrapper.classList.remove( _instance.options.hideClass );
+        
+        var promptTarget = Object.assign( {}, defaultPrompt, _instance.options.customPrompt, _instance.options.prompt[ target ] );
+        
+        if ( promptTarget.showClasses ) {
+        
+        promptTarget.showClasses = promptTarget.showClasses.concat( _instance.options.showClasses );
+        
+        } else {
+        
+        promptTarget.showClasses = _instance.options.showClasses;
+        
+        }
+        
+        ath_wrapper.classList.add( ...promptTarget.showClasses );
+        
+        var ath_title = ath_wrapper.querySelector( _instance.options.promptDlg.title ),
+        ath_logo = ath_wrapper.querySelector( _instance.options.promptDlg.logo ),
+        ath_cancel = ath_wrapper.querySelector( _instance.options.promptDlg.cancel ),
+        ath_install = ath_wrapper.querySelector( _instance.options.promptDlg.install );
+        
+        if ( ath_title && promptTarget.title ) {
+        ath_title.innerText = promptTarget.title;
+        }
+        
+        if ( ath_logo && promptTarget.src ) {
+        ath_logo.src = promptTarget.src;
+        ath_logo.alt = promptTarget.title || "Install PWA";
+        }
+        
+        if ( ath_install ) {
+        ath_install.addEventListener( "click", platform.handleInstall );
+        ath_install.classList.remove( _instance.options.hideClass );
+        ath_install.innerText = promptTarget.installMsg ? promptTarget.installMsg :
+        ( ( promptTarget.action && promptTarget.action.ok ) ? promptTarget.action.ok : _instance.options.promptDlg.action.ok );
+        }
+        
+        if ( ath_cancel ) {
+        ath_cancel.addEventListener( "click", platform.cancelPrompt );
+        ath_cancel.classList.remove( _instance.options.hideClass );
+        ath_cancel.innerText = promptTarget.cancelMsg ? promptTarget.cancelMsg :
+        ( ( promptTarget.action && promptTarget.action.cancel ) ? promptTarget.action.cancel : _instance.options.promptDlg.action.cancel );
+        }
+        
+        }
+        
+        if ( this.options.lifespan && this.options.lifespan > 0 ) {
+        
+        _instance.autoHideTimer = setTimeout( this.autoHide, this.options.lifespan * 1000 );
+        
+        }
+        
+        }
+        
+        // fire the custom onShow event
+        if ( this.options.onShow ) {
+        this.options.onShow.call( this );
+        }
+        
+        }
+        
+        },
+        
+        trigger: function () {
+        
+        this._show();
+        
+        },
+        
+        autoHide: function () {
+        
+        var target = getPlatform(),
+        ath_wrapper = document.querySelector( _instance.options.athWrapper );
+        
+        if ( ath_wrapper ) {
+        
+        var promptTarget = _instance.options.prompt[ target ];
+        promptTarget.showClasses = promptTarget.showClasses.concat( _instance.options.showClasses );
+        
+        ath_wrapper.classList.remove( ...promptTarget.showClasses );
+        ath_wrapper.classList.add( _instance.options.hideClass );
+        
+        }
+        
+        },
+        
+        updateSession: function () {
+        
+        localStorage.setItem( this.options.appID, JSON.stringify( session ) );
+        
+        },
+        
+        clearSession: function () {
+        session = _defaultSession;
+        this.updateSession();
+        },
+        
+        optOut: function () {
+        session.optedout = true;
+        this.updateSession();
+        },
+        
+        optIn: function () {
+        session.optedout = false;
+        this.updateSession();
+        },
+        
+        clearDisplayCount: function () {
+        session.displayCount = 0;
+        this.updateSession();
+        }
+        
+        };
+        
+        // expose to the world
+        window.addToHomescreen = ath;
+        
+        } )( window, document );
+        </script>
+        <script type="text/javascript">
+        const Themer = function(color) {
+        let combinations = [];
+        let group = color.match(/.{1,2}/g);
+        
+        // TODO refactor this to a map function?
+        let first  = group[0]+group[1]+group[2];
+        let second = group[0]+group[2]+group[1];
+        let third  = group[1]+group[0]+group[2];
+        let fourth = group[1]+group[2]+group[0];
+        let fifth  = group[2]+group[0]+group[1];
+        let sixth  = group[2]+group[1]+group[0];
+        
+        combinations.push(first);
+        combinations.push(second);
+        combinations.push(third);
+        combinations.push(fourth);
+        combinations.push(fifth);
+        combinations.push(sixth);
+        
+        return [...new Set(combinations)];
+        }
+        
+        function complementaryColor(hexaRgbColor) {
+        
+        let color = hexaRgbColor.toString();
+        
+        if (typeof hexaRgbColor === 'number') {
+        color = parseInt(hexaRgbColor).toString(16).padStart(6, "0");
+        }
+        
+        if (hexaRgbColor.toString().slice(0,1) === '#') {
+        color = hexaRgbColor.slice(1,hexaRgbColor.length);
+        }
+        
+        if (color.length !== 3 && color.length !== 6){
+        throw new Error('Color should be a 3 or 6 digits hexa');
+        }
+        
+        if (color.length === 3) {
+        color = color.split('').map(i => i.repeat(2)).join('');
+        }
+        
+        color = 0xffffff ^ parseInt(color,16);
+        color = color.toString(16);
+        return '#'+color.padStart(6, '0');
+        }
+        
+        function clearContainers() {
+        document.querySelectorAll('.container').forEach(item => item.innerHTML = '');
+        }
+        
+        function deriveColorsIntoContainer(color, container) {
+        let derivedColors = Themer(color);
+        
+        derivedColors.map(item => {
+        document.querySelector(container).innerHTML += '<div class="color-scheme" style="background-color:#'+item+'"><span>#'+item.toUpperCase()+'</span></div>';
+        });
+        }
+        
+        function copyToClipboardEvent() {
+        document.querySelectorAll('.color-scheme').forEach(el => {
+        el.addEventListener('click', function() {
+        let text = el.innerText;
+        try {
+        navigator.clipboard.writeText(text).then(function() {
+        toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "500",
+        "timeOut": "2000",
+        "extendedTimeOut": "0",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        }
+        
+        toastr["success"]("Código da cor copiado com sucesso!");
+        
+        }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+        });
+        } catch (e) {
+        alert('Seu navegador não suporta a API de copiar para a área de transferência! Por favor atualize seu navegador.');
+        }
+        });
+        });
+        }
+        function createColorScheme(evt) {
+        clearContainers();
+        
+        let colorRaw = evt.target.value;
+        let color = colorRaw.slice(1, colorRaw.length);
+        deriveColorsIntoContainer(color, '.c1');
+        
+        let complementaryRaw = complementaryColor(colorRaw);
+        let complementary = complementaryRaw.slice(1, complementaryRaw.length);
+        
+        deriveColorsIntoContainer(complementary, '.c2');
+        copyToClipboardEvent();
+        }
+        let colorPicker = document.querySelector('#colorPicker');
+        colorPicker.addEventListener('input', function(evt) {
+        createColorScheme(evt)
+        });
+        
+        colorPicker.addEventListener('blur', function(evt) {
+        createColorScheme(evt)
+        });
+        
+        
+        // var deferredPrompt;
+        // const addBtn = document.querySelector('.add-button');
+        // // addBtn.style.display = 'none';
+        //
+        // window.addEventListener('beforeinstallprompt', (e) => {
+        //     // Prevent Chrome 67 and earlier from automatically showing the prompt
+        //     e.preventDefault();
+        //     // Stash the event so it can be triggered later.
+        //     deferredPrompt = e;
+        //     console.log("deferredPrompt:");
+        //     console.log(deferredPrompt);
+        // });
+        //     // Update UI to notify the user they can add to home screen
+        //
+        // addBtn.addEventListener('click', () => {
+        //     // hide our user interface that shows our A2HS button
+        //     // addBtn.style.display = 'none';
+        //     // Show the prompt
+        //     deferredPrompt.prompt();
+        //     // Wait for the user to respond to the prompt
+        //     deferredPrompt.userChoice.then((choiceResult) => {
+        //         if (choiceResult.outcome === 'accepted') {
+        //             console.log('User accepted the A2HS prompt');
+        //         } else {
+        //             console.log('User dismissed the A2HS prompt');
+        //         }
+        //         deferredPrompt = null;
+        //     });
+        // });
+        //
+        //
+        // window.addEventListener('appinstalled', (evt) => {
+        //     // Log install to analytics
+        //     console.log('INSTALL: Success');
+        // });
+        //
+        // if ('serviceWorker' in navigator) {
+        //     // window.addEventListener('load', function() {
+        //         navigator.serviceWorker.register('sw.js').then(function(registration) {
+        //             // Registration was successful
+        //             console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        //         }, function(err) {
+        //             // registration failed :(
+        //             console.log('ServiceWorker registration failed: ', err);
+        //         });
+        //     // });
+        // }
+        ( function () {
+        addToHomescreen({
+        autostart: true,
+        autoHide: 0,
+        logging: true,
+        minSessions: 2,
+        onShow: function () {
+        console.log("showing");
+        },
+        onInit: function () {
+        console.log("initializing");
+        },
+        onAdd: function () {
+        console.log("adding");
+        },
+        onInstall: function () {
+        console.log("Installing");
+        },
+        onCancel: function () {
+        console.log("Cancelling");
+        },
+        displayNextPrime: true,
+        customCriteria: true,
+        displayPace: 0,
+        customPrompt: {
+        src: "img/palettia-192x192.png"
+        }
+        });
+        })();
+        </script>
+        
+        <script src="addtohomescreen.js"></script>
+        <script src="main.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+    crossorigin="anonymous"></script>
+    <!-- iklan -->
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-5295583488737876"
+    data-ad-slot="9338873828"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </body>
+</html>
