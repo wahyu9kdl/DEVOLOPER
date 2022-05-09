@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CREATE QR CODE GENERATOR AWDEV DEVOLOPER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="QR Code scanner - AWDEV DEVOLOPER - devoloper.awdev.eu.org" />
+  <meta name="keywords" content="qrcode,qr code,scanner,barcode,javascript" />
+  <meta name="language" content="English" />
+  <meta name="copyright" content="AWDEV DEVOLOPER (c) 2022" />
+  <meta name="Revisit-After" content="1 Days"/>
+  <meta name="robots" content="index, follow"/>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876'/><script async='async' custom-element='amp-auto-ads' src='https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js'>
+		</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSD8HWB5RG"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		
+		gtag('config', 'G-VSD8HWB5RG');
+		</script>
+		<link rel="shortcut icon" type="image/x-icon" href="https://wahyu9kdl.github.io/Aw-icon.png">
+		
+		<script data-ad-client="ca-pub-9740800920365268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>	
+		<meta name="google-site-verification" content="Yz_h71MpL-vH2RoECFzJU6NOZZVqSiu81kGfJv2VDXA"/>
+		<meta content='2f898b29394a4156964b39f56d9f579e5a97dd1e' name='Open Collective GraphQL API'/>
+		
+<style type="text/css">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  padding: 0 10px;
+  min-height: 100vh;
+  align-items: center;
+  background: url( https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_tSq3mi8B_V8_yaiVvh02cJuDsHICI6NLHbR2IlakPP3313_O-qRAfhkDW2BALCwjVc79pNLFRW_abAZRPzIud5n72Y-oo0orBo7Cge2FUY92u87W1BHeAG2fpaDFkf87RkTFlKcvUIHuLsClauozSsNRgGZbljdAQUajK0_uAX33hRgU9WvfnfTM/w200-h200/awde.eu.org-chaos.gif );
+  justify-content: center;
+}
+
+.wrapper {
+  height: 265px;
+  max-width: 410px;
+  background: #fff;
+  border-radius: 7px;
+  padding: 20px 25px 0;
+  transition: height 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper.active {
+  height: 530px;
+}
+
+header h1 {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+header p {
+  margin-top: 5px;
+  color: #575757;
+  font-size: 16px;
+}
+
+.wrapper .form {
+  margin: 20px 0 25px;
+}
+
+.form :where(input, button) {
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.1s ease;
+}
+
+.form input {
+  font-size: 18px;
+  padding: 0 17px;
+  border: 1px solid #999;
+}
+
+.form input:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.form input::placeholder {
+  color: #999;
+}
+
+.form button {
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 17px;
+  background: #FFA500;
+}
+
+.qr-code {
+  opacity: 0;
+  display: flex;
+  padding: 33px 0;
+  border-radius: 5px;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+
+.wrapper.active .qr-code {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+
+.qr-code img {
+  width: 170px;
+}
+
+@media (max-width: 430px) {
+  .wrapper {
+    height: 255px;
+    padding: 16px 20px;
+  }
+
+  .wrapper.active {
+    height: 510px;
+  }
+
+  header p {
+    color: #696969;
+  }
+
+  .form :where(input, button) {
+    height: 52px;
+  }
+  
+  .qr-code img {
+    width: 160px;
+  }
+}
+</style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <center>
+        <header>
+            <h1>QR Code Generator - AWDEV DEVOLOPER</h1>
+            <p>Enter text or url</p>
+        
+        
+        </header>
+        
+        <li><a href="index.html">Scan</a></li>
+        <li><a href="create.html">Create</a></li>
+        <li><a href="about.html">About</a></li>
+        <li style="border: medium none;">
+        <a href="contact.html">Contact</a></li>
+        
+        
+        <div class="form">
+            <input type="text" spellcheck="false" placeholder="Enter text or url" />
+            <button>Generate QR Code</button>
+        </div>
+        <div class="qr-code">
+            <img src="" />
+            </div></center>
+        </div>
+    </div>
+    <div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+    crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-format="autorelaxed"
+    data-ad-client="ca-pub-5295583488737876"
+    data-ad-slot="1819124764"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+    crossorigin="anonymous"></script>
+    <!-- Adsense Horizontal -->
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-5295583488737876"
+    data-ad-slot="4653012258"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </div>
+    
+<script type="text/javascript">
+const wrapper = document.querySelector(".wrapper"),
+    qrInput = wrapper.querySelector(".form input"),
+    generateBtn = wrapper.querySelector(".form button"),
+    qrImg = wrapper.querySelector(".qr-code img");
+
+let preValue;
+
+generateBtn.addEventListener("click", () => {
+    let qrValue = qrInput.value.trim();
+    if (!qrValue || preValue === qrValue) return;
+    preValue = qrValue;
+    generateBtn.innerText = "Generating QR Code...";
+    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+    qrImg.addEventListener("load", () => {
+        wrapper.classList.add("active");
+        generateBtn.innerText = "Generate QR Code";
+    });
+});
+
+qrInput.addEventListener("keyup", () => {
+    if (!qrInput.value.trim()) {
+        wrapper.classList.remove("active");
+        preValue = "";
+    }
+});
+</script>
+    </body>
+
+</html>
