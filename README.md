@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Awdev</h1>
-<h3 align="center">A passionate frontend developer from India</h3>
+<h3 align="center">A passionate frontend developer from Indonesia</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=wahyu9kdl&label=Profile%20views&color=0e75b6&style=flat" alt="wahyu9kdl" /> </p>
 
@@ -15,8 +15,11 @@
   Create And [Send Your' Problem](https://form.jotform.com/awfanspage/formulir)
 - 👨‍💻 All of my projects are available at [https://wahyu9kdl.github.io](https://wahyu9kdl.github.io)
 
-- 📝 I regularly write articles on [https://www.awdev.eu.org](https://www.awdev.eu.org)
+- 📝 I regularly write articles on 
+[https://www.awdev.eu.org](https://www.awdev.eu.org)
+[https://devoloper.awdev.eu.org](https://devoloper.awdev.eu.org)
 [https://www.alhikmah.my.id](https://www.alhikmah.my.id)
+[https://admin.alhikmah.my.id](https://admin.alhikmah.my.id)
 - 💬 Ask me about **react,vue,firabase,bloog,console,cloud,npm**
 
 - 📫 How to reach me **cs@awdev.eu.org**
