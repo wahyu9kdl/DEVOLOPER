@@ -54,6 +54,41 @@ In addition to the README you're reading right now, this repo includes other REA
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our :sparkles: community :sparkles:!
 
+<p align="left"> <a href="https://twitter.com/awfanspage" target="blank"><img src="https://img.shields.io/twitter/follow/awfanspage?logo=twitter&style=for-the-badge" alt="awfanspage" /></a> </p>
+
+- 🔭 I’m currently working on Awdev Devoloper [Awdev](https://devoloper.awdev.eu.org)
+
+- 👯 I’m looking to collaborate on [Awdev Devoloper On Github](https://github.com/wahyu9kdl/DEVOLOPER)
+    [Github Log](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fwahyu9kdl)
+- 🤝 I’m looking for help with [Awdev Support](https://wahyu9kdl.github.io/faq.html)
+  Create And [Send Your' Problem](https://form.jotform.com/awfanspage/formulir)
+- 👨‍💻 All of my projects are available at [https://wahyu9kdl.github.io](https://wahyu9kdl.github.io)
+
+- 📝 I regularly write articles on 
+[https://www.awdev.eu.org](https://www.awdev.eu.org)
+[https://devoloper.awdev.eu.org](https://devoloper.awdev.eu.org)
+[https://www.alhikmah.my.id](https://www.alhikmah.my.id)
+[https://admin.alhikmah.my.id](https://admin.alhikmah.my.id)
+- 💬 Ask me about **react,vue,firabase,bloog,console,cloud,npm**
+
+- 📫 How to reach me **cs@awdev.eu.org**
+
+- 📄 Know about my experiences [https://devoloper.awdev.eu.org/devoloper.html](https://devoloper.awdev.eu.org/devoloper.html)
+
+- ⚡ Fun fact **I think and I am Funny**
+
+<p>
+       <a href="https://www.awdev.eu.org">
+           <div>
+               <img src="https://camo.githubusercontent.com/d0ef82664f4bf11b9a899c92c7d2cb15ee1ca8cc79a07a5cf2e6279b52204e05/68747470733a2f2f626c6f676765722e676f6f676c6575736572636f6e74656e742e636f6d2f696d672f622f523239765a32786c2f4156765873456956635962303255774656486d76765a3569413033414c314a46387a4b2d714348667372753433724948484133577267763741625f4d746e303856767a566a61425643694c4f354b546f5a7a576546635a36366a706c577371466744554832617a493273304836446858643946396952504d6e444c69326355324d634f6c3659625862596353765a49706e5551785f765f69447445426b346c4a436159464433624a52366c373635747248494e4a4f6646424161744a483133432f733238312f61776465762e706e6720 " width="250" alt="APILayer Logo" />
+           </div>
+           </a></p>
+
+<br />
+
+---
+
+<br />
 
 <h3>Connect with me:</h3>
     
