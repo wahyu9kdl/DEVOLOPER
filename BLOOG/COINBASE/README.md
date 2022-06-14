@@ -63,6 +63,36 @@ Install the library using Composer. Please read the [Composer Documentation](htt
 
 ## Authentication
 
+- BTC
+```
+3GiQbHPfTGczxZBeUGBkzC4TAiMiapaWih
+```
+
+- ETH
+```
+0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877
+```
+
+- SOL
+```
+EpsNSYa4UCdwJ9jTEGWCX2rbYSQgTyXw5fgKnzKcvgbQ
+```
+
+- ETHER
+```
+0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877
+```
+
+- MATIC / POLYGON
+```
+0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877
+```
+
+- Alamat FIO saya
+```
+awdev@opera
+```
+
 ### API Key
 
 Use an API key and secret to access your own Coinbase account.
