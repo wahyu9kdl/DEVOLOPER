@@ -5,7 +5,7 @@ spring:
       git:
         uri: git@github.com:wahyu9kdl/DEVOLOPER.git
         ignoreLocalSshSettings: true
-        hostKey: githostkey
+        hostKey: GHSpmSmzcnvZM4OJxvwlJvtFEpGKbzrLoUP8fvv1
         hostKeyAlgorithm: ssh-rsa
         strictHostKeyChecking: true
         passphrase: passphrase
