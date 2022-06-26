@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Extending CodeIgniter &mdash; CodeIgniter 4.2.1 documentation</title>
+  <title>Creating Core System Classes &mdash; CodeIgniter 4.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -21,43 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Creating Core System Classes" href="core_classes.html" />
-    <link rel="prev" title="CLIRequest Class" href="../cli/cli_request.html" /> 
-<!--  
-         Hai, selamat datang di proyek "CodeIgniter4 - Awdev Devoloper - Wahyu9kdl",
-         --------------------
-         Author : wahyu9kdl
-         Github : https://wahyu9kdl.github.io
-         Web    : https://devoloper.awdev.eu.org / https://www.awdev.my.id/home.html
-         Email  : cs@awdev.eu.org
-         -->
-         <!-- Global site tag (gtag.js) - Google Analytics -->
-         <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSD8HWB5RG"></script>
-         <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-VSD8HWB5RG');
-         </script>
-         <link rel="shortcut icon" type="image/x-icon" href="https://wahyu9kdl.github.io/Aw-icon.png">         
-         <meta name="google-site-verification" content="Yz_h71MpL-vH2RoECFzJU6NOZZVqSiu81kGfJv2VDXA"/>
-         <meta content='2f898b29394a4156964b39f56d9f579e5a97dd1e' name='Open Collective GraphQL API'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
-         <meta content='3GiQbHPfTGczxZBeUGBkzC4TAiMiapaWih' name='BTC'/>
-         <meta content='FIO8FjBePEMu9XiwBYckrt549r4smxXCq4QNYKejsZEwEe5XxMdCF' name='FIO'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='MATIC'/>
-         <meta content="0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877" name="Dai"/>
-         <!-- =======================================================
-         * Template Name: Cool Landing Page Personal - v1.2.2
-         * Template URL: https://www.awdev.my.id
-         * Author: Awdev Corporation
-         * License: https://www.awdev.my.id/license/
-         ======================================================== -->
-         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
-         crossorigin="anonymous"></script>
-         
+    <link rel="next" title="Replacing Common Functions" href="common.html" />
+    <link rel="prev" title="Extending CodeIgniter" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -268,8 +233,8 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Extending CodeIgniter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Extending CodeIgniter</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Core System Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common.html">Replacing Common Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basecontroller.html">Extending the Controller</a></li>
@@ -293,12 +258,13 @@
 
       <div class="wy-nav-content">
         <div class="rst-content">
-<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/extending/index.rst">Edit this page</a>
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/extending/core_classes.rst">Edit this page</a>
 
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Extending CodeIgniter</li>
+          <li><a href="index.html">Extending CodeIgniter</a> &raquo;</li>
+      <li>Creating Core System Classes</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -307,27 +273,161 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="extending-codeigniter">
-<h1>Extending CodeIgniter<a class="headerlink" href="#extending-codeigniter" title="Permalink to this headline"></a></h1>
-<p>CodeIgniter 4 has been designed to be easy to extend or build upon.</p>
-<div class="toctree-wrapper compound">
+  <section id="creating-core-system-classes">
+<h1>Creating Core System Classes<a class="headerlink" href="#creating-core-system-classes" title="Permalink to this headline"></a></h1>
+<p>Every time CodeIgniter runs there are several base classes that are initialized automatically as part of the core
+framework. It is possible, however, to swap any of the core system classes with your own version or even just extend
+the core versions.</p>
+<p><strong>Most users will never have any need to do this, but the option to replace or extend them does exist for those
+who would like to significantly alter the CodeIgniter core.</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Messing with a core system class has a lot of implications, so make sure you know what you are doing before
+attempting it.</p>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#system-class-list" id="id1">System Class List</a></p></li>
+<li><p><a class="reference internal" href="#replacing-core-classes" id="id2">Replacing Core Classes</a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common.html">Replacing Common Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basecontroller.html">Extending the Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to CodeIgniter</a></li>
+<li><p><a class="reference internal" href="#creating-your-class" id="id3">Creating Your Class</a></p></li>
+<li><p><a class="reference internal" href="#adding-the-service" id="id4">Adding the Service</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#extending-core-classes" id="id5">Extending Core Classes</a></p></li>
 </ul>
 </div>
+<section id="system-class-list">
+<h2><a class="toc-backref" href="#id1">System Class List</a><a class="headerlink" href="#system-class-list" title="Permalink to this headline"></a></h2>
+<p>The following is a list of the core system classes that are invoked every time CodeIgniter runs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Autoloader\Autoloader</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\CodeIgniter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Config\DotEnv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Config\Services</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Debug\Exceptions</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Debug\Timer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Events\Events</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Filters\Filters</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\ContentSecurityPolicy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\CLIRequest</span></code> (if launched from command line only)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\IncomingRequest</span></code> (if launched over HTTP)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\URI</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Log\Logger</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Log\Handlers\BaseHandler</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Log\Handlers\FileHandler</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Router\RouteCollection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Router\Router</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\View\View</span></code></p></li>
+</ul>
+</section>
+<section id="replacing-core-classes">
+<h2><a class="toc-backref" href="#id2">Replacing Core Classes</a><a class="headerlink" href="#replacing-core-classes" title="Permalink to this headline"></a></h2>
+<p>To use one of your own system classes instead of a default one, ensure:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>the <a class="reference internal" href="../concepts/autoloader.html"><span class="doc">Autoloader</span></a> can find your class,</p></li>
+<li><p>your new class implements the appropriate interface,</p></li>
+<li><p>and modify the appropriate <a class="reference internal" href="../concepts/services.html"><span class="doc">Service</span></a> to load your class in place of the core class.</p></li>
+</ol>
+</div></blockquote>
+<section id="creating-your-class">
+<h3><a class="toc-backref" href="#id3">Creating Your Class</a><a class="headerlink" href="#creating-your-class" title="Permalink to this headline"></a></h3>
+<p>For example, if you have a new <code class="docutils literal notranslate"><span class="pre">App\Libraries\RouteCollection</span></code> class that you would like to use in place of
+the core system class, you would create your class like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Libraries</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Router\RouteCollectionInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">implements</span> <span class="nx">RouteCollectionInterface</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-the-service">
+<h3><a class="toc-backref" href="#id4">Adding the Service</a><a class="headerlink" href="#adding-the-service" title="Permalink to this headline"></a></h3>
+<p>Then you would add the <code class="docutils literal notranslate"><span class="pre">routes</span></code> service in <strong>app/Config/Services.php</strong> to load your class instead:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\BaseService</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Services</span> <span class="k">extends</span> <span class="nx">BaseService</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">(</span><span class="nx">bool</span> <span class="nv">$getShared</span> <span class="o">=</span> <span class="k">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$getShared</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">static</span><span class="o">::</span><span class="na">getSharedInstance</span><span class="p">(</span><span class="s1">&#39;routes&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">\App\Libraries\RouteCollection</span><span class="p">(</span><span class="k">static</span><span class="o">::</span><span class="na">locator</span><span class="p">(),</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;Modules&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="extending-core-classes">
+<h2><a class="toc-backref" href="#id5">Extending Core Classes</a><a class="headerlink" href="#extending-core-classes" title="Permalink to this headline"></a></h2>
+<p>If all you need to is add some functionality to an existing library - perhaps add a method or two - then it’s overkill
+to recreate the entire library. In this case, it’s better to simply extend the class. Extending the class is nearly
+identical to <a class="reference internal" href="#replacing-core-classes">Replacing Core Classes</a> with one exception:</p>
+<ul class="simple">
+<li><p>The class declaration must extend the parent class.</p></li>
+</ul>
+<p>For example, to extend the native <code class="docutils literal notranslate"><span class="pre">RouteCollection</span></code> class, you would declare your class with:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Libraries</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Router\RouteCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">extends</span> <span class="nx">RouteCollection</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you need to use a constructor in your class make sure you extend the parent constructor:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Libraries</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Router\RouteCollection</span> <span class="k">as</span> <span class="nx">BaseRouteCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">extends</span> <span class="nx">BaseRouteCollection</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
+
+        <span class="c1">// your code here</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Tip:</strong>  Any functions in your class that are named identically to the methods in the parent class will be used
+instead of the native ones (this is known as “method overriding”). This allows you to substantially alter the CodeIgniter core.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../cli/cli_request.html" class="btn btn-neutral float-left" title="CLIRequest Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="core_classes.html" class="btn btn-neutral float-right" title="Creating Core System Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Extending CodeIgniter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common.html" class="btn btn-neutral float-right" title="Replacing Common Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
