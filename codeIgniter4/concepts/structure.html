@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeIgniter4 Overview &mdash; CodeIgniter 4.2.1 documentation</title>
+  <title>Application Structure &mdash; CodeIgniter 4.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -21,43 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Application Structure" href="structure.html" />
-    <link rel="prev" title="Conclusion" href="../tutorial/conclusion.html" /> 
-<!--  
-         Hai, selamat datang di proyek "CodeIgniter4 - Awdev Devoloper - Wahyu9kdl",
-         --------------------
-         Author : wahyu9kdl
-         Github : https://wahyu9kdl.github.io
-         Web    : https://devoloper.awdev.eu.org / https://www.awdev.my.id/home.html
-         Email  : cs@awdev.eu.org
-         -->
-         <!-- Global site tag (gtag.js) - Google Analytics -->
-         <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSD8HWB5RG"></script>
-         <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-VSD8HWB5RG');
-         </script>
-         <link rel="shortcut icon" type="image/x-icon" href="https://wahyu9kdl.github.io/Aw-icon.png">         
-         <meta name="google-site-verification" content="Yz_h71MpL-vH2RoECFzJU6NOZZVqSiu81kGfJv2VDXA"/>
-         <meta content='2f898b29394a4156964b39f56d9f579e5a97dd1e' name='Open Collective GraphQL API'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
-         <meta content='3GiQbHPfTGczxZBeUGBkzC4TAiMiapaWih' name='BTC'/>
-         <meta content='FIO8FjBePEMu9XiwBYckrt549r4smxXCq4QNYKejsZEwEe5XxMdCF' name='FIO'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='MATIC'/>
-         <meta content="0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877" name="Dai"/>
-         <!-- =======================================================
-         * Template Name: Cool Landing Page Personal - v1.2.2
-         * Template URL: https://www.awdev.my.id
-         * Author: Awdev Corporation
-         * License: https://www.awdev.my.id/license/
-         ======================================================== -->
-         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
-         crossorigin="anonymous"></script>
-         
+    <link rel="next" title="Models, Views, and Controllers" href="mvc.html" />
+    <link rel="prev" title="CodeIgniter4 Overview" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -108,8 +73,8 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CodeIgniter4 Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="structure.html">Application Structure</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CodeIgniter4 Overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
@@ -293,12 +258,13 @@
 
       <div class="wy-nav-content">
         <div class="rst-content">
-<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/concepts/index.rst">Edit this page</a>
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/concepts/structure.rst">Edit this page</a>
 
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>CodeIgniter4 Overview</li>
+          <li><a href="index.html">CodeIgniter4 Overview</a> &raquo;</li>
+      <li>Application Structure</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -307,33 +273,112 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="codeigniter4-overview">
-<h1>CodeIgniter4 Overview<a class="headerlink" href="#codeigniter4-overview" title="Permalink to this headline"></a></h1>
-<p>The following pages describe the architectural concepts behind CodeIgniter4:</p>
-<div class="toctree-wrapper compound">
+  <section id="application-structure">
+<h1>Application Structure<a class="headerlink" href="#application-structure" title="Permalink to this headline"></a></h1>
+<p>To get the most out of CodeIgniter, you need to understand how the application is structured, by default, and what you
+can change to meet the needs of your application.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#default-directories" id="id1">Default Directories</a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="structure.html">Application Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a></li>
-<li class="toctree-l1"><a class="reference internal" href="http.html">Working With HTTP Requests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="security.html">Security Guidelines</a></li>
+<li><p><a class="reference internal" href="#app" id="id2">app</a></p></li>
+<li><p><a class="reference internal" href="#system" id="id3">system</a></p></li>
+<li><p><a class="reference internal" href="#public" id="id4">public</a></p></li>
+<li><p><a class="reference internal" href="#writable" id="id5">writable</a></p></li>
+<li><p><a class="reference internal" href="#tests" id="id6">tests</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modifying-directory-locations" id="id7">Modifying Directory Locations</a></p></li>
 </ul>
 </div>
+<section id="default-directories">
+<h2><a class="toc-backref" href="#id1">Default Directories</a><a class="headerlink" href="#default-directories" title="Permalink to this headline"></a></h2>
+<p>A fresh install has five directories: <code class="docutils literal notranslate"><span class="pre">app/</span></code>, <code class="docutils literal notranslate"><span class="pre">public/</span></code>,
+<code class="docutils literal notranslate"><span class="pre">writable/</span></code>, <code class="docutils literal notranslate"><span class="pre">tests/</span></code> and <code class="docutils literal notranslate"><span class="pre">vendor/</span></code> or <code class="docutils literal notranslate"><span class="pre">system/</span></code>.
+Each of these directories has a very specific part to play.</p>
+<section id="app">
+<h3><a class="toc-backref" href="#id2">app</a><a class="headerlink" href="#app" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> directory is where all of your application code lives. This comes with a default directory
+structure that works well for many applications. The following folders make up the basic contents:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>app/
+    Config/         Stores the configuration files
+    Controllers/    Controllers determine the program flow
+    Database/       Stores the database migrations and seeds files
+    Filters/        Stores filter classes that can run before and after controller
+    Helpers/        Helpers store collections of standalone functions
+    Language/       Multiple language support reads the language strings from here
+    Libraries/      Useful classes that don&#39;t fit in another category
+    Models/         Models work with the database to represent the business entities
+    ThirdParty/     ThirdParty libraries that can be used in application
+    Views/          Views make up the HTML that is displayed to the client
+</pre></div>
+</div>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">app</span></code> directory is already namespaced, you should feel free to modify the structure
+of this directory to suit your application’s needs. For example, you might decide to start using the Repository
+pattern and Entity Models to work with your data. In this case, you could rename the <code class="docutils literal notranslate"><span class="pre">Models</span></code> directory to
+<code class="docutils literal notranslate"><span class="pre">Repositories</span></code>, and add a new <code class="docutils literal notranslate"><span class="pre">Entities</span></code> directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you rename the <code class="docutils literal notranslate"><span class="pre">Controllers</span></code> directory, though, you will not be able to use the automatic method of
+routing to controllers, and will need to define all of your routes in the routes file.</p>
+</div>
+<p>All files in this directory live under the <code class="docutils literal notranslate"><span class="pre">App</span></code> namespace, though you are free to change that in
+<strong>app/Config/Constants.php</strong>.</p>
+</section>
+<section id="system">
+<h3><a class="toc-backref" href="#id3">system</a><a class="headerlink" href="#system" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you install CodeIgniter with Composer, the <code class="docutils literal notranslate"><span class="pre">system</span></code> is located in <code class="docutils literal notranslate"><span class="pre">vendor/codeigniter4/framework/system</span></code>.</p>
+</div>
+<p>This directory stores the files that make up the framework, itself. While you have a lot of flexibility in how you
+use the application directory, the files in the system directory should never be modified. Instead, you should
+extend the classes, or create new classes, to provide the desired functionality.</p>
+<p>All files in this directory live under the <code class="docutils literal notranslate"><span class="pre">CodeIgniter</span></code> namespace.</p>
+</section>
+<section id="public">
+<h3><a class="toc-backref" href="#id4">public</a><a class="headerlink" href="#public" title="Permalink to this headline"></a></h3>
+<p>The <strong>public</strong> folder holds the browser-accessible portion of your web application,
+preventing direct access to your source code.
+It contains the main <strong>.htaccess</strong> file, <strong>index.php</strong>, and any application
+assets that you add, like CSS, javascript, or
+images.</p>
+<p>This folder is meant to be the “web root” of your site, and your web server
+would be configured to point to it.</p>
+</section>
+<section id="writable">
+<h3><a class="toc-backref" href="#id5">writable</a><a class="headerlink" href="#writable" title="Permalink to this headline"></a></h3>
+<p>This directory holds any directories that might need to be written to in the course of an application’s life.
+This includes directories for storing cache files, logs, and any uploads a user might send. You should add any other
+directories that your application will need to write to here. This allows you to keep your other primary directories
+non-writable as an added security measure.</p>
+</section>
+<section id="tests">
+<h3><a class="toc-backref" href="#id6">tests</a><a class="headerlink" href="#tests" title="Permalink to this headline"></a></h3>
+<p>This directory is set up to hold your test files. The <code class="docutils literal notranslate"><span class="pre">_support</span></code> directory holds various mock classes and other
+utilities that you can use while writing your tests. This directory does not need to be transferred to your
+production servers.</p>
+</section>
+</section>
+<section id="modifying-directory-locations">
+<h2><a class="toc-backref" href="#id7">Modifying Directory Locations</a><a class="headerlink" href="#modifying-directory-locations" title="Permalink to this headline"></a></h2>
+<p>If you’ve relocated any of the main directories, you can change the configuration
+settings inside <strong>app/Config/Paths.php</strong>.</p>
+<p>Please read <a class="reference internal" href="../general/managing_apps.html"><span class="doc">Managing your Applications</span></a>.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../tutorial/conclusion.html" class="btn btn-neutral float-left" title="Conclusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="structure.html" class="btn btn-neutral float-right" title="Application Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="CodeIgniter4 Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mvc.html" class="btn btn-neutral float-right" title="Models, Views, and Controllers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
-  <!-- Ads Adsense -->    
+<!-- Ads Adsense -->    
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
   crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
@@ -356,7 +401,6 @@
   <a href="https://www.awdev.my.id/home.html">Awdev Corporation</a>
   provided by <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CodeSandbox.html">Read the Docs on Codesandbox</a>.
   
-
 </footer>
         </div>
       </div>
