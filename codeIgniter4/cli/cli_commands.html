@@ -4,23 +4,25 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Running via the Command Line &mdash; CodeIgniter 4.1.9 documentation</title><link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <title>Creating Spark Commands &mdash; CodeIgniter 4.2.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/js/citheme.js"></script>
         <script src="../_static/js/carbon.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom CLI Commands" href="cli_commands.html" />
-    <link rel="prev" title="Command Line Usage" href="index.html" /> 
+    <link rel="next" title="CLI Generators" href="cli_generators.html" />
+    <link rel="prev" title="Spark Commands" href="spark_commands.html" /> 
 <!--  
          Hai, selamat datang di proyek "CodeIgniter4 - Awdev Devoloper - Wahyu9kdl",
          --------------------
@@ -63,7 +65,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #DD4814" >
-            <a href="../index.html"><img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+            <a href="../index.html">
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -191,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -253,8 +257,10 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Usage</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Running via the Command Line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Custom CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Spark Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_generators.html">CLI Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_request.html">CLIRequest Class</a></li>
@@ -272,6 +278,9 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
 
         </div>
       </div>
@@ -284,13 +293,13 @@
 
       <div class="wy-nav-content">
         <div class="rst-content">
-<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/cli/cli.rst">Edit this page</a>
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/cli/cli_commands.rst">Edit this page</a>
 
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Command Line Usage</a> &raquo;</li>
-      <li>Running via the Command Line</li>
+      <li>Creating Spark Commands</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -299,118 +308,212 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="running-via-the-command-line">
-<h1>Running via the Command Line<a class="headerlink" href="#running-via-the-command-line" title="Permalink to this headline"></a></h1>
-<p>As well as calling an application’s <a class="reference internal" href="../incoming/controllers.html"><span class="doc">Controllers</span></a>
-via the URL in a browser they can also be loaded via the command-line
-interface (CLI).</p>
+  <section id="creating-spark-commands">
+<h1>Creating Spark Commands<a class="headerlink" href="#creating-spark-commands" title="Permalink to this headline"></a></h1>
+<p>While the ability to use Controllers via CLI like any other route is convenient, you might find times where you
+need a little something different. That’s where Spark commands come in. They are simple classes that do not
+need to have routes defined for, making them perfect for building tools that developers can use to make
+their jobs simpler, whether by handling migrations or database seeding, checking cronjob status, or even
+building out custom code generators for your company.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#what-is-the-cli" id="id1">What is the CLI?</a></p></li>
-<li><p><a class="reference internal" href="#why-run-via-the-command-line" id="id2">Why run via the command-line?</a></p></li>
-<li><p><a class="reference internal" href="#let-s-try-it-hello-world" id="id3">Let’s try it: Hello World!</a></p></li>
-<li><p><a class="reference internal" href="#that-s-the-basics" id="id4">That’s the basics!</a></p>
+<li><p><a class="reference internal" href="#creating-new-commands" id="id1">Creating New Commands</a></p>
 <ul>
-<li><p><a class="reference internal" href="#cli-only-routing" id="id5">CLI-Only Routing</a></p></li>
-<li><p><a class="reference internal" href="#the-cli-library" id="id6">The CLI Library</a></p></li>
+<li><p><a class="reference internal" href="#file-location" id="id2">File Location</a></p></li>
+<li><p><a class="reference internal" href="#an-example-command" id="id3">An Example Command</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#basecommand" id="id4">BaseCommand</a></p></li>
 </ul>
 </div>
-<section id="what-is-the-cli">
-<h2><a class="toc-backref" href="#id1">What is the CLI?</a><a class="headerlink" href="#what-is-the-cli" title="Permalink to this headline"></a></h2>
-<p>The command-line interface is a text-based method of interacting with
-computers. For more information, check the <a class="reference external" href="https://en.wikipedia.org/wiki/Command-line_interface">Wikipedia
-article</a>.</p>
-</section>
-<section id="why-run-via-the-command-line">
-<h2><a class="toc-backref" href="#id2">Why run via the command-line?</a><a class="headerlink" href="#why-run-via-the-command-line" title="Permalink to this headline"></a></h2>
-<p>There are many reasons for running CodeIgniter from the command-line,
-but they are not always obvious.</p>
+<section id="creating-new-commands">
+<h2><a class="toc-backref" href="#id1">Creating New Commands</a><a class="headerlink" href="#creating-new-commands" title="Permalink to this headline"></a></h2>
+<p>You can very easily create new commands to use in your own development. Each class must be in its own file,
+and must extend <code class="docutils literal notranslate"><span class="pre">CodeIgniter\CLI\BaseCommand</span></code>, and implement the <code class="docutils literal notranslate"><span class="pre">run()</span></code> method.</p>
+<p>The following properties should be used in order to get listed in CLI commands and to add help functionality to your command:</p>
 <ul class="simple">
-<li><p>Run your cron-jobs without needing to use <em>wget</em> or <em>curl</em>.</p></li>
-<li><p>Make your cron-jobs inaccessible from being loaded in the URL by
-checking the return value of <a class="reference internal" href="../general/common_functions.html#is_cli" title="is_cli"><code class="xref php php-func docutils literal notranslate"><span class="pre">is_cli()</span></code></a>.</p></li>
-<li><p>Make interactive “tasks” that can do things like set permissions,
-prune cache folders, run backups, etc.</p></li>
-<li><p>Integrate with other applications in other languages. For example, a
-random C++ script could call one command and run code in your models!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$group</span></code>: a string to describe the group the command is lumped under when listing commands. For example: <code class="docutils literal notranslate"><span class="pre">Database</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$name</span></code>: a string to describe the command’s name. For example: <code class="docutils literal notranslate"><span class="pre">migrate:create</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$description</span></code>: a string to describe the command. For example: <code class="docutils literal notranslate"><span class="pre">Creates</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">migration</span> <span class="pre">file.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$usage</span></code>: a string to describe the command usage. For example: <code class="docutils literal notranslate"><span class="pre">migrate:create</span> <span class="pre">[name]</span> <span class="pre">[options]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$arguments</span></code>: an array of strings to describe each command argument. For example: <code class="docutils literal notranslate"><span class="pre">'name'</span> <span class="pre">=&gt;</span> <span class="pre">'The</span> <span class="pre">migration</span> <span class="pre">file</span> <span class="pre">name'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$options</span></code>: an array of strings to describe each command option. For example: <code class="docutils literal notranslate"><span class="pre">'-n'</span> <span class="pre">=&gt;</span> <span class="pre">'Set</span> <span class="pre">migration</span> <span class="pre">namespace'</span></code></p></li>
 </ul>
+<p><strong>Help description will be automatically generated according to the above parameters.</strong></p>
+<section id="file-location">
+<h3><a class="toc-backref" href="#id2">File Location</a><a class="headerlink" href="#file-location" title="Permalink to this headline"></a></h3>
+<p>Commands must be stored within a directory named <strong>Commands</strong>. However, that directory can be located anywhere
+that the <a class="reference internal" href="../concepts/autoloader.html"><span class="doc">Autoloader</span></a> can locate it. This could be in <strong>app/Commands</strong>, or
+a directory that you keep commands in to use in all of your project development, like <strong>Acme/Commands</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the commands are executed, the full CodeIgniter CLI environment has been loaded, making it
+possible to get environment information, path information, and to use any of the tools you would use when making a Controller.</p>
+</div>
 </section>
-<section id="let-s-try-it-hello-world">
-<h2><a class="toc-backref" href="#id3">Let’s try it: Hello World!</a><a class="headerlink" href="#let-s-try-it-hello-world" title="Permalink to this headline"></a></h2>
-<p>Let’s create a simple controller so you can see it in action. Using your
-text editor, create a file called Tools.php, and put the following code
-in it:</p>
+<section id="an-example-command">
+<h3><a class="toc-backref" href="#id3">An Example Command</a><a class="headerlink" href="#an-example-command" title="Permalink to this headline"></a></h3>
+<p>Let’s step through an example command whose only function is to report basic information about the application
+itself, for demonstration purposes. Start by creating a new file at <strong>app/Commands/AppInfo.php</strong>. It
+should contain the following code:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+<span class="k">namespace</span> <span class="nx">App\Commands</span><span class="p">;</span>
 
-<span class="k">use</span> <span class="nx">CodeIgniter\Controller</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\CLI\BaseCommand</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\CLI\CLI</span><span class="p">;</span>
 
-<span class="k">class</span> <span class="nc">Tools</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="k">class</span> <span class="nc">AppInfo</span> <span class="k">extends</span> <span class="nx">BaseCommand</span>
 <span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">message</span><span class="p">(</span><span class="nv">$to</span> <span class="o">=</span> <span class="s1">&#39;World&#39;</span><span class="p">)</span>
+    <span class="k">protected</span> <span class="nv">$group</span>       <span class="o">=</span> <span class="s1">&#39;demo&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$name</span>        <span class="o">=</span> <span class="s1">&#39;app:info&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$description</span> <span class="o">=</span> <span class="s1">&#39;Displays basic application information.&#39;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s2">&quot;Hello </span><span class="si">{</span><span class="nv">$to</span><span class="si">}</span><span class="s2">!&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="c1">// ...</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Then save the file to your <strong>app/Controllers/</strong> directory.</p>
-<p>Now normally you would visit your site using a URL similar to this:</p>
-<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">message</span><span class="o">/</span><span class="nx">to</span>
+<p>If you run the <strong>list</strong> command, you will see the new command listed under its own <code class="docutils literal notranslate"><span class="pre">demo</span></code> group. If you take
+a close look, you should see how this works fairly easily. The <code class="docutils literal notranslate"><span class="pre">$group</span></code> property simply tells it how to organize
+this command with all of the other commands that exist, telling it what heading to list it under.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">$name</span></code> property is the name this command can be called by. The only requirement is that it must not contain
+a space, and all characters must be valid on the command line itself. By convention, though, commands are lowercase,
+with further grouping of commands being done by using a colon with the command name itself. This helps keep
+multiple commands from having naming collisions.</p>
+<p>The final property, <code class="docutils literal notranslate"><span class="pre">$description</span></code> is a short string that is displayed in the <strong>list</strong> command and should describe
+what the command does.</p>
+<section id="run">
+<h4>run()<a class="headerlink" href="#run" title="Permalink to this headline"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">run()</span></code> method is the method that is called when the command is being run. The <code class="docutils literal notranslate"><span class="pre">$params</span></code> array is a list of
+any CLI arguments after the command name for your use. If the CLI string was:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">foo</span> <span class="nx">bar</span> <span class="nx">baz</span>
 </pre></div>
 </div>
-<p>Instead, we are going to open Terminal in Mac/Linux or go to Run &gt; “cmd”
-in Windows and navigate to our CodeIgniter project’s web root.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /path/to/project/public
-$ php index.php tools message
-</pre></div>
-</div>
-<p>If you did it right, you should see <em>Hello World!</em> printed.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ php index.php tools message <span class="s2">&quot;John Smith&quot;</span>
-</pre></div>
-</div>
-<p>Here we are passing it an argument in the same way that URL parameters
-work. “John Smith” is passed as an argument and output is:</p>
-<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">Hello</span> <span class="nx">John</span> <span class="nx">Smith</span><span class="o">!</span>
-</pre></div>
-</div>
-</section>
-<section id="that-s-the-basics">
-<h2><a class="toc-backref" href="#id4">That’s the basics!</a><a class="headerlink" href="#that-s-the-basics" title="Permalink to this headline"></a></h2>
-<p>That, in a nutshell, is all there is to know about controllers on the
-command line. Remember that this is just a normal controller, so routing
-and <code class="docutils literal notranslate"><span class="pre">_remap()</span></code> works fine.</p>
-<p>However, CodeIgniter provides additional tools to make creating CLI-accessible
-scripts even more pleasant, include CLI-only routing, and a library that helps
-you with CLI-only tools.</p>
-<section id="cli-only-routing">
-<h3><a class="toc-backref" href="#id5">CLI-Only Routing</a><a class="headerlink" href="#cli-only-routing" title="Permalink to this headline"></a></h3>
-<p>In your <strong>app/Config/Routes.php</strong> file you can create routes that are only accessible from
-the CLI as easily as you would create any other route. Instead of using the <code class="docutils literal notranslate"><span class="pre">get()</span></code>,
-<code class="docutils literal notranslate"><span class="pre">post()</span></code>, or similar method, you would use the <code class="docutils literal notranslate"><span class="pre">cli()</span></code> method. Everything else
-works exactly like a normal route definition:</p>
+<p>Then <strong>foo</strong> is the command name, and the <code class="docutils literal notranslate"><span class="pre">$params</span></code> array would be:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">cli</span><span class="p">(</span><span class="s1">&#39;tools/message/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Tools::message/$1&#39;</span><span class="p">);</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>For more information, see the <a class="reference internal" href="../incoming/routing.html#command-line-only-routes"><span class="std std-ref">Routes</span></a> page.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you enable auto-routing and place the command file in <strong>app/Controllers</strong>,
-anyone could access the command with the help of auto-routing via HTTP.</p>
+<p>This can also be accessed through the <a class="reference internal" href="cli_library.html"><span class="doc">CLI</span></a> library, but this already has your command removed
+from the string. These parameters can be used to customize how your scripts behave.</p>
+<p>Our demo command might have a <code class="docutils literal notranslate"><span class="pre">run()</span></code> method something like:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Commands</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\CLI\BaseCommand</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\CLI\CLI</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AppInfo</span> <span class="k">extends</span> <span class="nx">BaseCommand</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;PHP Version: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="k">PHP_VERSION</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;CI Version: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">\CodeIgniter\CodeIgniter</span><span class="o">::</span><span class="na">CI_VERSION</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;APPPATH: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">APPPATH</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;SYSTEMPATH: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">SYSTEMPATH</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;ROOTPATH: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">ROOTPATH</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;Included files: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nb">get_included_files</span><span class="p">()),</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-</section>
-<section id="the-cli-library">
-<h3><a class="toc-backref" href="#id6">The CLI Library</a><a class="headerlink" href="#the-cli-library" title="Permalink to this headline"></a></h3>
-<p>The CLI library makes working with the CLI interface simple.
-It provides easy ways to output text in multiple colors to the terminal window. It also
-allows you to prompt a user for information, making it easy to build flexible, smart tools.</p>
 <p>See the <a class="reference internal" href="cli_library.html"><span class="doc">CLI Library</span></a> page for detailed information.</p>
 </section>
+</section>
+</section>
+<section id="basecommand">
+<h2><a class="toc-backref" href="#id4">BaseCommand</a><a class="headerlink" href="#basecommand" title="Permalink to this headline"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">BaseCommand</span></code> class that all commands must extend have a couple of helpful utility methods that you should
+be familiar with when creating your own commands. It also has a <a class="reference internal" href="../general/logging.html"><span class="doc">Logger</span></a> available at
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;logger</span></code>.</p>
+<dl class="php class">
+<dt class="sig sig-object php">
+<span class="sig-name descname"><span class="pre">CodeIgniter\\CLI\\BaseCommand</span></span></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">string</span> <span class="pre">$command</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">array</span> <span class="pre">$params</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#call" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$command</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The name of another command to call.</p></li>
+<li><p><strong>$params</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – Additional CLI arguments to make available to that command.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method allows you to run other commands during the execution of your current command:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">&#39;command_one&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">&#39;command_two&#39;</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="showError">
+<span class="sig-name descname"><span class="pre">showError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Throwable</span> <span class="pre">$e</span></em><span class="sig-paren">)</span><a class="headerlink" href="#showError" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$e</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Throwable</span></code></span>) – The exception to use for error reporting.</p></li>
+</ul>
+</dd>
+</dl>
+<p>A convenience method to maintain a consistent and clear error output to the CLI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">showError</span><span class="p">(</span><span class="nv">$e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="showHelp">
+<span class="sig-name descname"><span class="pre">showHelp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#showHelp" title="Permalink to this definition"></a></dt>
+<dd><p>A method to show command help: (usage,arguments,description,options)</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getPad">
+<span class="sig-name descname"><span class="pre">getPad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$array</span></em>, <em class="sig-param"><span class="pre">$pad</span></em><span class="sig-paren">)</span><a class="headerlink" href="#getPad" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$array</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – The  $key =&gt; $value array.</p></li>
+<li><p><strong>$pad</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) – The pad spaces.</p></li>
+</ul>
+</dd>
+</dl>
+<p>A method to calculate padding for <code class="docutils literal notranslate"><span class="pre">$key</span> <span class="pre">=&gt;</span> <span class="pre">$value</span></code> array output. The padding can be used to output a will formatted table in CLI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$pad</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getPad</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="k">as</span> <span class="nv">$option</span> <span class="o">=&gt;</span> <span class="nv">$description</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="nv">$tab</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nb">str_pad</span><span class="p">(</span><span class="nv">$option</span><span class="p">,</span> <span class="nv">$pad</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="nv">$description</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/*</span>
+<span class="cm"> * Output will be:</span>
+<span class="cm"> * -n        Set migration namespace</span>
+<span class="cm"> * -r        override file</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -418,13 +521,12 @@ allows you to prompt a user for information, making it easy to build flexible, s
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Command Line Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cli_commands.html" class="btn btn-neutral float-right" title="Custom CLI Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="spark_commands.html" class="btn btn-neutral float-left" title="Spark Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli_generators.html" class="btn btn-neutral float-right" title="CLI Generators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
- 
   <!-- Ads Adsense -->    
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
   crossorigin="anonymous"></script>

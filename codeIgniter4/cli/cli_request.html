@@ -4,23 +4,25 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Running via the Command Line &mdash; CodeIgniter 4.1.9 documentation</title><link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <title>CLIRequest Class &mdash; CodeIgniter 4.2.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/js/citheme.js"></script>
         <script src="../_static/js/carbon.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom CLI Commands" href="cli_commands.html" />
-    <link rel="prev" title="Command Line Usage" href="index.html" /> 
+    <link rel="next" title="Extending CodeIgniter" href="../extending/index.html" />
+    <link rel="prev" title="CLI Library" href="cli_library.html" /> 
 <!--  
          Hai, selamat datang di proyek "CodeIgniter4 - Awdev Devoloper - Wahyu9kdl",
          --------------------
@@ -63,7 +65,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #DD4814" >
-            <a href="../index.html"><img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+            <a href="../index.html">
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -191,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -253,11 +257,13 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Usage</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Running via the Command Line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Custom CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Creating Spark Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_generators.html">CLI Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_request.html">CLIRequest Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CLIRequest Class</a></li>
 </ul>
 </li>
 </ul>
@@ -272,6 +278,9 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
 
         </div>
       </div>
@@ -284,13 +293,13 @@
 
       <div class="wy-nav-content">
         <div class="rst-content">
-<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/cli/cli.rst">Edit this page</a>
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/cli/cli_request.rst">Edit this page</a>
 
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Command Line Usage</a> &raquo;</li>
-      <li>Running via the Command Line</li>
+      <li>CLIRequest Class</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -299,117 +308,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="running-via-the-command-line">
-<h1>Running via the Command Line<a class="headerlink" href="#running-via-the-command-line" title="Permalink to this headline"></a></h1>
-<p>As well as calling an application’s <a class="reference internal" href="../incoming/controllers.html"><span class="doc">Controllers</span></a>
-via the URL in a browser they can also be loaded via the command-line
-interface (CLI).</p>
-<div class="contents local topic" id="contents">
-<ul class="simple">
-<li><p><a class="reference internal" href="#what-is-the-cli" id="id1">What is the CLI?</a></p></li>
-<li><p><a class="reference internal" href="#why-run-via-the-command-line" id="id2">Why run via the command-line?</a></p></li>
-<li><p><a class="reference internal" href="#let-s-try-it-hello-world" id="id3">Let’s try it: Hello World!</a></p></li>
-<li><p><a class="reference internal" href="#that-s-the-basics" id="id4">That’s the basics!</a></p>
-<ul>
-<li><p><a class="reference internal" href="#cli-only-routing" id="id5">CLI-Only Routing</a></p></li>
-<li><p><a class="reference internal" href="#the-cli-library" id="id6">The CLI Library</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
-<section id="what-is-the-cli">
-<h2><a class="toc-backref" href="#id1">What is the CLI?</a><a class="headerlink" href="#what-is-the-cli" title="Permalink to this headline"></a></h2>
-<p>The command-line interface is a text-based method of interacting with
-computers. For more information, check the <a class="reference external" href="https://en.wikipedia.org/wiki/Command-line_interface">Wikipedia
-article</a>.</p>
-</section>
-<section id="why-run-via-the-command-line">
-<h2><a class="toc-backref" href="#id2">Why run via the command-line?</a><a class="headerlink" href="#why-run-via-the-command-line" title="Permalink to this headline"></a></h2>
-<p>There are many reasons for running CodeIgniter from the command-line,
-but they are not always obvious.</p>
-<ul class="simple">
-<li><p>Run your cron-jobs without needing to use <em>wget</em> or <em>curl</em>.</p></li>
-<li><p>Make your cron-jobs inaccessible from being loaded in the URL by
-checking the return value of <a class="reference internal" href="../general/common_functions.html#is_cli" title="is_cli"><code class="xref php php-func docutils literal notranslate"><span class="pre">is_cli()</span></code></a>.</p></li>
-<li><p>Make interactive “tasks” that can do things like set permissions,
-prune cache folders, run backups, etc.</p></li>
-<li><p>Integrate with other applications in other languages. For example, a
-random C++ script could call one command and run code in your models!</p></li>
-</ul>
-</section>
-<section id="let-s-try-it-hello-world">
-<h2><a class="toc-backref" href="#id3">Let’s try it: Hello World!</a><a class="headerlink" href="#let-s-try-it-hello-world" title="Permalink to this headline"></a></h2>
-<p>Let’s create a simple controller so you can see it in action. Using your
-text editor, create a file called Tools.php, and put the following code
-in it:</p>
+  <section id="clirequest-class">
+<h1>CLIRequest Class<a class="headerlink" href="#clirequest-class" title="Permalink to this headline"></a></h1>
+<p>If a request comes from a command line invocation, the request object is actually a
+<code class="docutils literal notranslate"><span class="pre">CLIRequest</span></code>. It behaves the same as a <a class="reference internal" href="../incoming/request.html"><span class="doc">conventional request</span></a>
+but adds some accessor methods for convenience.</p>
+<section id="additional-accessors">
+<h2>Additional Accessors<a class="headerlink" href="#additional-accessors" title="Permalink to this headline"></a></h2>
+<section id="getsegments">
+<h3>getSegments()<a class="headerlink" href="#getsegments" title="Permalink to this headline"></a></h3>
+<p>Returns an array of the command line arguments deemed to be part of a path:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="nx">CodeIgniter\Controller</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">Tools</span> <span class="k">extends</span> <span class="nx">Controller</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">message</span><span class="p">(</span><span class="nv">$to</span> <span class="o">=</span> <span class="s1">&#39;World&#39;</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="s2">&quot;Hello </span><span class="si">{</span><span class="nv">$to</span><span class="si">}</span><span class="s2">!&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Then save the file to your <strong>app/Controllers/</strong> directory.</p>
-<p>Now normally you would visit your site using a URL similar to this:</p>
-<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">message</span><span class="o">/</span><span class="nx">to</span>
-</pre></div>
-</div>
-<p>Instead, we are going to open Terminal in Mac/Linux or go to Run &gt; “cmd”
-in Windows and navigate to our CodeIgniter project’s web root.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /path/to/project/public
-$ php index.php tools message
-</pre></div>
-</div>
-<p>If you did it right, you should see <em>Hello World!</em> printed.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ php index.php tools message <span class="s2">&quot;John Smith&quot;</span>
-</pre></div>
-</div>
-<p>Here we are passing it an argument in the same way that URL parameters
-work. “John Smith” is passed as an argument and output is:</p>
-<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">Hello</span> <span class="nx">John</span> <span class="nx">Smith</span><span class="o">!</span>
+<span class="c1">// command line: php index.php users 21 profile --foo bar</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getSegments</span><span class="p">();</span>  <span class="c1">// [&#39;users&#39;, &#39;21&#39;, &#39;profile&#39;]</span>
 </pre></div>
 </div>
 </section>
-<section id="that-s-the-basics">
-<h2><a class="toc-backref" href="#id4">That’s the basics!</a><a class="headerlink" href="#that-s-the-basics" title="Permalink to this headline"></a></h2>
-<p>That, in a nutshell, is all there is to know about controllers on the
-command line. Remember that this is just a normal controller, so routing
-and <code class="docutils literal notranslate"><span class="pre">_remap()</span></code> works fine.</p>
-<p>However, CodeIgniter provides additional tools to make creating CLI-accessible
-scripts even more pleasant, include CLI-only routing, and a library that helps
-you with CLI-only tools.</p>
-<section id="cli-only-routing">
-<h3><a class="toc-backref" href="#id5">CLI-Only Routing</a><a class="headerlink" href="#cli-only-routing" title="Permalink to this headline"></a></h3>
-<p>In your <strong>app/Config/Routes.php</strong> file you can create routes that are only accessible from
-the CLI as easily as you would create any other route. Instead of using the <code class="docutils literal notranslate"><span class="pre">get()</span></code>,
-<code class="docutils literal notranslate"><span class="pre">post()</span></code>, or similar method, you would use the <code class="docutils literal notranslate"><span class="pre">cli()</span></code> method. Everything else
-works exactly like a normal route definition:</p>
+<section id="getpath">
+<h3>getPath()<a class="headerlink" href="#getpath" title="Permalink to this headline"></a></h3>
+<p>Returns the reconstructed path as a string:</p>
 <div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">cli</span><span class="p">(</span><span class="s1">&#39;tools/message/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Tools::message/$1&#39;</span><span class="p">);</span>
+<span class="c1">// command line: php index.php users 21 profile --foo bar</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPath</span><span class="p">();</span>  <span class="c1">// users/21/profile</span>
 </pre></div>
 </div>
-<p>For more information, see the <a class="reference internal" href="../incoming/routing.html#command-line-only-routes"><span class="std std-ref">Routes</span></a> page.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you enable auto-routing and place the command file in <strong>app/Controllers</strong>,
-anyone could access the command with the help of auto-routing via HTTP.</p>
+</section>
+<section id="getoptions">
+<h3>getOptions()<a class="headerlink" href="#getoptions" title="Permalink to this headline"></a></h3>
+<p>Returns an array of the command line arguments deemed to be options:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// command line: php index.php users 21 profile --foo bar</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getOptions</span><span class="p">();</span>  <span class="c1">// [&#39;foo&#39; =&gt; &#39;bar&#39;]</span>
+</pre></div>
 </div>
 </section>
-<section id="the-cli-library">
-<h3><a class="toc-backref" href="#id6">The CLI Library</a><a class="headerlink" href="#the-cli-library" title="Permalink to this headline"></a></h3>
-<p>The CLI library makes working with the CLI interface simple.
-It provides easy ways to output text in multiple colors to the terminal window. It also
-allows you to prompt a user for information, making it easy to build flexible, smart tools.</p>
-<p>See the <a class="reference internal" href="cli_library.html"><span class="doc">CLI Library</span></a> page for detailed information.</p>
+<section id="getoption-which">
+<h3>getOption($which)<a class="headerlink" href="#getoption-which" title="Permalink to this headline"></a></h3>
+<p>Returns the value of a specific command line argument deemed to be an option:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// command line: php index.php users 21 profile --foo bar</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getOption</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>      <span class="c1">// bar</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getOption</span><span class="p">(</span><span class="s1">&#39;notthere&#39;</span><span class="p">);</span> <span class="c1">// null</span>
+</pre></div>
+</div>
+</section>
+<section id="getoptionstring">
+<h3>getOptionString()<a class="headerlink" href="#getoptionstring" title="Permalink to this headline"></a></h3>
+<p>Returns the reconstructed command line string for the options:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// command line: php index.php users 21 profile --foo bar</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getOptionString</span><span class="p">();</span>  <span class="c1">// -foo bar</span>
+</pre></div>
+</div>
+<p>Passing <code class="docutils literal notranslate"><span class="pre">true</span></code> to the first argument will try to write long options using two dashes:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// php index.php user 21 --foo bar -f</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getOptionString</span><span class="p">();</span>     <span class="c1">// -foo bar -f</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getOptionString</span><span class="p">(</span><span class="k">true</span><span class="p">);</span> <span class="c1">// --foo bar -f</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -418,13 +381,12 @@ allows you to prompt a user for information, making it easy to build flexible, s
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Command Line Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cli_commands.html" class="btn btn-neutral float-right" title="Custom CLI Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cli_library.html" class="btn btn-neutral float-left" title="CLI Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../extending/index.html" class="btn btn-neutral float-right" title="Extending CodeIgniter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
- 
   <!-- Ads Adsense -->    
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
   crossorigin="anonymous"></script>
@@ -448,7 +410,6 @@ allows you to prompt a user for information, making it easy to build flexible, s
   <a href="https://www.awdev.my.id/home.html">Awdev Corporation</a>
   provided by <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CodeSandbox.html">Read the Docs on Codesandbox</a>.
   
-
 </footer>
         </div>
       </div>

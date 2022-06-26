@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI Generators &mdash; CodeIgniter 4.2.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CLI Library" href="cli_library.html" />
+    <link rel="prev" title="Creating Spark Commands" href="cli_commands.html" /> 
+<!--  
+         Hai, selamat datang di proyek "CodeIgniter4 - Awdev Devoloper - Wahyu9kdl",
+         --------------------
+         Author : wahyu9kdl
+         Github : https://wahyu9kdl.github.io
+         Web    : https://devoloper.awdev.eu.org / https://www.awdev.my.id/home.html
+         Email  : cs@awdev.eu.org
+         -->
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSD8HWB5RG"></script>
+         <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-VSD8HWB5RG');
+         </script>
+         <link rel="shortcut icon" type="image/x-icon" href="https://wahyu9kdl.github.io/Aw-icon.png">         
+         <meta name="google-site-verification" content="Yz_h71MpL-vH2RoECFzJU6NOZZVqSiu81kGfJv2VDXA"/>
+         <meta content='2f898b29394a4156964b39f56d9f579e5a97dd1e' name='Open Collective GraphQL API'/>
+         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
+         <meta content='3GiQbHPfTGczxZBeUGBkzC4TAiMiapaWih' name='BTC'/>
+         <meta content='FIO8FjBePEMu9XiwBYckrt549r4smxXCq4QNYKejsZEwEe5XxMdCF' name='FIO'/>
+         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
+         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='MATIC'/>
+         <meta content="0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877" name="Dai"/>
+         <!-- =======================================================
+         * Template Name: Cool Landing Page Personal - v1.2.2
+         * Template URL: https://www.awdev.my.id
+         * Author: Awdev Corporation
+         * License: https://www.awdev.my.id/license/
+         ======================================================== -->
+         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+         crossorigin="anonymous"></script>
+         
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #DD4814" >
+            <a href="../index.html">
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Composer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Running Your App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">CodeIgniter Repositories</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Build Your First Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create News Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">CodeIgniter4 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Models, Views, and Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Working With HTTP Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Security Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Building Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Working With Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Modeling Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Using CodeIgniter's Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Using Entity Classes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html#file-collections">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #DD4814" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/cli/cli_generators.rst">Edit this page</a>
+
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Command Line Usage</a> &raquo;</li>
+      <li>CLI Generators</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cli-generators">
+<h1>CLI Generators<a class="headerlink" href="#cli-generators" title="Permalink to this headline"></a></h1>
+<p>CodeIgniter4 now comes equipped with generators to ease the creation of stock controllers, models, entities,
+etc. You can also scaffold a complete set of files with just one command.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id25">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#built-in-generators" id="id26">Built-in Generators</a></p>
+<ul>
+<li><p><a class="reference internal" href="#make-command" id="id27">make:command</a></p></li>
+<li><p><a class="reference internal" href="#make-config" id="id28">make:config</a></p></li>
+<li><p><a class="reference internal" href="#make-controller" id="id29">make:controller</a></p></li>
+<li><p><a class="reference internal" href="#make-entity" id="id30">make:entity</a></p></li>
+<li><p><a class="reference internal" href="#make-filter" id="id31">make:filter</a></p></li>
+<li><p><a class="reference internal" href="#make-model" id="id32">make:model</a></p></li>
+<li><p><a class="reference internal" href="#make-seeder" id="id33">make:seeder</a></p></li>
+<li><p><a class="reference internal" href="#make-migration" id="id34">make:migration</a></p></li>
+<li><p><a class="reference internal" href="#make-validation" id="id35">make:validation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#scaffolding-a-complete-set-of-stock-code" id="id36">Scaffolding a Complete Set of Stock Code</a></p></li>
+<li><p><a class="reference internal" href="#generatortrait" id="id37">GeneratorTrait</a></p></li>
+</ul>
+</div>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id25">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>All built-in generators reside under the <code class="docutils literal notranslate"><span class="pre">Generators</span></code> namespace when listed using <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">list</span></code>.
+To view the full description and usage information on a particular generator, use the command:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">help</span> <span class="o">&lt;</span><span class="nx">generator_command</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;generator_command&gt;</span></code> will be replaced with the command to check.</p>
+</section>
+<section id="built-in-generators">
+<h2><a class="toc-backref" href="#id26">Built-in Generators</a><a class="headerlink" href="#built-in-generators" title="Permalink to this headline"></a></h2>
+<p>CodeIgniter4 ships the following generators by default.</p>
+<section id="make-command">
+<h3><a class="toc-backref" href="#id27">make:command</a><a class="headerlink" href="#make-command" title="Permalink to this headline"></a></h3>
+<p>Creates a new spark command.</p>
+<section id="usage">
+<h4>Usage:<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">command</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="argument">
+<h4>Argument:<a class="headerlink" href="#argument" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the command class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="options">
+<h4>Options:<a class="headerlink" href="#options" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--command</span></code>: The command name to run in spark. Defaults to <code class="docutils literal notranslate"><span class="pre">command:name</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--group</span></code>: The group/namespace of the command. Defaults to <code class="docutils literal notranslate"><span class="pre">CodeIgniter</span></code> for basic commands, and <code class="docutils literal notranslate"><span class="pre">Generators</span></code> for generator commands.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--type</span></code>: The type of command, whether a <code class="docutils literal notranslate"><span class="pre">basic</span></code> command or a <code class="docutils literal notranslate"><span class="pre">generator</span></code> command. Defaults to <code class="docutils literal notranslate"><span class="pre">basic</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-config">
+<h3><a class="toc-backref" href="#id28">make:config</a><a class="headerlink" href="#make-config" title="Permalink to this headline"></a></h3>
+<p>Creates a new config file.</p>
+<section id="id1">
+<h4>Usage:<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">config</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4>Argument:<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the config class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Options:<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-controller">
+<h3><a class="toc-backref" href="#id29">make:controller</a><a class="headerlink" href="#make-controller" title="Permalink to this headline"></a></h3>
+<p>Creates a new controller file.</p>
+<section id="id4">
+<h4>Usage:<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">controller</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h4>Argument:<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the controller class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Options:<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--bare</span></code>: Extends from <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code> instead of <code class="docutils literal notranslate"><span class="pre">BaseController</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--restful</span></code>: Extends from a RESTful resource. Choices are <code class="docutils literal notranslate"><span class="pre">controller</span></code> and <code class="docutils literal notranslate"><span class="pre">presenter</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">controller</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-entity">
+<h3><a class="toc-backref" href="#id30">make:entity</a><a class="headerlink" href="#make-entity" title="Permalink to this headline"></a></h3>
+<p>Creates a new entity file.</p>
+<section id="id7">
+<h4>Usage:<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">entity</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h4>Argument:<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the entity class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id9">
+<h4>Options:<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-filter">
+<h3><a class="toc-backref" href="#id31">make:filter</a><a class="headerlink" href="#make-filter" title="Permalink to this headline"></a></h3>
+<p>Creates a new filter file.</p>
+<section id="id10">
+<h4>Usage:<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">filter</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h4>Argument:<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the filter class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>Options:<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-model">
+<h3><a class="toc-backref" href="#id32">make:model</a><a class="headerlink" href="#make-model" title="Permalink to this headline"></a></h3>
+<p>Creates a new model file.</p>
+<section id="id13">
+<h4>Usage:<a class="headerlink" href="#id13" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">model</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4>Argument:<a class="headerlink" href="#id14" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the model class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id15">
+<h4>Options:<a class="headerlink" href="#id15" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--dbgroup</span></code>: Database group to use. Defaults to <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--return</span></code>: Set the return type from <code class="docutils literal notranslate"><span class="pre">array</span></code>, <code class="docutils literal notranslate"><span class="pre">object</span></code>, or <code class="docutils literal notranslate"><span class="pre">entity</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">array</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--table</span></code>: Supply a different table name. Defaults to the pluralized class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-seeder">
+<h3><a class="toc-backref" href="#id33">make:seeder</a><a class="headerlink" href="#make-seeder" title="Permalink to this headline"></a></h3>
+<p>Creates a new seeder file.</p>
+<section id="id16">
+<h4>Usage:<a class="headerlink" href="#id16" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">seeder</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id17">
+<h4>Argument:<a class="headerlink" href="#id17" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the seeder class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id18">
+<h4>Options:<a class="headerlink" href="#id18" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-migration">
+<h3><a class="toc-backref" href="#id34">make:migration</a><a class="headerlink" href="#make-migration" title="Permalink to this headline"></a></h3>
+<p>Creates a new migration file.</p>
+<section id="id19">
+<h4>Usage:<a class="headerlink" href="#id19" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">migration</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h4>Argument:<a class="headerlink" href="#id20" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the migration class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id21">
+<h4>Options:<a class="headerlink" href="#id21" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--session</span></code>: Generate a migration file for database sessions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--table</span></code>: Set the table name to use for database sessions. Defaults to <code class="docutils literal notranslate"><span class="pre">ci_sessions</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--dbgroup</span></code>: Set the database group for database sessions. Defaults to <code class="docutils literal notranslate"><span class="pre">default</span></code> group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+</section>
+</section>
+<section id="make-validation">
+<h3><a class="toc-backref" href="#id35">make:validation</a><a class="headerlink" href="#make-validation" title="Permalink to this headline"></a></h3>
+<p>Creates a new validation file.</p>
+<section id="id22">
+<h4>Usage:<a class="headerlink" href="#id22" title="Permalink to this headline"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">make</span><span class="o">:</span><span class="nx">validation</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id23">
+<h4>Argument:<a class="headerlink" href="#id23" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the validation class. <strong>[REQUIRED]</strong></p></li>
+</ul>
+</section>
+<section id="id24">
+<h4>Options:<a class="headerlink" href="#id24" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: Set the root namespace. Defaults to value of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: Append the component suffix to the generated class name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Set this flag to overwrite existing files on destination.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do you need to have the generated code in a subfolder? Let’s say if you want to create a controller
+class to reside in the <code class="docutils literal notranslate"><span class="pre">Admin</span></code> subfolder of the main <code class="docutils literal notranslate"><span class="pre">Controllers</span></code> folder, you will just need
+to prepend the subfolder to the class name, like this: <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">make:controller</span> <span class="pre">admin/login</span></code>. This
+command will create the <code class="docutils literal notranslate"><span class="pre">Login</span></code> controller in the <code class="docutils literal notranslate"><span class="pre">Controllers/Admin</span></code> subfolder with
+a namespace of <code class="docutils literal notranslate"><span class="pre">App\Controllers\Admin</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Working on modules? Code generation will set the root namespace to a default of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.
+Should you need to have the generated code elsewhere in your module namespace, make sure to set
+the <code class="docutils literal notranslate"><span class="pre">--namespace</span></code> option in your command, e.g., <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">make:model</span> <span class="pre">blog</span> <span class="pre">--namespace</span> <span class="pre">Acme\Blog</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure when setting the <code class="docutils literal notranslate"><span class="pre">--namespace</span></code> option that the supplied namespace is a valid
+namespace defined in your <code class="docutils literal notranslate"><span class="pre">$psr4</span></code> array in <code class="docutils literal notranslate"><span class="pre">Config\Autoload</span></code> or defined in your composer autoload
+file. Otherwise, code generation will be interrupted.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use of <code class="docutils literal notranslate"><span class="pre">migrate:create</span></code> to create migration files is now deprecated. It will be removed in
+future releases. Please use <code class="docutils literal notranslate"><span class="pre">make:migration</span></code> as replacement. Also, please use <code class="docutils literal notranslate"><span class="pre">make:migration</span> <span class="pre">--session</span></code>
+to use instead of the deprecated <code class="docutils literal notranslate"><span class="pre">session:migration</span></code>.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="scaffolding-a-complete-set-of-stock-code">
+<h2><a class="toc-backref" href="#id36">Scaffolding a Complete Set of Stock Code</a><a class="headerlink" href="#scaffolding-a-complete-set-of-stock-code" title="Permalink to this headline"></a></h2>
+<p>Sometimes in our development phase we are creating functionalities by groups, such as creating an <em>Admin</em> group.
+This group will contain its own controller, model, migration files, or even entities. You may be tempted to type
+each generator command one-by-one in the terminal and wishfully thinking it would be great to have a single generator
+command to rule them all.</p>
+<p>Fret no more! CodeIgniter4 is also shipped with a dedicated <code class="docutils literal notranslate"><span class="pre">make:scaffold</span></code> command that is basically a
+wrapper to the controller, model, entity, migration, and seeder generator commands. All you need is the class
+name that will be used to name all the generated classes. Also, <strong>individual options</strong> supported by each
+generator command are recognized by the scaffold command.</p>
+<p>Running this in your terminal:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">make</span><span class="o">:</span><span class="nx">scaffold</span> <span class="nx">user</span>
+</pre></div>
+</div>
+<p>will create the following classes:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">App\Controllers\User</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">App\Models\User</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">App\Database\Migrations\&lt;some</span> <span class="pre">date</span> <span class="pre">here&gt;_User</span></code>; and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">App\Database\Seeds\User</span></code>.</p></li>
+</ol>
+<p>To include an <code class="docutils literal notranslate"><span class="pre">Entity</span></code> class in the scaffolded files, just include the <code class="docutils literal notranslate"><span class="pre">--return</span> <span class="pre">entity</span></code> to the command
+and it will be passed to the model generator.</p>
+</section>
+<section id="generatortrait">
+<h2><a class="toc-backref" href="#id37">GeneratorTrait</a><a class="headerlink" href="#generatortrait" title="Permalink to this headline"></a></h2>
+<p>All generator commands must use the <code class="docutils literal notranslate"><span class="pre">GeneratorTrait</span></code> to fully utilize its methods that are used in code
+generation.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cli_commands.html" class="btn btn-neutral float-left" title="Creating Spark Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli_library.html" class="btn btn-neutral float-right" title="CLI Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <!-- Ads Adsense -->    
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+  crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+  style="display:block"
+  data-ad-format="autorelaxed"
+  data-ad-client="ca-pub-5295583488737876"
+  data-ad-slot="5470375331"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <!-- And Ads Adsense -->
+  
+  <div role="contentinfo">
+  <p>&#169; Copyright 2022 CodeIgniter Foundation -<a href="https://www.awdev.eu.org" > Pub Awdev Corporation.
+  <span class="lastupdated">Last updated on Jun 26, 2022.
+  </span></p>
+  </div>
+  
+  Built with <a href="https://devoloper.awdev.eu.org/codeIgniter4">Awdev Corporation CodeIgniter 4</a> Publication By
+  <a href="https://www.awdev.my.id/home.html">Awdev Corporation</a>
+  provided by <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CodeSandbox.html">Read the Docs on Codesandbox</a>.
+  
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
