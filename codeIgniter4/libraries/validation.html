@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validation &mdash; CodeIgniter 4.2.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Helpers" href="../helpers/index.html" />
+    <link rel="prev" title="User Agent Class" href="user_agent.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #DD4814" >
+            <a href="../index.html">
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Composer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Running Your App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">CodeIgniter Repositories</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Build Your First Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create News Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">CodeIgniter4 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Models, Views, and Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Working With HTTP Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Security Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Building Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Working With Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Modeling Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Using CodeIgniter's Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Using Entity Classes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Library Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#file-collections">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #DD4814" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/libraries/validation.rst">Edit this page</a>
+
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Library Reference</a> &raquo;</li>
+      <li>Validation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="validation">
+<span id="id1"></span><h1>Validation<a class="headerlink" href="#validation" title="Permalink to this headline"></a></h1>
+<p>CodeIgniter provides a comprehensive data validation class that
+helps minimize the amount of code you’ll write.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
+<li><p><a class="reference internal" href="#form-validation-tutorial" id="id4">Form Validation Tutorial</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-form" id="id5">The Form</a></p></li>
+<li><p><a class="reference internal" href="#the-success-page" id="id6">The Success Page</a></p></li>
+<li><p><a class="reference internal" href="#the-controller" id="id7">The Controller</a></p></li>
+<li><p><a class="reference internal" href="#try-it" id="id8">Try it!</a></p></li>
+<li><p><a class="reference internal" href="#explanation" id="id9">Explanation</a></p></li>
+<li><p><a class="reference internal" href="#add-validation-rules" id="id10">Add Validation Rules</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#config-for-validation" id="id11">Config for Validation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#traditional-and-strict-rules" id="id12">Traditional and Strict Rules</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#loading-the-library" id="id13">Loading the Library</a></p></li>
+<li><p><a class="reference internal" href="#setting-validation-rules" id="id14">Setting Validation Rules</a></p>
+<ul>
+<li><p><a class="reference internal" href="#setrule" id="id15">setRule()</a></p></li>
+<li><p><a class="reference internal" href="#setrules" id="id16">setRules()</a></p></li>
+<li><p><a class="reference internal" href="#withrequest" id="id17">withRequest()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#working-with-validation" id="id18">Working with Validation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#validating-keys-that-are-arrays" id="id19">Validating Keys that are Arrays</a></p></li>
+<li><p><a class="reference internal" href="#validate-1-value" id="id20">Validate 1 Value</a></p></li>
+<li><p><a class="reference internal" href="#saving-sets-of-validation-rules-to-the-config-file" id="id21">Saving Sets of Validation Rules to the Config File</a></p></li>
+<li><p><a class="reference internal" href="#running-multiple-validations" id="id22">Running Multiple Validations</a></p></li>
+<li><p><a class="reference internal" href="#validation-placeholders" id="id23">Validation Placeholders</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#working-with-errors" id="id24">Working With Errors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#setting-custom-error-messages" id="id25">Setting Custom Error Messages</a></p></li>
+<li><p><a class="reference internal" href="#translation-of-messages-and-validation-labels" id="id26">Translation Of Messages And Validation Labels</a></p></li>
+<li><p><a class="reference internal" href="#getting-all-errors" id="id27">Getting All Errors</a></p></li>
+<li><p><a class="reference internal" href="#getting-a-single-error" id="id28">Getting a Single Error</a></p></li>
+<li><p><a class="reference internal" href="#check-if-error-exists" id="id29">Check If Error Exists</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#customizing-error-display" id="id30">Customizing Error Display</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-the-views" id="id31">Creating the Views</a></p></li>
+<li><p><a class="reference internal" href="#configuration" id="id32">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#specifying-the-template" id="id33">Specifying the Template</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#creating-custom-rules" id="id34">Creating Custom Rules</a></p>
+<ul>
+<li><p><a class="reference internal" href="#allowing-parameters" id="id35">Allowing Parameters</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#available-rules" id="id36">Available Rules</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rules-for-file-uploads" id="id37">Rules for File Uploads</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="overview">
+<h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>Before explaining CodeIgniter’s approach to data validation, let’s
+describe the ideal scenario:</p>
+<ol class="arabic simple">
+<li><p>A form is displayed.</p></li>
+<li><p>You fill it in and submit it.</p></li>
+<li><p>If you submitted something invalid, or perhaps missed a required
+item, the form is redisplayed containing your data along with an
+error message describing the problem.</p></li>
+<li><p>This process continues until you have submitted a valid form.</p></li>
+</ol>
+<p>On the receiving end, the script must:</p>
+<ol class="arabic simple">
+<li><p>Check for required data.</p></li>
+<li><p>Verify that the data is of the correct type, and meets the correct
+criteria. For example, if a username is submitted it must be
+validated to contain only permitted characters. It must be of a
+minimum length, and not exceed a maximum length. The username can’t
+be someone else’s existing username, or perhaps even a reserved word.
+Etc.</p></li>
+<li><p>Sanitize the data for security.</p></li>
+<li><p>Pre-format the data if needed.</p></li>
+<li><p>Prep the data for insertion in the database.</p></li>
+</ol>
+<p>Although there is nothing terribly complex about the above process, it
+usually requires a significant amount of code, and to display error
+messages, various control structures are usually placed within the form
+HTML. Form validation, while simple to create, is generally very messy
+and tedious to implement.</p>
+</section>
+<section id="form-validation-tutorial">
+<h2><a class="toc-backref" href="#id4">Form Validation Tutorial</a><a class="headerlink" href="#form-validation-tutorial" title="Permalink to this headline"></a></h2>
+<p>What follows is a “hands on” tutorial for implementing CodeIgniter’s Form
+Validation.</p>
+<p>In order to implement form validation you’ll need three things:</p>
+<ol class="arabic simple">
+<li><p>A <a class="reference internal" href="../outgoing/views.html"><span class="doc">View</span></a> file containing a form.</p></li>
+<li><p>A View file containing a “success” message to be displayed upon
+successful submission.</p></li>
+<li><p>A <a class="reference internal" href="../incoming/controllers.html"><span class="doc">controller</span></a> method to receive and
+process the submitted data.</p></li>
+</ol>
+<p>Let’s create those three things, using a member sign-up form as the
+example.</p>
+<section id="the-form">
+<h3><a class="toc-backref" href="#id5">The Form</a><a class="headerlink" href="#the-form" title="Permalink to this headline"></a></h3>
+<p>Using a text editor, create a form called <strong>Signup.php</strong>. In it, place this
+code and save it to your <strong>app/Views/</strong> folder:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">Form</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;?=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">listErrors</span><span class="p">()</span> <span class="cp">?&gt;</span>
+
+    <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">form_open</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>Username<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>Password<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>Password Confirm<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;passconf&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>Email Address<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-success-page">
+<h3><a class="toc-backref" href="#id6">The Success Page</a><a class="headerlink" href="#the-success-page" title="Permalink to this headline"></a></h3>
+<p>Using a text editor, create a form called <strong>Success.php</strong>. In it, place
+this code and save it to your <strong>app/Views/</strong> folder:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">Form</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Your</span> <span class="nx">form</span> <span class="nx">was</span> <span class="nx">successfully</span> <span class="nx">submitted</span><span class="o">!&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;?=</span> <span class="nx">anchor</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="s1">&#39;Try it again!&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-controller">
+<h3><a class="toc-backref" href="#id7">The Controller</a><a class="headerlink" href="#the-controller" title="Permalink to this headline"></a></h3>
+<p>Using a text editor, create a controller called <strong>Form.php</strong>. In it, place
+this code and save it to your <strong>app/Controllers/</strong> folder:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Form</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">helper</span><span class="p">([</span><span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">]);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Signup&#39;</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">&#39;validation&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="p">,</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="try-it">
+<h3><a class="toc-backref" href="#id8">Try it!</a><a class="headerlink" href="#try-it" title="Permalink to this headline"></a></h3>
+<p>To try your form, visit your site using a URL similar to this one:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">form</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>If you submit the form you should simply see the form reload. That’s
+because you haven’t set up any validation rules in <code class="docutils literal notranslate"><span class="pre">$this-&gt;validate()</span></code> yet.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">validate()</span></code> method is a method in the Controller. It uses
+the <strong>Validation class</strong> inside. See <a class="reference internal" href="../incoming/controllers.html#controllers-validating-data"><span class="std std-ref">forceHTTPS</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since you haven’t told the <code class="docutils literal notranslate"><span class="pre">validate()</span></code> method to validate anything
+yet, it <strong>returns false</strong> (boolean false) <strong>by default</strong>. The <code class="docutils literal notranslate"><span class="pre">validate()</span></code>
+method only returns true if it has successfully applied your rules without
+any of them failing.</p>
+</div>
+</section>
+<section id="explanation">
+<h3><a class="toc-backref" href="#id9">Explanation</a><a class="headerlink" href="#explanation" title="Permalink to this headline"></a></h3>
+<p>You’ll notice several things about the above pages:</p>
+<p>The form (<strong>Signup.php</strong>) is a standard web form with a couple of exceptions:</p>
+<ol class="arabic">
+<li><p>It uses a <a class="reference internal" href="../helpers/form_helper.html"><span class="doc">form helper</span></a> to create the form opening. Technically, this
+isn’t necessary. You could create the form using standard HTML.
+However, the benefit of using the helper is that it generates the
+action URL for you, based on the URL in your config file. This makes
+your application more portable in the event your URLs change.</p></li>
+<li><p>At the top of the form you’ll notice the following function call:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">listErrors</span><span class="p">()</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>This function will return any error messages sent back by the
+validator. If there are no messages it returns an empty string.</p>
+</li>
+</ol>
+<p>The controller (<strong>Form.php</strong>) has one method: <code class="docutils literal notranslate"><span class="pre">index()</span></code>. This method
+uses the Controller-provided <code class="docutils literal notranslate"><span class="pre">validate()</span></code> method and loads the form helper and URL
+helper used by your view files. It also runs the validation routine.
+Based on whether the validation was successful it either presents the
+form or the success page.</p>
+</section>
+<section id="add-validation-rules">
+<h3><a class="toc-backref" href="#id10">Add Validation Rules</a><a class="headerlink" href="#add-validation-rules" title="Permalink to this headline"></a></h3>
+<p>Then add validation rules in the controller (<strong>Form.php</strong>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[10]&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;passconf&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|matches[password]&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email&#39;</span><span class="p">,</span>
+<span class="p">]))</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you submit the form you should see the success page or the form with error messages.</p>
+</section>
+</section>
+<section id="config-for-validation">
+<h2><a class="toc-backref" href="#id11">Config for Validation</a><a class="headerlink" href="#config-for-validation" title="Permalink to this headline"></a></h2>
+<section id="traditional-and-strict-rules">
+<span id="validation-traditional-and-strict-rules"></span><h3><a class="toc-backref" href="#id12">Traditional and Strict Rules</a><a class="headerlink" href="#traditional-and-strict-rules" title="Permalink to this headline"></a></h3>
+<p>CI4 has two kinds of Validation rule classes.
+The default rule classes (<strong>Traditional Rules</strong>) have the namespace <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Validation</span></code>,
+and the new classes (<strong>Strict Rules</strong>) have <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Validation\StrictRules</span></code>, which provide strict validation.</p>
+<p>The <strong>Traditional Rules</strong> implicitly assume that string values are validated,
+and the input value may be converted implicitly to a string value.
+It works for most basic cases like validating POST data.</p>
+<p>However, for example, if you use JSON input data, it may be a type of bool/null/array.
+When you validate the boolean <code class="docutils literal notranslate"><span class="pre">true</span></code>, it is converted to string <code class="docutils literal notranslate"><span class="pre">'1'</span></code> with the Traditional rule classes.
+If you validate it with the <code class="docutils literal notranslate"><span class="pre">integer</span></code> rule, <code class="docutils literal notranslate"><span class="pre">'1'</span></code> passes the validation.</p>
+<p>The <strong>Strict Rules</strong> don’t use implicit type conversion.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When validating data that contains non-string values, such as JSON data, it is recommended to use <strong>Strict Rules</strong>.</p>
+</div>
+<section id="using-strict-rules">
+<h4>Using Strict Rules<a class="headerlink" href="#using-strict-rules" title="Permalink to this headline"></a></h4>
+<p>If you want to use these rules, you need to change the rule classes in <strong>app/Config/Validation.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Validation</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$ruleSets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nx">\CodeIgniter\Validation\StrictRules\CreditCardRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">\CodeIgniter\Validation\StrictRules\FileRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">\CodeIgniter\Validation\StrictRules\FormatRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">\CodeIgniter\Validation\StrictRules\Rules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="loading-the-library">
+<h2><a class="toc-backref" href="#id13">Loading the Library</a><a class="headerlink" href="#loading-the-library" title="Permalink to this headline"></a></h2>
+<p>The library is loaded as a service named <strong>validation</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">validation</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This automatically loads the <code class="docutils literal notranslate"><span class="pre">Config\Validation</span></code> file which contains settings
+for including multiple Rulesets, and collections of rules that can be easily reused.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may never need to use this method, as both the <a class="reference internal" href="../incoming/controllers.html"><span class="doc">Controller</span></a> and
+the <a class="reference internal" href="../models/model.html"><span class="doc">Model</span></a> provide methods to make validation even easier.</p>
+</div>
+</section>
+<section id="setting-validation-rules">
+<h2><a class="toc-backref" href="#id14">Setting Validation Rules</a><a class="headerlink" href="#setting-validation-rules" title="Permalink to this headline"></a></h2>
+<p>CodeIgniter lets you set as many validation rules as you need for a
+given field, cascading them in order. To set validation rules you
+will use the <code class="docutils literal notranslate"><span class="pre">setRule()</span></code>, <code class="docutils literal notranslate"><span class="pre">setRules()</span></code>, or <code class="docutils literal notranslate"><span class="pre">withRequest()</span></code>
+methods.</p>
+<section id="setrule">
+<h3><a class="toc-backref" href="#id15">setRule()</a><a class="headerlink" href="#setrule" title="Permalink to this headline"></a></h3>
+<p>This method sets a single rule. It has the method signature:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">setRule</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$field</span><span class="p">,</span> <span class="o">?</span><span class="nx">string</span> <span class="nv">$label</span><span class="p">,</span> <span class="k">array</span><span class="o">|</span><span class="nx">string</span> <span class="nv">$rules</span><span class="p">[,</span> <span class="k">array</span> <span class="nv">$errors</span> <span class="o">=</span> <span class="p">[]])</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">$rules</span></code> either takes in a pipe-delimited list of rules or an array collection of rules:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;Username&#39;</span><span class="p">,</span> <span class="s1">&#39;required|min_length[3]&#39;</span><span class="p">);</span>
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;min_length[8]&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha_numeric_punct&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>The value you pass to <code class="docutils literal notranslate"><span class="pre">$field</span></code> must match the key of any data array that is sent in. If
+the data is taken directly from <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, then it must be an exact match for
+the form input name.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Prior to v4.2.0, this method’s third parameter, <code class="docutils literal notranslate"><span class="pre">$rules</span></code>, was typehinted to accept
+<code class="docutils literal notranslate"><span class="pre">string</span></code>. In v4.2.0 and after, the typehint was removed to allow arrays, too. To avoid LSP being
+broken in extending classes overriding this method, the child class’s method should also be modified
+to remove the typehint.</p>
+</div>
+</section>
+<section id="setrules">
+<h3><a class="toc-backref" href="#id16">setRules()</a><a class="headerlink" href="#setrules" title="Permalink to this headline"></a></h3>
+<p>Like <code class="docutils literal notranslate"><span class="pre">setRule()</span></code>, but accepts an array of field names and their rules:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[10]&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>To give a labeled error message you can set up as:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Username&#39;</span><span class="p">,</span> <span class="s1">&#39;rules&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span> <span class="s1">&#39;rules&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[10]&#39;</span><span class="p">],</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="withrequest">
+<h3><a class="toc-backref" href="#id17">withRequest()</a><a class="headerlink" href="#withrequest" title="Permalink to this headline"></a></h3>
+<p>One of the most common times you will use the validation library is when validating
+data that was input from an HTTP Request. If desired, you can pass an instance of the
+current Request object and it will take all of the input data and set it as the
+data to be validated:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">withRequest</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-validation">
+<h2><a class="toc-backref" href="#id18">Working with Validation</a><a class="headerlink" href="#working-with-validation" title="Permalink to this headline"></a></h2>
+<section id="validating-keys-that-are-arrays">
+<h3><a class="toc-backref" href="#id19">Validating Keys that are Arrays</a><a class="headerlink" href="#validating-keys-that-are-arrays" title="Permalink to this headline"></a></h3>
+<p>If your data is in a nested associative array, you can use “dot array syntax” to
+easily validate your data:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * The data to test:</span>
+<span class="cm"> * [</span>
+<span class="cm"> *     &#39;contacts&#39; =&gt; [</span>
+<span class="cm"> *        &#39;name&#39; =&gt; &#39;Joe Smith&#39;,</span>
+<span class="cm"> *         &#39;friends&#39; =&gt; [</span>
+<span class="cm"> *             [</span>
+<span class="cm"> *                 &#39;name&#39; =&gt; &#39;Fred Flinstone&#39;,</span>
+<span class="cm"> *             ],</span>
+<span class="cm"> *             [</span>
+<span class="cm"> *                 &#39;name&#39; =&gt; &#39;Wilma&#39;,</span>
+<span class="cm"> *             ],</span>
+<span class="cm"> *         ]</span>
+<span class="cm"> *     ]</span>
+<span class="cm"> * ]</span>
+<span class="cm"> */</span>
+
+<span class="c1">// Joe Smith</span>
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;contacts.name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+
+<span class="c1">// Fred Flintsone &amp; Wilma</span>
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;contacts.friends.name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>You can use the ‘*’ wildcard symbol to match any one level of the array:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Fred Flintsone &amp; Wilma</span>
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;contacts.*.name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>“dot array syntax” can also be useful when you have single dimension array data.
+For example, data returned by multi select dropdown:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * The data to test:</span>
+<span class="cm"> * [</span>
+<span class="cm"> *     &#39;user_ids&#39; =&gt; [</span>
+<span class="cm"> *         1,</span>
+<span class="cm"> *         2,</span>
+<span class="cm"> *         3,</span>
+<span class="cm"> *     ]</span>
+<span class="cm"> * ]</span>
+<span class="cm"> */</span>
+
+<span class="c1">// Rule</span>
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;user_ids.*&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="validate-1-value">
+<h3><a class="toc-backref" href="#id20">Validate 1 Value</a><a class="headerlink" href="#validate-1-value" title="Permalink to this headline"></a></h3>
+<p>Validate one value against a rule:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">check</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="s1">&#39;required&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="saving-sets-of-validation-rules-to-the-config-file">
+<h3><a class="toc-backref" href="#id21">Saving Sets of Validation Rules to the Config File</a><a class="headerlink" href="#saving-sets-of-validation-rules-to-the-config-file" title="Permalink to this headline"></a></h3>
+<p>A nice feature of the Validation class is that it permits you to store all
+your validation rules for your entire application in a config file. You organize
+the rules into “groups”. You can specify a different group every time you run
+the validation.</p>
+<section id="how-to-save-your-rules">
+<span id="validation-array"></span><h4>How to save your rules<a class="headerlink" href="#how-to-save-your-rules" title="Permalink to this headline"></a></h4>
+<p>To store your validation rules, simply create a new public property in the <code class="docutils literal notranslate"><span class="pre">Config\Validation</span></code>
+class with the name of your group. This element will hold an array with your validation
+rules. As shown earlier, the validation array will have this prototype:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Validation</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$signup</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pass_confirm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|matches[password]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can specify the group to use when you call the <code class="docutils literal notranslate"><span class="pre">run()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="s1">&#39;signup&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also store custom error messages in this configuration file by naming the
+property the same as the group, and appended with <code class="docutils literal notranslate"><span class="pre">_errors</span></code>. These will automatically
+be used for any errors when this group is used:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Validation</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$signup</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pass_confirm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|matches[password]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="k">public</span> <span class="nv">$signup_errors</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;You must choose a username.&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;valid_email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Please check the Email field. It does not appear to be valid.&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Or pass all settings in an array:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Validation</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$signup</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;You must choose a Username.&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;valid_email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Please check the Email field. It does not appear to be valid.&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">];</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See below for details on the formatting of the array.</p>
+</section>
+<section id="getting-setting-rule-groups">
+<h4>Getting &amp; Setting Rule Groups<a class="headerlink" href="#getting-setting-rule-groups" title="Permalink to this headline"></a></h4>
+<p><strong>Get Rule Group</strong></p>
+<p>This method gets a rule group from the validation configuration:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getRuleGroup</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Set Rule Group</strong></p>
+<p>This method sets a rule group from the validation configuration to the validation service:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRuleGroup</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="running-multiple-validations">
+<h3><a class="toc-backref" href="#id22">Running Multiple Validations</a><a class="headerlink" href="#running-multiple-validations" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">run()</span></code> method will not reset error state. Should a previous run fail,
+<code class="docutils literal notranslate"><span class="pre">run()</span></code> will always return false and <code class="docutils literal notranslate"><span class="pre">getErrors()</span></code> will return
+all previous errors until explicitly reset.</p>
+</div>
+<p>If you intend to run multiple validations, for instance on different data sets or with different
+rules after one another, you might need to call <code class="docutils literal notranslate"><span class="pre">$validation-&gt;reset()</span></code> before each run to get rid of
+errors from previous run. Be aware that <code class="docutils literal notranslate"><span class="pre">reset()</span></code> will invalidate any data, rule or custom error
+you previously set, so <code class="docutils literal notranslate"><span class="pre">setRules()</span></code>, <code class="docutils literal notranslate"><span class="pre">setRuleGroup()</span></code> etc. need to be repeated:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$userAccounts</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">reset</span><span class="p">();</span>
+    <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">(</span><span class="nv">$userAccountRules</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="nv">$user</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// handle validation errors</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="validation-placeholders">
+<h3><a class="toc-backref" href="#id23">Validation Placeholders</a><a class="headerlink" href="#validation-placeholders" title="Permalink to this headline"></a></h3>
+<p>The Validation class provides a simple method to replace parts of your rules based on data that’s being passed into it. This
+sounds fairly obscure but can be especially handy with the <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> validation rule. Placeholders are simply
+the name of the field (or array key) that was passed in as <code class="docutils literal notranslate"><span class="pre">$data</span></code> surrounded by curly brackets. It will be
+replaced by the <strong>value</strong> of the matched incoming field. An example should clarify this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email|is_unique[users.email,id,{id}]&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>In this set of rules, it states that the email address should be unique in the database, except for the row
+that has an id matching the placeholder’s value. Assuming that the form POST data had the following:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$_POST</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;id&#39;</span>    <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo@example.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>then the <code class="docutils literal notranslate"><span class="pre">{id}</span></code> placeholder would be replaced with the number <strong>4</strong>, giving this revised rule:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email|is_unique[users.email,id,4]&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>So it will ignore the row in the database that has <code class="docutils literal notranslate"><span class="pre">id=4</span></code> when it verifies the email is unique.</p>
+<p>This can also be used to create more dynamic rules at runtime, as long as you take care that any dynamic
+keys passed in don’t conflict with your form data.</p>
+</section>
+</section>
+<section id="working-with-errors">
+<h2><a class="toc-backref" href="#id24">Working With Errors</a><a class="headerlink" href="#working-with-errors" title="Permalink to this headline"></a></h2>
+<p>The Validation library provides several methods to help you set error messages, provide
+custom error messages, and retrieve one or more errors to display.</p>
+<p>By default, error messages are derived from language strings in <code class="docutils literal notranslate"><span class="pre">system/Language/en/Validation.php</span></code>, where
+each rule has an entry.</p>
+<section id="setting-custom-error-messages">
+<span id="validation-custom-errors"></span><h3><a class="toc-backref" href="#id25">Setting Custom Error Messages</a><a class="headerlink" href="#setting-custom-error-messages" title="Permalink to this headline"></a></h3>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">setRule()</span></code> and <code class="docutils literal notranslate"><span class="pre">setRules()</span></code> methods can accept an array of custom messages
+that will be used as errors specific to each field as their last parameter. This allows
+for a very pleasant experience for the user since the errors are tailored to each
+instance. If not custom error message is provided, the default value will be used.</p>
+<p>These are two ways to provide custom error messages.</p>
+<p>As the last parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|is_unique[users.username]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[10]&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="p">[</span>   <span class="c1">// Errors</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;All accounts must have usernames provided&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;min_length&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Your password is too short. You want to get hacked?&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Or as a labeled style:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;label&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Username&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|is_unique[users.username]&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;All accounts must have {field} provided&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;label&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[10]&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;min_length&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Your {field} is too short. You want to get hacked?&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>If you’d like to include a field’s “human” name, or the optional parameter some rules allow for (such as max_length),
+or the value that was validated you can add the <code class="docutils literal notranslate"><span class="pre">{field}</span></code>, <code class="docutils literal notranslate"><span class="pre">{param}</span></code> and <code class="docutils literal notranslate"><span class="pre">{value}</span></code> tags to your message, respectively:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;min_length&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Supplied value ({value}) for {field} must have at least {param} characters.&#39;</span>
+</pre></div>
+</div>
+<p>On a field with the human name Username and a rule of <code class="docutils literal notranslate"><span class="pre">min_length[6]</span></code> with a value of “Pizza”, an error would display: “Supplied value (Pizza) for Username must have
+at least 6 characters.”</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you get the error messages with <code class="docutils literal notranslate"><span class="pre">getErrors()</span></code> or <code class="docutils literal notranslate"><span class="pre">getError()</span></code>, the messages are not HTML escaped. If you use user input data like <code class="docutils literal notranslate"><span class="pre">({value})</span></code> to make the error message, it might contain HTML tags. If you don’t escape the messages before displying them, XSS attacks are possible.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using label-style error messages, if you pass the second parameter to <code class="docutils literal notranslate"><span class="pre">setRules()</span></code>, it will be overwritten with the value of the first parameter.</p>
+</div>
+</section>
+<section id="translation-of-messages-and-validation-labels">
+<h3><a class="toc-backref" href="#id26">Translation Of Messages And Validation Labels</a><a class="headerlink" href="#translation-of-messages-and-validation-labels" title="Permalink to this headline"></a></h3>
+<p>To use translated strings from language files, we can simply use the dot syntax.
+Let’s say we have a file with translations located here: <code class="docutils literal notranslate"><span class="pre">app/Languages/en/Rules.php</span></code>.
+We can simply use the language lines defined in this file, like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;label&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Rules.username&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|is_unique[users.username]&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Rules.username.required&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;label&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Rules.password&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[10]&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;min_length&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Rules.password.min_length&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="getting-all-errors">
+<span id="validation-getting-all-errors"></span><h3><a class="toc-backref" href="#id27">Getting All Errors</a><a class="headerlink" href="#getting-all-errors" title="Permalink to this headline"></a></h3>
+<p>If you need to retrieve all error messages for failed fields, you can use the <code class="docutils literal notranslate"><span class="pre">getErrors()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$errors</span> <span class="o">=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">();</span>
+<span class="cm">/*</span>
+<span class="cm"> * Produces:</span>
+<span class="cm"> * [</span>
+<span class="cm"> *     &#39;field1&#39; =&gt; &#39;error message&#39;,</span>
+<span class="cm"> *     &#39;field2&#39; =&gt; &#39;error message&#39;,</span>
+<span class="cm"> * ]</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>If no errors exist, an empty array will be returned.</p>
+<p>When using a wildcard, the error will point to a specific field, replacing the asterisk with the appropriate key/keys:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// for data</span>
+<span class="s1">&#39;contacts&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="s1">&#39;friends&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Fred Flinstone&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">]</span>
+
+<span class="c1">// rule</span>
+<span class="s1">&#39;contacts.*.name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span>
+
+<span class="c1">// error will be</span>
+<span class="s1">&#39;contacts.friends.1.name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;The contacts.*.name field is required.&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="getting-a-single-error">
+<h3><a class="toc-backref" href="#id28">Getting a Single Error</a><a class="headerlink" href="#getting-a-single-error" title="Permalink to this headline"></a></h3>
+<p>You can retrieve the error for a single field with the <code class="docutils literal notranslate"><span class="pre">getError()</span></code> method. The only parameter is the field
+name:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$error</span> <span class="o">=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getError</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If no error exists, an empty string will be returned.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using a wildcard, all found errors that match the mask will be combined into one line separated by the EOL character.</p>
+</div>
+</section>
+<section id="check-if-error-exists">
+<h3><a class="toc-backref" href="#id29">Check If Error Exists</a><a class="headerlink" href="#check-if-error-exists" title="Permalink to this headline"></a></h3>
+<p>You can check to see if an error exists with the <code class="docutils literal notranslate"><span class="pre">hasError()</span></code> method. The only parameter is the field name:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">hasError</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getError</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When specifying a field with a wildcard, all errors matching the mask will be checked:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * For errors:</span>
+<span class="cm"> * [</span>
+<span class="cm"> *     &#39;foo.0.bar&#39;   =&gt; &#39;Error&#39;,</span>
+<span class="cm"> *     &#39;foo.baz.bar&#39; =&gt; &#39;Error&#39;,</span>
+<span class="cm"> * ]</span>
+<span class="cm"> */</span>
+
+<span class="c1">// returns true</span>
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">hasError</span><span class="p">(</span><span class="s1">&#39;foo.*.bar&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="customizing-error-display">
+<h2><a class="toc-backref" href="#id30">Customizing Error Display</a><a class="headerlink" href="#customizing-error-display" title="Permalink to this headline"></a></h2>
+<p>When you call <code class="docutils literal notranslate"><span class="pre">$validation-&gt;listErrors()</span></code> or <code class="docutils literal notranslate"><span class="pre">$validation-&gt;showError()</span></code>, it loads a view file in the background
+that determines how the errors are displayed. By default, they display with a class of <code class="docutils literal notranslate"><span class="pre">errors</span></code> on the wrapping div.
+You can easily create new views and use them throughout your application.</p>
+<section id="creating-the-views">
+<h3><a class="toc-backref" href="#id31">Creating the Views</a><a class="headerlink" href="#creating-the-views" title="Permalink to this headline"></a></h3>
+<p>The first step is to create custom views. These can be placed anywhere that the <code class="docutils literal notranslate"><span class="pre">view()</span></code> method can locate them,
+which means the standard View directory, or any namespaced View folder will work. For example, you could create
+a new view at <strong>app/Views/_errors_list.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;alert alert-danger&quot;</span> <span class="nx">role</span><span class="o">=</span><span class="s2">&quot;alert&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+    <span class="o">&lt;?</span><span class="nx">php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$errors</span> <span class="k">as</span> <span class="nv">$error</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$error</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>An array named <code class="docutils literal notranslate"><span class="pre">$errors</span></code> is available within the view that contains a list of the errors, where the key is
+the name of the field that had the error, and the value is the error message, like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$errors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;The username field must be unique.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;You must provide a valid email address.&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>There are actually two types of views that you can create. The first has an array of all of the errors, and is what
+we just looked at. The other type is simpler, and only contains a single variable, <code class="docutils literal notranslate"><span class="pre">$error</span></code> that contains the
+error message. This is used with the <code class="docutils literal notranslate"><span class="pre">showError()</span></code> method where a field must be specified:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">span</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;help-block&quot;</span><span class="o">&gt;&lt;?=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$error</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="configuration">
+<h3><a class="toc-backref" href="#id32">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h3>
+<p>Once you have your views created, you need to let the Validation library know about them. Open <code class="docutils literal notranslate"><span class="pre">Config/Validation.php</span></code>.
+Inside, you’ll find the <code class="docutils literal notranslate"><span class="pre">$templates</span></code> property where you can list as many custom views as you want, and provide an
+short alias they can be referenced by. If we were to add our example file from above, it would look something like:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Validation</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$templates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;list&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Validation\Views\list&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;single&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Validation\Views\single&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;my_list&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;_errors_list&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="specifying-the-template">
+<h3><a class="toc-backref" href="#id33">Specifying the Template</a><a class="headerlink" href="#specifying-the-template" title="Permalink to this headline"></a></h3>
+<p>You can specify the template to use by passing it’s alias as the first parameter in <code class="docutils literal notranslate"><span class="pre">listErrors()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">listErrors</span><span class="p">(</span><span class="s1">&#39;my_list&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>When showing field-specific errors, you can pass the alias as the second parameter to the <code class="docutils literal notranslate"><span class="pre">showError()</span></code> method,
+right after the name of the field the error should belong to:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">showError</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;my_single&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="creating-custom-rules">
+<h2><a class="toc-backref" href="#id34">Creating Custom Rules</a><a class="headerlink" href="#creating-custom-rules" title="Permalink to this headline"></a></h2>
+<p>Rules are stored within simple, namespaced classes. They can be stored any location you would like, as long as the
+autoloader can find it. These files are called RuleSets. To add a new RuleSet, edit <strong>Config/Validation.php</strong> and
+add the new file to the <code class="docutils literal notranslate"><span class="pre">$ruleSets</span></code> array:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Validation\CreditCardRules</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Validation\FileRules</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Validation\FormatRules</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">CodeIgniter\Validation\Rules</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Validation</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$ruleSets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nx">Rules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">FormatRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">FileRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="nx">CreditCardRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can add it as either a simple string with the fully qualified class name, or using the <code class="docutils literal notranslate"><span class="pre">::class</span></code> suffix as
+shown above. The primary benefit here is that it provides some extra navigation capabilities in more advanced IDEs.</p>
+<p>Within the file itself, each method is a rule and must accept a string as the first parameter, and must return
+a boolean true or false value signifying true if it passed the test or false if it did not:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">class</span> <span class="nc">MyRules</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">even</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$str</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nv">$str</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By default, the system will look within <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Language\en\Validation.php</span></code> for the language strings used
+within errors. In custom rules, you may provide error messages by accepting a <code class="docutils literal notranslate"><span class="pre">$error</span></code> variable by reference in the
+second parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">class</span> <span class="nc">MyRules</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">even</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$str</span><span class="p">,</span> <span class="o">?</span><span class="nx">string</span> <span class="o">&amp;</span><span class="nv">$error</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nx">int</span><span class="p">)</span> <span class="nv">$str</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$error</span> <span class="o">=</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;myerrors.evenError&#39;</span><span class="p">);</span>
+
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Your new custom rule could now be used just like any other rule:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$request</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|even&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<section id="allowing-parameters">
+<h3><a class="toc-backref" href="#id35">Allowing Parameters</a><a class="headerlink" href="#allowing-parameters" title="Permalink to this headline"></a></h3>
+<p>If your method needs to work with parameters, the function will need a minimum of three parameters: the string to validate,
+the parameter string, and an array with all of the data that was submitted the form. The <code class="docutils literal notranslate"><span class="pre">$data</span></code> array is especially handy
+for rules like <code class="docutils literal notranslate"><span class="pre">require_with</span></code> that needs to check the value of another submitted field to base its result on:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">class</span> <span class="nc">MyRules</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">required_with</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$fields</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$data</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="nv">$fields</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="nv">$fields</span><span class="p">);</span>
+
+        <span class="c1">// If the field is present we can safely assume that</span>
+        <span class="c1">// the field is here, no matter whether the corresponding</span>
+        <span class="c1">// search field is present or not.</span>
+        <span class="nv">$present</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">required</span><span class="p">(</span><span class="nv">$str</span> <span class="o">??</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$present</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Still here? Then we fail this test if</span>
+        <span class="c1">// any of the fields are present in $data</span>
+        <span class="c1">// as $fields is the lis</span>
+        <span class="nv">$requiredFields</span> <span class="o">=</span> <span class="p">[];</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$fields</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="nv">$data</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nv">$requiredFields</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$field</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Remove any keys with empty values since, that means they</span>
+        <span class="c1">// weren&#39;t truly there, as far as this is concerned.</span>
+        <span class="nv">$requiredFields</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$requiredFields</span><span class="p">,</span> <span class="k">static</span> <span class="nx">fn</span> <span class="p">(</span><span class="nv">$item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="nv">$item</span><span class="p">]));</span>
+
+        <span class="k">return</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$requiredFields</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Custom errors can be returned as the fourth parameter, just as described above.</p>
+</section>
+</section>
+<section id="available-rules">
+<h2><a class="toc-backref" href="#id36">Available Rules</a><a class="headerlink" href="#available-rules" title="Permalink to this headline"></a></h2>
+<p>The following is a list of all the native rules that are available to use:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rule is a string; there must be <strong>no spaces</strong> between the parameters, especially the <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> rule.
+There can be no spaces before and after <code class="docutils literal notranslate"><span class="pre">ignore_value</span></code>.</p>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// is_unique[table.field,ignore_field,ignore_value]</span>
+
+<span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">([</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;is_unique[supplier.name,uuid, </span><span class="si">{</span><span class="nv">$uuid</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>  <span class="c1">// is not ok</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;is_unique[supplier.name,uuid,</span><span class="si">{</span><span class="nv">$uuid</span><span class="si">}</span><span class="s2"> ]&quot;</span><span class="p">,</span>  <span class="c1">// is not ok</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;is_unique[supplier.name,uuid,</span><span class="si">{</span><span class="nv">$uuid</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>   <span class="c1">// is ok</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;is_unique[supplier.name,uuid,{uuid}]&#39;</span><span class="p">,</span>  <span class="c1">// is ok - see &quot;Validation Placeholders&quot;</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 35%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rule</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alpha</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field has anything other than
+alphabetic characters.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>alpha_space</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+alphabetic characters or spaces.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>alpha_dash</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+alphanumeric characters, underscores or
+dashes.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>alpha_numeric</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+alphanumeric characters.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>alpha_numeric_space</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+alphanumeric or space characters.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>alpha_numeric_punct</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+alphanumeric, space, or this limited set of
+punctuation characters: ~ (tilde),
+! (exclamation), # (number), $ (dollar),
+% (percent), &amp; (ampersand), * (asterisk),
+- (dash), _ (underscore), + (plus),
+= (equals), | (vertical bar), : (colon),
+. (period).</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>decimal</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+a decimal number.
+Also accepts a + or  - sign for the number.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>differs</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field does not differ from the one
+in the parameter.</p></td>
+<td><p>differs[field_name]</p></td>
+</tr>
+<tr class="row-even"><td><p>exact_length</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is not exactly the parameter
+value. One or more comma-separated values.</p></td>
+<td><p>exact_length[5] or exact_length[5,8,12]</p></td>
+</tr>
+<tr class="row-odd"><td><p>greater_than</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is less than or equal to
+the parameter value or not numeric.</p></td>
+<td><p>greater_than[8]</p></td>
+</tr>
+<tr class="row-even"><td><p>greater_than_equal_to</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is less than the parameter
+value, or not numeric.</p></td>
+<td><p>greater_than_equal_to[5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>hex</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+hexadecimal characters.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>if_exist</p></td>
+<td><p>No</p></td>
+<td><p>If this rule is present, validation will
+only return possible errors if the field key
+exists, regardless of its value.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>in_list</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is not within a predetermined
+list.</p></td>
+<td><p>in_list[red,blue,green]</p></td>
+</tr>
+<tr class="row-even"><td><p>integer</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+an integer.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>is_natural</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+a natural number: 0, 1, 2, 3, etc.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>is_natural_no_zero</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+a natural number, except zero: 1, 2, 3, etc.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>is_not_unique</p></td>
+<td><p>Yes</p></td>
+<td><p>Checks the database to see if the given value
+exist. Can ignore records by field/value to
+filter (currently accept only one filter).</p></td>
+<td><p>is_not_unique[table.field,where_field,where_value]</p></td>
+</tr>
+<tr class="row-even"><td><p>is_unique</p></td>
+<td><p>Yes</p></td>
+<td><p>Checks if this field value exists in the
+database. Optionally set a column and value
+value to ignore, useful when updating records
+to ignore itself.</p></td>
+<td><p>is_unique[table.field,ignore_field,ignore_value]</p></td>
+</tr>
+<tr class="row-odd"><td><p>less_than</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is greater than or equal to
+the parameter value or not numeric.</p></td>
+<td><p>less_than[8]</p></td>
+</tr>
+<tr class="row-even"><td><p>less_than_equal_to</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is greater than the parameter
+value or not numeric.</p></td>
+<td><p>less_than_equal_to[8]</p></td>
+</tr>
+<tr class="row-odd"><td><p>matches</p></td>
+<td><p>Yes</p></td>
+<td><p>The value must match the value of the field
+in the parameter.</p></td>
+<td><p>matches[field]</p></td>
+</tr>
+<tr class="row-even"><td><p>max_length</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is longer than the parameter
+value.</p></td>
+<td><p>max_length[8]</p></td>
+</tr>
+<tr class="row-odd"><td><p>min_length</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is shorter than the parameter
+value.</p></td>
+<td><p>min_length[3]</p></td>
+</tr>
+<tr class="row-even"><td><p>not_in_list</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field is within a predetermined
+list.</p></td>
+<td><p>not_in_list[red,blue,green]</p></td>
+</tr>
+<tr class="row-odd"><td><p>numeric</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+numeric characters.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>regex_match</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field does not match the regular
+expression.</p></td>
+<td><p>regex_match[/regex/]</p></td>
+</tr>
+<tr class="row-odd"><td><p>permit_empty</p></td>
+<td><p>No</p></td>
+<td><p>Allows the field to receive an empty array,
+empty string, null or false.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>required</p></td>
+<td><p>No</p></td>
+<td><p>Fails if the field is an empty array, empty
+string, null or false.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>required_with</p></td>
+<td><p>Yes</p></td>
+<td><p>The field is required when any of the other
+required fields are present in the data.</p></td>
+<td><p>required_with[field1,field2]</p></td>
+</tr>
+<tr class="row-even"><td><p>required_without</p></td>
+<td><p>Yes</p></td>
+<td><p>The field is required when all of the other
+fields are present in the data but not
+required.</p></td>
+<td><p>required_without[field1,field2]</p></td>
+</tr>
+<tr class="row-odd"><td><p>string</p></td>
+<td><p>No</p></td>
+<td><p>A generic alternative to the alpha* rules
+that confirms the element is a string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>timezone</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field does match a timezone per
+<code class="docutils literal notranslate"><span class="pre">timezone_identifiers_list</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>valid_base64</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field contains anything other than
+valid Base64 characters.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>valid_json</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field does not contain a valid JSON
+string.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>valid_email</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field does not contain a valid
+email address.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>valid_emails</p></td>
+<td><p>No</p></td>
+<td><p>Fails if any value provided in a comma
+separated list is not a valid email.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>valid_ip</p></td>
+<td><p>No</p></td>
+<td><p>Fails if the supplied IP is not valid.
+Accepts an optional parameter of ‘ipv4’ or
+‘ipv6’ to specify an IP format.</p></td>
+<td><p>valid_ip[ipv6]</p></td>
+</tr>
+<tr class="row-even"><td><p>valid_url</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field does not contain (loosely) a
+URL. Includes simple strings that could be
+hostnames, like “codeigniter”.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>valid_url_strict</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if field does not contain a valid URL.
+You can optionally specify a list of valid
+schemas. If not specified, <code class="docutils literal notranslate"><span class="pre">http,https</span></code>
+are valid. This rule uses
+PHP’s <code class="docutils literal notranslate"><span class="pre">FILTER_VALIDATE_URL</span></code>.</p></td>
+<td><p>valid_url_strict[https]</p></td>
+</tr>
+<tr class="row-even"><td><p>valid_date</p></td>
+<td><p>No</p></td>
+<td><p>Fails if field does not contain a valid date.
+Accepts an optional parameter to matches
+a date format.</p></td>
+<td><p>valid_date[d/m/Y]</p></td>
+</tr>
+<tr class="row-odd"><td><p>valid_cc_number</p></td>
+<td><p>Yes</p></td>
+<td><p>Verifies that the credit card number matches
+the format used by the specified provider.
+Current supported providers are:
+American Express (amex),
+China Unionpay (unionpay),
+Diners Club CarteBlance (carteblanche),
+Diners Club (dinersclub),
+Discover Card (discover),
+Interpayment (interpayment), JCB (jcb),
+Maestro (maestro), Dankort (dankort),
+NSPK MIR (mir),
+Troy (troy), MasterCard (mastercard),
+Visa (visa), UATP (uatp), Verve (verve),
+CIBC Convenience Card (cibc),
+Royal Bank of Canada Client Card (rbc),
+TD Canada Trust Access Card (tdtrust),
+Scotiabank Scotia Card (scotia),
+BMO ABM Card (bmoabm),
+HSBC Canada Card (hsbc)</p></td>
+<td><p>valid_cc_number[amex]</p></td>
+</tr>
+</tbody>
+</table>
+<section id="rules-for-file-uploads">
+<span id="id2"></span><h3><a class="toc-backref" href="#id37">Rules for File Uploads</a><a class="headerlink" href="#rules-for-file-uploads" title="Permalink to this headline"></a></h3>
+<p>These validation rules enable you to do the basic checks you might need to verify that uploaded files meet your business needs.
+Since the value of a file upload HTML field doesn’t exist, and is stored in the <code class="docutils literal notranslate"><span class="pre">$_FILES</span></code> global, the name of the input field will
+need to be used twice. Once to specify the field name as you would for any other rule, but again as the first parameter of all
+file upload related rules:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In the HTML</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;avatar&quot;</span><span class="o">&gt;</span>
+
+<span class="c1">// In the controller</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+    <span class="s1">&#39;avatar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;uploaded[avatar]|max_size[avatar,1024]&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 35%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rule</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>uploaded</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if the name of the parameter does not
+match the name of any uploaded files.</p></td>
+<td><p>uploaded[field_name]</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_size</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if the uploaded file named in the
+parameter is larger than the second
+parameter in kilobytes (kb). Or if the file
+is larger than allowed maximum size declared
+in php.ini config file -
+<code class="docutils literal notranslate"><span class="pre">upload_max_filesize</span></code> directive.</p></td>
+<td><p>max_size[field_name,2048]</p></td>
+</tr>
+<tr class="row-even"><td><p>max_dims</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if the maximum width and height of an
+uploaded image exceed values. The first
+parameter is the field name. The second is
+the width, and the third is the height. Will
+also fail if the file cannot be determined
+to be an image.</p></td>
+<td><p>max_dims[field_name,300,150]</p></td>
+</tr>
+<tr class="row-odd"><td><p>mime_in</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if the file’s mime type is not one
+listed in the parameters.</p></td>
+<td><p>mime_in[field_name,image/png,image/jpg]</p></td>
+</tr>
+<tr class="row-even"><td><p>ext_in</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if the file’s extension is not one
+listed in the parameters.</p></td>
+<td><p>ext_in[field_name,png,jpg,gif]</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_image</p></td>
+<td><p>Yes</p></td>
+<td><p>Fails if the file cannot be determined to be
+an image based on the mime type.</p></td>
+<td><p>is_image[field_name]</p></td>
+</tr>
+</tbody>
+</table>
+<p>The file validation rules apply for both single and multiple file uploads.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also use any native PHP functions that return boolean and
+permit at least one parameter, the field data to validate.
+The Validation library <strong>never alters the data</strong> to validate.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_agent.html" class="btn btn-neutral float-left" title="User Agent Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../helpers/index.html" class="btn btn-neutral float-right" title="Helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <!-- Ads Adsense -->    
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+  crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+  style="display:block"
+  data-ad-format="autorelaxed"
+  data-ad-client="ca-pub-5295583488737876"
+  data-ad-slot="5470375331"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <!-- And Ads Adsense -->
+  
+  <div role="contentinfo">
+  <p>&#169; Copyright 2022 CodeIgniter Foundation -<a href="https://www.awdev.eu.org" > Pub Awdev Corporation.
+  <span class="lastupdated">Last updated on Jun 26, 2022.
+  </span></p>
+  </div>
+  
+  Built with <a href="https://devoloper.awdev.eu.org/codeIgniter4">Awdev Corporation CodeIgniter 4</a> Publication By
+  <a href="https://www.awdev.my.id/home.html">Awdev Corporation</a>
+  provided by <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CodeSandbox.html">Read the Docs on Codesandbox</a>.
+  
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
