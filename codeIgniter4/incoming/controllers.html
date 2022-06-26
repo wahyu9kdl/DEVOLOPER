@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controllers &mdash; CodeIgniter 4.2.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Controller Filters" href="filters.html" />
+    <link rel="prev" title="URI Routing" href="routing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #DD4814" >
+            <a href="../index.html">
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Composer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Running Your App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">CodeIgniter Repositories</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Build Your First Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create News Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">CodeIgniter4 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Models, Views, and Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Working With HTTP Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Security Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Building Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Working With Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Modeling Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Using CodeIgniter's Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Using Entity Classes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html#file-collections">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #DD4814" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/incoming/controllers.rst">Edit this page</a>
+
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Controllers and Routing</a> &raquo;</li>
+      <li>Controllers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="controllers">
+<h1>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline"></a></h1>
+<p>Controllers are the heart of your application, as they determine how HTTP requests should be handled.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-a-controller" id="id6">What is a Controller?</a></p></li>
+<li><p><a class="reference internal" href="#included-properties" id="id7">Included Properties</a></p>
+<ul>
+<li><p><a class="reference internal" href="#helpers" id="id8">Helpers</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#forcehttps" id="id9">forceHTTPS</a></p></li>
+<li><p><a class="reference internal" href="#validating-data" id="id10">Validating data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#this-validate" id="id11">$this-&gt;validate()</a></p></li>
+<li><p><a class="reference internal" href="#this-validatedata" id="id12">$this-&gt;validateData()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#private-methods" id="id13">Private methods</a></p></li>
+<li><p><a class="reference internal" href="#auto-routing-improved" id="id14">Auto Routing (Improved)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#let-s-try-it-hello-world" id="id15">Let’s try it: Hello World!</a></p></li>
+<li><p><a class="reference internal" href="#methods" id="id16">Methods</a></p></li>
+<li><p><a class="reference internal" href="#passing-uri-segments-to-your-methods" id="id17">Passing URI Segments to Your Methods</a></p></li>
+<li><p><a class="reference internal" href="#defining-a-default-controller" id="id18">Defining a Default Controller</a></p></li>
+<li><p><a class="reference internal" href="#organizing-your-controllers-into-sub-directories" id="id19">Organizing Your Controllers into Sub-directories</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#auto-routing-legacy" id="id20">Auto Routing (Legacy)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id21">Let’s try it: Hello World!</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id22">Methods</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id23">Passing URI Segments to Your Methods</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id24">Defining a Default Controller</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id25">Organizing Your Controllers into Sub-directories</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#remapping-method-calls" id="id26">Remapping Method Calls</a></p></li>
+<li><p><a class="reference internal" href="#extending-the-controller" id="id27">Extending the Controller</a></p></li>
+<li><p><a class="reference internal" href="#that-s-it" id="id28">That’s it!</a></p></li>
+</ul>
+</div>
+<section id="what-is-a-controller">
+<h2><a class="toc-backref" href="#id6">What is a Controller?</a><a class="headerlink" href="#what-is-a-controller" title="Permalink to this headline"></a></h2>
+<p>A Controller is simply a class file that handles a HTTP request. <a class="reference internal" href="routing.html"><span class="doc">URI Routing</span></a> associates a URI with a controller.</p>
+</section>
+<section id="included-properties">
+<h2><a class="toc-backref" href="#id7">Included Properties</a><a class="headerlink" href="#included-properties" title="Permalink to this headline"></a></h2>
+<p>Every controller you create should extend <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code> class.
+This class provides several features that are available to all of your controllers.</p>
+<p><strong>Request Object</strong></p>
+<p>The application’s main <a class="reference internal" href="incomingrequest.html"><span class="doc">Request Instance</span></a> is always available
+as a class property, <code class="docutils literal notranslate"><span class="pre">$this-&gt;request</span></code>.</p>
+<p><strong>Response Object</strong></p>
+<p>The application’s main <a class="reference internal" href="../outgoing/response.html"><span class="doc">Response Instance</span></a> is always available
+as a class property, <code class="docutils literal notranslate"><span class="pre">$this-&gt;response</span></code>.</p>
+<p><strong>Logger Object</strong></p>
+<p>An instance of the <a class="reference internal" href="../general/logging.html"><span class="doc">Logger</span></a> class is available as a class property,
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;logger</span></code>.</p>
+<section id="helpers">
+<h3><a class="toc-backref" href="#id8">Helpers</a><a class="headerlink" href="#helpers" title="Permalink to this headline"></a></h3>
+<p>You can define an array of helper files as a class property. Whenever the controller is loaded
+these helper files will be automatically loaded into memory so that you can use their methods anywhere
+inside the controller:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$helpers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;form&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="forcehttps">
+<span id="controllers-validating-data"></span><h2><a class="toc-backref" href="#id9">forceHTTPS</a><a class="headerlink" href="#forcehttps" title="Permalink to this headline"></a></h2>
+<p>A convenience method for forcing a method to be accessed via HTTPS is available within all
+controllers:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isSecure</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forceHTTPS</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By default, and in modern browsers that support the HTTP Strict Transport Security header, this
+call should force the browser to convert non-HTTPS calls to HTTPS calls for one year. You can
+modify this by passing the duration (in seconds) as the first parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isSecure</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forceHTTPS</span><span class="p">(</span><span class="mi">31536000</span><span class="p">);</span> <span class="c1">// one year</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A number of <a class="reference internal" href="../general/common_functions.html"><span class="doc">time-based constants</span></a> are always available for you to use, including <code class="docutils literal notranslate"><span class="pre">YEAR</span></code>, <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>, and more.</p>
+</div>
+</section>
+<section id="validating-data">
+<span id="controller-validate"></span><h2><a class="toc-backref" href="#id10">Validating data</a><a class="headerlink" href="#validating-data" title="Permalink to this headline"></a></h2>
+<section id="this-validate">
+<h3><a class="toc-backref" href="#id11">$this-&gt;validate()</a><a class="headerlink" href="#this-validate" title="Permalink to this headline"></a></h3>
+<p>To simplify data checking, the controller also provides the convenience method <code class="docutils literal notranslate"><span class="pre">validate()</span></code>.
+The method accepts an array of rules in the first parameter,
+and in the optional second parameter, an array of custom error messages to display
+if the items are not valid. Internally, this uses the controller’s
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;request</span></code> instance to get the data to be validated.
+The <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation Library docs</span></a> have details on
+rule and message array formats, as well as available rules:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">updateUser</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$userID</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+            <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;required|is_unique[users.email,id,</span><span class="si">{</span><span class="nv">$userID</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|alpha_numeric_spaces&#39;</span><span class="p">,</span>
+        <span class="p">]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;users/update&#39;</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">(),</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// do something here if successful...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you find it simpler to keep the rules in the configuration file, you can replace
+the <code class="docutils literal notranslate"><span class="pre">$rules</span></code> array with the name of the group as defined in <code class="docutils literal notranslate"><span class="pre">Config\Validation.php</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">updateUser</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$userID</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="s1">&#39;userRules&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;users/update&#39;</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">(),</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// do something here if successful...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Validation can also be handled automatically in the model, but sometimes it’s easier to do it in the controller. Where is up to you.</p>
+</div>
+</section>
+<section id="this-validatedata">
+<h3><a class="toc-backref" href="#id12">$this-&gt;validateData()</a><a class="headerlink" href="#this-validatedata" title="Permalink to this headline"></a></h3>
+<p>Sometimes you may want to check the controller method parameters or other custom data.
+In that case, you can use the <code class="docutils literal notranslate"><span class="pre">$this-&gt;validateData()</span></code> method.
+The method accepts an array of data to validate in the first parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StoreController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">product</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;id&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">),</span>
+        <span class="p">];</span>
+
+        <span class="nv">$rule</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;id&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[255]&#39;</span><span class="p">,</span>
+        <span class="p">];</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validateData</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$rule</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="private-methods">
+<h2><a class="toc-backref" href="#id13">Private methods</a><a class="headerlink" href="#private-methods" title="Permalink to this headline"></a></h2>
+<p>In some cases, you may want certain methods hidden from public access.
+To achieve this, simply declare the method as <code class="docutils literal notranslate"><span class="pre">private</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code>.
+That will prevent it from being served by a URL request. For example,
+if you were to define a method like this for the <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> controller:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">utility</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// some code</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>then trying to access it using the following URL will not work:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">utility</span><span class="o">/</span>
+</pre></div>
+</div>
+</section>
+<section id="auto-routing-improved">
+<span id="controller-auto-routing-improved"></span><h2><a class="toc-backref" href="#id14">Auto Routing (Improved)</a><a class="headerlink" href="#auto-routing-improved" title="Permalink to this headline"></a></h2>
+<p>Since v4.2.0, the new more secure Auto Routing has been introduced.</p>
+<p>This section describes the functionality of the new auto-routing.
+It automatically routes an HTTP request, and executes the corresponding controller method
+without route definitions.</p>
+<p>Since v4.2.0, the auto-routing is disabled by default. To use it, see <a class="reference internal" href="routing.html#enabled-auto-routing-improved"><span class="std std-ref">Enable Auto Routing</span></a>.</p>
+<p>Consider this URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>In the above example, CodeIgniter would attempt to find a controller named <code class="docutils literal notranslate"><span class="pre">App\Controllers\Helloworld</span></code> and load it, when auto-routing is enabled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a controller’s short name matches the first segment of a URI, it will be loaded.</p>
+</div>
+<section id="let-s-try-it-hello-world">
+<h3><a class="toc-backref" href="#id15">Let’s try it: Hello World!</a><a class="headerlink" href="#let-s-try-it-hello-world" title="Permalink to this headline"></a></h3>
+<p>Let’s create a simple controller so you can see it in action. Using your text editor, create a file called <strong>Helloworld.php</strong>,
+and put the following code in it. You will notice that the <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> Controller is extending the <code class="docutils literal notranslate"><span class="pre">BaseController</span></code>. you can
+also extend the <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code> if you do not need the functionality of the BaseController.</p>
+<p>The BaseController provides a convenient place for loading components and performing functions that are needed by all your
+controllers. You can extend this class in any new controller.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIndex</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then save the file to your <strong>app/Controllers/</strong> directory.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The file must be called <strong>Helloworld.php</strong>, with a capital <code class="docutils literal notranslate"><span class="pre">H</span></code>. Controller class names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A controller method that will be executed by Auto Routing (Improved) needs HTTP verb (<code class="docutils literal notranslate"><span class="pre">get</span></code>, <code class="docutils literal notranslate"><span class="pre">post</span></code>, <code class="docutils literal notranslate"><span class="pre">put</span></code>, etc.) prefix like <code class="docutils literal notranslate"><span class="pre">getIndex()</span></code>, <code class="docutils literal notranslate"><span class="pre">postCreate()</span></code>.</p>
+</div>
+<p>Now visit your site using a URL similar to this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span>
+</pre></div>
+</div>
+<p>If you did it right you should see:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">!</span>
+</pre></div>
+</div>
+<p>This is valid:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is <strong>not</strong> valid:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is <strong>not</strong> valid:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HelloWorld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also, always make sure your controller extends the parent controller
+class so that it can inherit all its methods.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The system will attempt to match the URI against Controllers by matching each segment against
+folders/files in <strong>app/Controllers/</strong>, when a match wasn’t found against defined routes.
+That’s why your folders/files MUST start with a capital letter and the rest MUST be lowercase.</p>
+<p>Here is an example based on PSR-4 Autoloader:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Folder and file structure:</span>
+<span class="cm"> * \&lt;NamespaceName&gt;(\&lt;SubNamespaceNames&gt;)*\&lt;ClassName&gt;</span>
+<span class="cm"> */</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;helloworld&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\HelloWorld::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you want another naming convention you need to manually define it using the
+<a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Defined Route Routing</span></a>.</p>
+</div>
+</section>
+<section id="methods">
+<h3><a class="toc-backref" href="#id16">Methods</a><a class="headerlink" href="#methods" title="Permalink to this headline"></a></h3>
+<p>In the above example, the method name is <code class="docutils literal notranslate"><span class="pre">getIndex()</span></code>.
+The method (HTTP verb + <code class="docutils literal notranslate"><span class="pre">Index()</span></code>) is loaded if the <strong>second segment</strong> of the URI is empty.</p>
+<p><strong>The second segment of the URI determines which method in the
+controller gets called.</strong></p>
+<p>Let’s try it. Add a new method to your controller:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIndex</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getComment</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;I am not flat!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now load the following URL to see the <code class="docutils literal notranslate"><span class="pre">getComment()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">comment</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>You should see your new message.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For security reasons be sure to declare any new utility methods as <code class="docutils literal notranslate"><span class="pre">protected</span></code> or <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
+</div>
+</section>
+<section id="passing-uri-segments-to-your-methods">
+<h3><a class="toc-backref" href="#id17">Passing URI Segments to Your Methods</a><a class="headerlink" href="#passing-uri-segments-to-your-methods" title="Permalink to this headline"></a></h3>
+<p>If your URI contains more than two segments they will be passed to your
+method as parameters.</p>
+<p>For example, let’s say you have a URI like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">sandals</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<p>Your method will be passed URI segments 3 and 4 (<code class="docutils literal notranslate"><span class="pre">'sandals'</span></code> and <code class="docutils literal notranslate"><span class="pre">'123'</span></code>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getShoes</span><span class="p">(</span><span class="nv">$sandals</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$sandals</span> <span class="o">.</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-a-default-controller">
+<h3><a class="toc-backref" href="#id18">Defining a Default Controller</a><a class="headerlink" href="#defining-a-default-controller" title="Permalink to this headline"></a></h3>
+<p>CodeIgniter can be told to load a default controller when a URI is not
+present, as will be the case when only your site root URL is requested. Let’s try it
+with the <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> controller.</p>
+<p>To specify a default controller open your <strong>app/Config/Routes.php</strong>
+file and set this variable:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setDefaultController</span><span class="p">(</span><span class="s1">&#39;Helloworld&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> is the name of the controller class you want to be used.</p>
+<p>A few lines further down <strong>Routes.php</strong> in the “Route Definitions” section, comment out the line:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you now browse to your site without specifying any URI segments you’ll
+see the “Hello World” message.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The line <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('/',</span> <span class="pre">'Home::index');</span></code> is an optimization that you will want to use in a “real-world” app. But for demonstration purposes we don’t want to use that feature. <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get()</span></code> is explained in <a class="reference internal" href="routing.html"><span class="doc">URI Routing</span></a></p>
+</div>
+<p>For more information, please refer to the <a class="reference internal" href="routing.html#routes-configuration-options"><span class="std std-ref">Routes Configuration Options</span></a> section of the
+<a class="reference internal" href="routing.html"><span class="doc">URI Routing</span></a> documentation.</p>
+</section>
+<section id="organizing-your-controllers-into-sub-directories">
+<h3><a class="toc-backref" href="#id19">Organizing Your Controllers into Sub-directories</a><a class="headerlink" href="#organizing-your-controllers-into-sub-directories" title="Permalink to this headline"></a></h3>
+<p>If you are building a large application you might want to hierarchically
+organize or structure your controllers into sub-directories. CodeIgniter
+permits you to do this.</p>
+<p>Simply create sub-directories under the main <strong>app/Controllers/</strong>,
+and place your controller classes within them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Folder names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<p>When using this feature the first segment of your URI must
+specify the folder. For example, let’s say you have a controller located here:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="o">/</span><span class="nx">Controllers</span><span class="o">/</span><span class="nx">Products</span><span class="o">/</span><span class="nx">Shoes</span><span class="o">.</span><span class="nx">php</span>
+</pre></div>
+</div>
+<p>To call the above controller your URI will look something like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">show</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You cannot have directories with the same name in <strong>app/Controllers/</strong> and <strong>public/</strong>.
+This is because if there is a directory, the web server will search for it and
+it will not be routed to CodeIgniter.</p>
+</div>
+<p>Each of your sub-directories may contain a default controller which will be
+called if the URL contains <em>only</em> the sub-directory. Simply put a controller
+in there that matches the name of your default controller as specified in
+your <strong>app/Config/Routes.php</strong> file.</p>
+<p>CodeIgniter also permits you to map your URIs using its <a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Defined Route Routing</span></a>..</p>
+</section>
+</section>
+<section id="auto-routing-legacy">
+<span id="controller-auto-routing"></span><h2><a class="toc-backref" href="#id20">Auto Routing (Legacy)</a><a class="headerlink" href="#auto-routing-legacy" title="Permalink to this headline"></a></h2>
+<p>This section describes the functionality of Auto Routing (Legacy) that is a routing system from CodeIgniter 3.
+It automatically routes an HTTP request, and executes the corresponding controller method
+without route definitions. The auto-routing is disabled by default.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To prevent misconfiguration and miscoding, we recommend that you do not use
+Auto Routing (Legacy). It is easy to create vulnerable apps where controller filters
+or CSRF protection are bypassed.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Auto Routing (Legacy) routes a HTTP request with <strong>any</strong> HTTP method to a controller method.</p>
+</div>
+<p>Consider this URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>In the above example, CodeIgniter would attempt to find a controller named <strong>Helloworld.php</strong> and load it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a controller’s short name matches the first segment of a URI, it will be loaded.</p>
+</div>
+<section id="id1">
+<h3><a class="toc-backref" href="#id21">Let’s try it: Hello World!</a><a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p>Let’s create a simple controller so you can see it in action. Using your text editor, create a file called <strong>Helloworld.php</strong>,
+and put the following code in it. You will notice that the <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> Controller is extending the <code class="docutils literal notranslate"><span class="pre">BaseController</span></code>. you can
+also extend the <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code> if you do not need the functionality of the BaseController.</p>
+<p>The BaseController provides a convenient place for loading components and performing functions that are needed by all your
+controllers. You can extend this class in any new controller.</p>
+<p>For security reasons be sure to declare any new utility methods as <code class="docutils literal notranslate"><span class="pre">protected</span></code> or <code class="docutils literal notranslate"><span class="pre">private</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then save the file to your <strong>app/Controllers/</strong> directory.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The file must be called <strong>Helloworld.php</strong>, with a capital <code class="docutils literal notranslate"><span class="pre">H</span></code>. Controller class names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<p>Now visit your site using a URL similar to this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span>
+</pre></div>
+</div>
+<p>If you did it right you should see:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">!</span>
+</pre></div>
+</div>
+<p>This is valid:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is <strong>not</strong> valid:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is <strong>not</strong> valid:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HelloWorld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also, always make sure your controller extends the parent controller
+class so that it can inherit all its methods.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The system will attempt to match the URI against Controllers by matching each segment against
+folders/files in <strong>app/Controllers/</strong>, when a match wasn’t found against defined routes.
+That’s why your folders/files MUST start with a capital letter and the rest MUST be lowercase.</p>
+<p>Here is an example based on PSR-4 Autoloader:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Folder and file structure:</span>
+<span class="cm"> * \&lt;NamespaceName&gt;(\&lt;SubNamespaceNames&gt;)*\&lt;ClassName&gt;</span>
+<span class="cm"> */</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;helloworld&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\HelloWorld::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you want another naming convention you need to manually define it using the
+<a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Defined Route Routing</span></a>.</p>
+</div>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id22">Methods</a><a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<p>In the above example, the method name is <code class="docutils literal notranslate"><span class="pre">index()</span></code>. The <code class="docutils literal notranslate"><span class="pre">index()</span></code> method
+is always loaded by default if the <strong>second segment</strong> of the URI is
+empty. Another way to show your “Hello World” message would be this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">index</span><span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>The second segment of the URI determines which method in the
+controller gets called.</strong></p>
+<p>Let’s try it. Add a new method to your controller:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">comment</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;I am not flat!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now load the following URL to see the comment method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">comment</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>You should see your new message.</p>
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id23">Passing URI Segments to Your Methods</a><a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<p>If your URI contains more than two segments they will be passed to your
+method as parameters.</p>
+<p>For example, let’s say you have a URI like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">sandals</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<p>Your method will be passed URI segments 3 and 4 (<code class="docutils literal notranslate"><span class="pre">'sandals'</span></code> and <code class="docutils literal notranslate"><span class="pre">'123'</span></code>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">shoes</span><span class="p">(</span><span class="nv">$sandals</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$sandals</span> <span class="o">.</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id24">Defining a Default Controller</a><a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<p>CodeIgniter can be told to load a default controller when a URI is not
+present, as will be the case when only your site root URL is requested. Let’s try it
+with the <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> controller.</p>
+<p>To specify a default controller open your <strong>app/Config/Routes.php</strong>
+file and set this variable:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setDefaultController</span><span class="p">(</span><span class="s1">&#39;Helloworld&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> is the name of the controller class you want to be used.</p>
+<p>A few lines further down <strong>Routes.php</strong> in the “Route Definitions” section, comment out the line:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you now browse to your site without specifying any URI segments you’ll
+see the “Hello World” message.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The line <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('/',</span> <span class="pre">'Home::index');</span></code> is an optimization that you will want to use in a “real-world” app. But for demonstration purposes we don’t want to use that feature. <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get()</span></code> is explained in <a class="reference internal" href="routing.html"><span class="doc">URI Routing</span></a></p>
+</div>
+<p>For more information, please refer to the <a class="reference internal" href="routing.html#routes-configuration-options"><span class="std std-ref">Routes Configuration Options</span></a> section of the
+<a class="reference internal" href="routing.html"><span class="doc">URI Routing</span></a> documentation.</p>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id25">Organizing Your Controllers into Sub-directories</a><a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<p>If you are building a large application you might want to hierarchically
+organize or structure your controllers into sub-directories. CodeIgniter
+permits you to do this.</p>
+<p>Simply create sub-directories under the main <strong>app/Controllers/</strong>,
+and place your controller classes within them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Folder names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<p>When using this feature the first segment of your URI must
+specify the folder. For example, let’s say you have a controller located here:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="o">/</span><span class="nx">Controllers</span><span class="o">/</span><span class="nx">Products</span><span class="o">/</span><span class="nx">Shoes</span><span class="o">.</span><span class="nx">php</span>
+</pre></div>
+</div>
+<p>To call the above controller your URI will look something like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">show</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You cannot have directories with the same name in <strong>app/Controllers/</strong> and <strong>public/</strong>.
+This is because if there is a directory, the web server will search for it and
+it will not be routed to CodeIgniter.</p>
+</div>
+<p>Each of your sub-directories may contain a default controller which will be
+called if the URL contains <em>only</em> the sub-directory. Simply put a controller
+in there that matches the name of your default controller as specified in
+your <strong>app/Config/Routes.php</strong> file.</p>
+<p>CodeIgniter also permits you to map your URIs using its <a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Defined Route Routing</span></a>..</p>
+</section>
+</section>
+<section id="remapping-method-calls">
+<h2><a class="toc-backref" href="#id26">Remapping Method Calls</a><a class="headerlink" href="#remapping-method-calls" title="Permalink to this headline"></a></h2>
+<p>As noted above, the second segment of the URI typically determines which
+method in the controller gets called. CodeIgniter permits you to override
+this behavior through the use of the <code class="docutils literal notranslate"><span class="pre">_remap()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Some code here...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If your controller contains a method named <code class="docutils literal notranslate"><span class="pre">_remap()</span></code>,
+it will <strong>always</strong> get called regardless of what your URI contains. It
+overrides the normal behavior in which the URI determines which method
+is called, allowing you to define your own method routing rules.</p>
+</div>
+<p>The overridden method call (typically the second segment of the URI) will
+be passed as a parameter to the <code class="docutils literal notranslate"><span class="pre">_remap()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">(</span><span class="nv">$method</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$method</span> <span class="o">===</span> <span class="s1">&#39;some_method&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$method</span><span class="p">}();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">default_method</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Any extra segments after the method name are passed into <code class="docutils literal notranslate"><span class="pre">_remap()</span></code>. These parameters can be passed to the method
+to emulate CodeIgniter’s default behavior.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">(</span><span class="nv">$method</span><span class="p">,</span> <span class="o">...</span><span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$method</span> <span class="o">=</span> <span class="s1">&#39;process_&#39;</span> <span class="o">.</span> <span class="nv">$method</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">method_exists</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$method</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$method</span><span class="p">}(</span><span class="o">...</span><span class="nv">$params</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">throw</span> <span class="nx">\CodeIgniter\Exceptions\PageNotFoundException</span><span class="o">::</span><span class="na">forPageNotFound</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="extending-the-controller">
+<h2><a class="toc-backref" href="#id27">Extending the Controller</a><a class="headerlink" href="#extending-the-controller" title="Permalink to this headline"></a></h2>
+<p>If you want to extend the controller, see <a class="reference internal" href="../extending/basecontroller.html"><span class="doc">Extending the Controller</span></a>.</p>
+</section>
+<section id="that-s-it">
+<h2><a class="toc-backref" href="#id28">That’s it!</a><a class="headerlink" href="#that-s-it" title="Permalink to this headline"></a></h2>
+<p>That, in a nutshell, is all there is to know about controllers.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="routing.html" class="btn btn-neutral float-left" title="URI Routing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="filters.html" class="btn btn-neutral float-right" title="Controller Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <!-- Ads Adsense -->    
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+  crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+  style="display:block"
+  data-ad-format="autorelaxed"
+  data-ad-client="ca-pub-5295583488737876"
+  data-ad-slot="5470375331"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <!-- And Ads Adsense -->
+  
+  <div role="contentinfo">
+  <p>&#169; Copyright 2022 CodeIgniter Foundation -<a href="https://www.awdev.eu.org" > Pub Awdev Corporation.
+  <span class="lastupdated">Last updated on Jun 26, 2022.
+  </span></p>
+  </div>
+  
+  Built with <a href="https://devoloper.awdev.eu.org/codeIgniter4">Awdev Corporation CodeIgniter 4</a> Publication By
+  <a href="https://www.awdev.my.id/home.html">Awdev Corporation</a>
+  provided by <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CodeSandbox.html">Read the Docs on Codesandbox</a>.
+  
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

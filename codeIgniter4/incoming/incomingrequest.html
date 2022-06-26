@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IncomingRequest Class &mdash; CodeIgniter 4.2.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Content Negotiation" href="content_negotiation.html" />
+    <link rel="prev" title="Request Class" href="request.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #DD4814" >
+            <a href="../index.html">
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Composer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Running Your App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">CodeIgniter Repositories</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Build Your First Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create News Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">CodeIgniter4 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Models, Views, and Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Working With HTTP Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Security Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Building Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Working With Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Modeling Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Using CodeIgniter's Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Using Entity Classes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html#file-collections">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #DD4814" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/incoming/incomingrequest.rst">Edit this page</a>
+
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Controllers and Routing</a> &raquo;</li>
+      <li>IncomingRequest Class</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="incomingrequest-class">
+<h1>IncomingRequest Class<a class="headerlink" href="#incomingrequest-class" title="Permalink to this headline"></a></h1>
+<p>The IncomingRequest class provides an object-oriented representation of an HTTP request from a client, like a browser.
+It extends from, and has access to all the methods of the <a class="reference internal" href="request.html"><span class="doc">Request</span></a> and <a class="reference internal" href="message.html"><span class="doc">Message</span></a>
+classes, in addition to the methods listed below.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#accessing-the-request" id="id1">Accessing the Request</a></p></li>
+<li><p><a class="reference internal" href="#determining-request-type" id="id2">Determining Request Type</a></p></li>
+<li><p><a class="reference internal" href="#retrieving-input" id="id3">Retrieving Input</a></p></li>
+<li><p><a class="reference internal" href="#retrieving-headers" id="id4">Retrieving Headers</a></p></li>
+<li><p><a class="reference internal" href="#the-request-url" id="id5">The Request URL</a></p></li>
+<li><p><a class="reference internal" href="#uploaded-files" id="id6">Uploaded Files</a></p></li>
+<li><p><a class="reference internal" href="#content-negotiation" id="id7">Content Negotiation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#class-reference" id="id8">Class Reference</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="accessing-the-request">
+<h2><a class="toc-backref" href="#id1">Accessing the Request</a><a class="headerlink" href="#accessing-the-request" title="Permalink to this headline"></a></h2>
+<p>An instance of the request class already populated for you if the current class is a descendant of
+<code class="docutils literal notranslate"><span class="pre">CodeIgniter\Controller</span></code> and can be accessed as a class property:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isAJAX</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you are not within a controller, but still need access to the application’s Request object, you can
+get a copy of it through the <a class="reference internal" href="../concepts/services.html"><span class="doc">Services class</span></a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">request</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>It’s preferable, though, to pass the request in as a dependency if the class is anything other than
+the controller, where you can save it as a class property:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\HTTP\RequestInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SomeClass</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$request</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">RequestInterface</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span> <span class="o">=</span> <span class="nv">$request</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SomeClass</span><span class="p">(</span><span class="nx">\Config\Services</span><span class="o">::</span><span class="na">request</span><span class="p">());</span>
+</pre></div>
+</div>
+</section>
+<section id="determining-request-type">
+<h2><a class="toc-backref" href="#id2">Determining Request Type</a><a class="headerlink" href="#determining-request-type" title="Permalink to this headline"></a></h2>
+<p>A request could be of several types, including an AJAX request or a request from the command line. This can
+be checked with the <code class="docutils literal notranslate"><span class="pre">isAJAX()</span></code> and <code class="docutils literal notranslate"><span class="pre">isCLI()</span></code> methods:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Check for AJAX request.</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isAJAX</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// Check for CLI Request</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isCLI</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">isAJAX()</span></code> method depends on the <code class="docutils literal notranslate"><span class="pre">X-Requested-With</span></code> header,
+which in some cases is not sent by default in XHR requests via JavaScript (i.e., fetch).
+See the <a class="reference internal" href="../general/ajax.html"><span class="doc">AJAX Requests</span></a> section on how to avoid this problem.</p>
+</div>
+<p>You can check the HTTP method that this request represents with the <code class="docutils literal notranslate"><span class="pre">method()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Returns &#39;post&#39;</span>
+<span class="nv">$method</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>By default, the method is returned as a lower-case string (i.e., ‘get’, ‘post’, etc). You can get an
+uppercase version by wrapping the call in <code class="docutils literal notranslate"><span class="pre">strtoupper()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Returns &#39;GET&#39;</span>
+<span class="nv">$method</span> <span class="o">=</span> <span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>You can also check if the request was made through and HTTPS connection with the <code class="docutils literal notranslate"><span class="pre">isSecure()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isSecure</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">force_https</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="retrieving-input">
+<h2><a class="toc-backref" href="#id3">Retrieving Input</a><a class="headerlink" href="#retrieving-input" title="Permalink to this headline"></a></h2>
+<p>You can retrieve input from $_SERVER, $_GET, $_POST, and $_ENV through the Request object.
+The data is not automatically filtered and returns the raw input data as passed in the request. The main
+advantages to using these methods instead of accessing them directly ($_POST[‘something’]), is that they
+will return null if the item doesn’t exist, and you can have the data filtered. This lets you conveniently
+use data without having to test whether an item exists first. In other words, normally you might do something
+like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$something</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With CodeIgniter’s built-in methods you can simply do this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$something</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> method will pull from $_REQUEST, so will return any data from $_GET, $POST, or $_COOKIE. While this
+is convenient, you will often need to use a more specific method, like:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getGet()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getPost()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getServer()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getCookie()</span></code></p></li>
+</ul>
+<p>In addition, there are a few utility methods for retrieving information from either $_GET or $_POST, while
+maintaining the ability to control the order you look for it:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getPostGet()</span></code> - checks $_POST first, then $_GET</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$request-&gt;getGetPost()</span></code> - checks $_GET first, then $_POST</p></li>
+</ul>
+<p><strong>Getting JSON data</strong></p>
+<p>You can grab the contents of php://input as a JSON stream with <code class="docutils literal notranslate"><span class="pre">getJSON()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This has no way of checking if the incoming data is valid JSON or not, you should only use this
+method if you know that you’re expecting JSON.</p>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$json</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getJSON</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>By default, this will return any objects in the JSON data as objects. If you want that converted to associative
+arrays, pass in <code class="docutils literal notranslate"><span class="pre">true</span></code> as the first parameter.</p>
+<p>The second and third parameters match up to the <code class="docutils literal notranslate"><span class="pre">depth</span></code> and <code class="docutils literal notranslate"><span class="pre">options</span></code> arguments of the
+<a class="reference external" href="https://www.php.net/manual/en/function.json-decode.php">json_decode</a> PHP function.</p>
+<p>If the incoming request has a <code class="docutils literal notranslate"><span class="pre">CONTENT_TYPE</span></code> header set to “application/json”, you can also use <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> to get
+the JSON stream. Using <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> in this way will always return an object.</p>
+<p><strong>Get Specific Data from JSON</strong></p>
+<p>You can get a specific piece of data from a JSON stream by passing a variable name into <code class="docutils literal notranslate"><span class="pre">getVar()</span></code> for the
+data that you want or you can use “dot” notation to dig into the JSON to get data that is not on the root level.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * With a request body of:</span>
+<span class="cm"> * {</span>
+<span class="cm"> *     &quot;foo&quot;: &quot;bar&quot;,</span>
+<span class="cm"> *     &quot;fizz&quot;: {</span>
+<span class="cm"> *         &quot;buzz&quot;: &quot;baz&quot;</span>
+<span class="cm"> *     }</span>
+<span class="cm"> * }</span>
+<span class="cm"> */</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="c1">// $data = &quot;bar&quot;</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;fizz.buzz&#39;</span><span class="p">);</span>
+<span class="c1">// $data = &quot;baz&quot;</span>
+</pre></div>
+</div>
+<p>If you want the result to be an associative array instead of an object, you can use <code class="docutils literal notranslate"><span class="pre">getJsonVar()</span></code> instead and pass
+true in the second parameter. This function can also be used if you can’t guarantee that the incoming request will have the
+correct <code class="docutils literal notranslate"><span class="pre">CONTENT_TYPE</span></code> header.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// With the same request as above</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getJsonVar</span><span class="p">(</span><span class="s1">&#39;fizz&#39;</span><span class="p">);</span>
+<span class="c1">// $data-&gt;buzz = &quot;baz&quot;</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getJsonVar</span><span class="p">(</span><span class="s1">&#39;fizz&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="c1">// $data = [&quot;buzz&quot; =&gt; &quot;baz&quot;]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the documentation for <code class="docutils literal notranslate"><span class="pre">dot_array_search()</span></code> in the <code class="docutils literal notranslate"><span class="pre">Array</span></code> helper for more information on “dot” notation.</p>
+</div>
+<p><strong>Retrieving Raw data (PUT, PATCH, DELETE)</strong></p>
+<p>Finally, you can grab the contents of php://input as a raw stream with <code class="docutils literal notranslate"><span class="pre">getRawInput()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getRawInput</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This will retrieve data and convert it to an array. Like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getRawInput</span><span class="p">());</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Outputs:</span>
+<span class="cm"> * [</span>
+<span class="cm"> *     &#39;Param1&#39; =&gt; &#39;Value1&#39;,</span>
+<span class="cm"> *     &#39;Param2&#39; =&gt; &#39;Value2&#39;,</span>
+<span class="cm"> * ]</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p><strong>Filtering Input Data</strong></p>
+<p>To maintain security of your application, you will want to filter all input as you access it. You can
+pass the type of filter to use as the second parameter of any of these methods. The native <code class="docutils literal notranslate"><span class="pre">filter_var()</span></code>
+function is used for the filtering. Head over to the PHP manual for a list of <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">valid
+filter types</a>.</p>
+<p>Filtering a POST variable would look like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_EMAIL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>All of the methods mentioned above support the filter type passed in as the second parameter, with the
+exception of <code class="docutils literal notranslate"><span class="pre">getJSON()</span></code>.</p>
+</section>
+<section id="retrieving-headers">
+<h2><a class="toc-backref" href="#id4">Retrieving Headers</a><a class="headerlink" href="#retrieving-headers" title="Permalink to this headline"></a></h2>
+<p>You can get access to any header that was sent with the request with the <code class="docutils literal notranslate"><span class="pre">headers()</span></code> method, which returns
+an array of all headers, with the key as the name of the header, and the value is an instance of
+<code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Header</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="p">());</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Outputs:</span>
+<span class="cm"> * [</span>
+<span class="cm"> *     &#39;Host&#39;          =&gt; CodeIgniter\HTTP\Header,</span>
+<span class="cm"> *     &#39;Cache-Control&#39; =&gt; CodeIgniter\HTTP\Header,</span>
+<span class="cm"> *     &#39;Accept&#39;        =&gt; CodeIgniter\HTTP\Header,</span>
+<span class="cm"> * ]</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>If you only need a single header, you can pass the name into the <code class="docutils literal notranslate"><span class="pre">header()</span></code> method. This will grab the
+specified header object in a case-insensitive manner if it exists. If not, then it will return <code class="docutils literal notranslate"><span class="pre">null</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// these are all equivalent</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;Host&#39;</span><span class="p">);</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;HOST&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can always use <code class="docutils literal notranslate"><span class="pre">hasHeader()</span></code> to see if the header existed in this request:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">hasHeader</span><span class="p">(</span><span class="s1">&#39;DNT&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// Don&#39;t track something...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you need the value of header as a string with all values on one line, you can use the <code class="docutils literal notranslate"><span class="pre">getHeaderLine()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Accept-Encoding: gzip, deflate, sdch</span>
+<span class="k">echo</span> <span class="s1">&#39;Accept-Encoding: &#39;</span> <span class="o">.</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="s1">&#39;accept-encoding&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you need the entire header, with the name and values in a single string, simply cast the header as a string:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$header</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-request-url">
+<h2><a class="toc-backref" href="#id5">The Request URL</a><a class="headerlink" href="#the-request-url" title="Permalink to this headline"></a></h2>
+<p>You can retrieve a <a class="reference internal" href="../libraries/uri.html"><span class="doc">URI</span></a> object that represents the current URI for this request through the
+<code class="docutils literal notranslate"><span class="pre">$request-&gt;getUri()</span></code> method. You can cast this object as a string to get a full URL for the current request:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>The object gives you full abilities to grab any part of the request on it’s own:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getScheme</span><span class="p">();</span>         <span class="c1">// http</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getAuthority</span><span class="p">();</span>      <span class="c1">// snoopy:password@example.com:88</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getUserInfo</span><span class="p">();</span>       <span class="c1">// snoopy:password</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getHost</span><span class="p">();</span>           <span class="c1">// example.com</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getPort</span><span class="p">();</span>           <span class="c1">// 88</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getPath</span><span class="p">();</span>           <span class="c1">// /path/to/page</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">();</span>          <span class="c1">// foo=bar&amp;bar=baz</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegments</span><span class="p">();</span>       <span class="c1">// [&#39;path&#39;, &#39;to&#39;, &#39;page&#39;]</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>       <span class="c1">// &#39;path&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getTotalSegments</span><span class="p">();</span>  <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>You can work with the current URI string (the path relative to your baseURL) using the <code class="docutils literal notranslate"><span class="pre">getPath()</span></code> and <code class="docutils literal notranslate"><span class="pre">setPath()</span></code> methods.
+Note that this relative path on the shared instance of <code class="docutils literal notranslate"><span class="pre">IncomingRequest</span></code> is what the <a class="reference internal" href="../helpers/url_helper.html"><span class="doc">URL Helper</span></a>
+functions use, so this is a helpful way to “spoof” an incoming request for testing:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Test\CIUnitTestCase</span><span class="p">;</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">MyMenuTest</span> <span class="k">extends</span> <span class="nx">CIUnitTestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testActiveLinkUsesCurrentUrl</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setPath</span><span class="p">(</span><span class="s1">&#39;users/list&#39;</span><span class="p">);</span>
+        <span class="nv">$menu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyMenu</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="s1">&#39;users/list&#39;</span><span class="p">,</span> <span class="nv">$menu</span><span class="o">-&gt;</span><span class="na">getActiveLink</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="uploaded-files">
+<h2><a class="toc-backref" href="#id6">Uploaded Files</a><a class="headerlink" href="#uploaded-files" title="Permalink to this headline"></a></h2>
+<p>Information about all uploaded files can be retrieved through <code class="docutils literal notranslate"><span class="pre">$request-&gt;getFiles()</span></code>, which returns an array of
+<code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Files\UploadedFile</span></code> instance. This helps to ease the pain of working with uploaded files,
+and uses best practices to minimize any security risks.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$files</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getFiles</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../libraries/uploaded_files.html#uploaded-files-accessing-files"><span class="std std-ref">Working with Uploaded Files</span></a> for the details.</p>
+<p>You can retrieve a single file uploaded on its own, based on the filename given in the HTML file input:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getFile</span><span class="p">(</span><span class="s1">&#39;userfile&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can retrieve an array of same-named files uploaded as part of a
+multi-file upload, based on the filename given in the HTML file input:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$files</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getFileMultiple</span><span class="p">(</span><span class="s1">&#39;userfile&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The files here correspond to <code class="docutils literal notranslate"><span class="pre">$_FILES</span></code>. Even if a user just clicks submit button of a form and does not upload any file, the file will still exist. You can check that the file was actually uploaded by the <code class="docutils literal notranslate"><span class="pre">isValid()</span></code> method in UploadedFile. See <a class="reference internal" href="../libraries/uploaded_files.html#verify-a-file"><span class="std std-ref">Verify a File</span></a> for more details.</p>
+</div>
+</section>
+<section id="content-negotiation">
+<h2><a class="toc-backref" href="#id7">Content Negotiation</a><a class="headerlink" href="#content-negotiation" title="Permalink to this headline"></a></h2>
+<p>You can easily negotiate content types with the request through the <code class="docutils literal notranslate"><span class="pre">negotiate()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$language</span>    <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;en-US&#39;</span><span class="p">,</span> <span class="s1">&#39;en-GB&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">,</span> <span class="s1">&#39;es-mx&#39;</span><span class="p">]);</span>
+<span class="nv">$imageType</span>   <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;image/png&#39;</span><span class="p">,</span> <span class="s1">&#39;image/jpg&#39;</span><span class="p">]);</span>
+<span class="nv">$charset</span>     <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;charset&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span> <span class="s1">&#39;UTF-16&#39;</span><span class="p">]);</span>
+<span class="nv">$contentType</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;text/html&#39;</span><span class="p">,</span> <span class="s1">&#39;text/xml&#39;</span><span class="p">]);</span>
+<span class="nv">$encoding</span>    <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">negotiate</span><span class="p">(</span><span class="s1">&#39;encoding&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="s1">&#39;compress&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="content_negotiation.html"><span class="doc">Content Negotiation</span></a> page for more details.</p>
+<section id="class-reference">
+<h3><a class="toc-backref" href="#id8">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition to the methods listed here, this class inherits the methods from the
+<a class="reference internal" href="request.html"><span class="doc">Request Class</span></a> and the <a class="reference internal" href="message.html"><span class="doc">Message Class</span></a>.</p>
+</div>
+<p>The methods provided by the parent classes that are available are:</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::getIPAddress()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::isValidIP()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::getMethod()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::setMethod()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::getServer()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::getEnv()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::setGlobal()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Request::fetchGlobal()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::getBody()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setBody()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::appendBody()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::populateHeaders()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::headers()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::header()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::hasHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::getHeaderLine()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::removeHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::appendHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::prependHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::getProtocolVersion()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setProtocolVersion()</span></code></p></li>
+</ul>
+<dl class="php class">
+<dt class="sig sig-object php">
+<span class="sig-name descname"><span class="pre">CodeIgniter\\HTTP\\IncomingRequest</span></span></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="isCLI">
+<span class="sig-name descname"><span class="pre">isCLI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isCLI" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the request was initiated from the command line, otherwise false.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="isAJAX">
+<span class="sig-name descname"><span class="pre">isAJAX</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isAJAX" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the request is an AJAX request, otherwise false.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="isSecure">
+<span class="sig-name descname"><span class="pre">isSecure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isSecure" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the request is an HTTPS request, otherwise false.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getVar">
+<span class="sig-name descname"><span class="pre">getVar</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getVar" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The name of the variable/key to look for.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Flags to apply. A list of flags can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$_REQUEST if no parameters supplied, otherwise the REQUEST value if found, or null if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed|null</span></code></span></p>
+</dd>
+</dl>
+<p>The first parameter will contain the name of the REQUEST item you are looking for:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The method returns null if the item you are attempting to retrieve
+does not exist.</p>
+<p>The second optional parameter lets you run the data through the PHP’s
+filters. Pass in the desired filter type as the second parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To return an array of all POST items call without any parameters.</p>
+<p>To return all POST items and pass them through the filter, set the
+first parameter to null while setting the second parameter to the filter
+you want to use:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span>
+<span class="c1">// returns all POST items with string sanitation</span>
+</pre></div>
+</div>
+<p>To return an array of multiple POST parameters, pass all the required keys as an array:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">([</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Same rule applied here, to retrieve the parameters with filtering, set the second parameter to
+the filter type to apply:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">([</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">],</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getGet">
+<span class="sig-name descname"><span class="pre">getGet</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getGet" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The name of the variable/key to look for.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be
+found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Flags to apply. A list of flags can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$_GET if no parameters supplied, otherwise the GET value if found, or null if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed|null</span></code></span></p>
+</dd>
+</dl>
+<p>This method is identical to <code class="docutils literal notranslate"><span class="pre">getVar()</span></code>, only it fetches GET data.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getPost">
+<span class="sig-name descname"><span class="pre">getPost</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getPost" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The name of the variable/key to look for.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be
+found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Flags to apply. A list of flags can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$_POST if no parameters supplied, otherwise the POST value if found, or null if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><p>mixed|null</p>
+<p>This method is identical to <code class="docutils literal notranslate"><span class="pre">getVar()</span></code>, only it fetches POST data.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getPostGet">
+<span class="sig-name descname"><span class="pre">getPostGet</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getPostGet" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The name of the variable/key to look for.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be
+found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Flags to apply. A list of flags can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$_POST if no parameters supplied, otherwise the POST value if found, or null if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed|null</span></code></span></p>
+</dd>
+</dl>
+<p>This method works pretty much the same way as <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> and <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only combined.
+It will search through both POST and GET streams for data, looking first in POST, and
+then in GET:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPostGet</span><span class="p">(</span><span class="s1">&#39;field1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getGetPost">
+<span class="sig-name descname"><span class="pre">getGetPost</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getGetPost" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The name of the variable/key to look for.</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be
+found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Flags to apply. A list of flags can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$_POST if no parameters supplied, otherwise the POST value if found, or null if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed|null</span></code></span></p>
+</dd>
+</dl>
+<p>This method works pretty much the same way as <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> and <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only combined.
+It will search through both POST and GET streams for data, looking first in GET, and
+then in POST:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getGetPost</span><span class="p">(</span><span class="s1">&#39;field1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php">
+<span class="sig-name descname"><span class="pre">getCookie</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – COOKIE name</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be
+found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Flags to apply. A list of flags can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$_COOKIE if no parameters supplied, otherwise the COOKIE value if found or null if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span></p>
+</dd>
+</dl>
+<p>This method is identical to <code class="docutils literal notranslate"><span class="pre">getPost()</span></code> and <code class="docutils literal notranslate"><span class="pre">getGet()</span></code>, only it fetches cookie data:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">(</span><span class="s1">&#39;some_cookie&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">(</span><span class="s1">&#39;some_cookie&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_FULL_SPECIAL_CHARS</span><span class="p">);</span> <span class="c1">// with filter</span>
+</pre></div>
+</div>
+<p>To return an array of multiple cookie values, pass all the required keys as an array:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">([</span><span class="s1">&#39;some_cookie&#39;</span><span class="p">,</span> <span class="s1">&#39;some_cookie2&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike the <a class="reference internal" href="../helpers/cookie_helper.html"><span class="doc">Cookie Helper</span></a>
+function <a class="reference internal" href="../helpers/cookie_helper.html#get_cookie" title="get_cookie"><code class="xref php php-func docutils literal notranslate"><span class="pre">get_cookie()</span></code></a>, this method does NOT prepend
+your configured <code class="docutils literal notranslate"><span class="pre">Config\Cookie::$prefix</span></code> value.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php">
+<span class="sig-name descname"><span class="pre">getServer</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – Value name</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be
+found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Flags to apply. A list of flags can be found
+<a class="reference external" href="https://www.php.net/manual/en/filter.filters.flags.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$_SERVER item value if found, null if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span></p>
+</dd>
+</dl>
+<p>This method is identical to the <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> and <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code>
+methods, only it fetches getServer data (<code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To return an array of multiple <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> values, pass all the required keys
+as an array.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">([</span><span class="s1">&#39;SERVER_PROTOCOL&#39;</span><span class="p">,</span> <span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getUserAgent">
+<span class="sig-name descname"><span class="pre">getUserAgent</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getUserAgent" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The type of filter to apply. A list of filters can be
+found <a class="reference external" href="https://www.php.net/manual/en/filter.filters.php">here</a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The User Agent string, as found in the SERVER data, or null if not found.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span></p>
+</dd>
+</dl>
+<p>This method returns the User Agent string from the SERVER data:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getUserAgent</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getPath">
+<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getPath" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current URI path relative to <code class="docutils literal notranslate"><span class="pre">$_SERVER['SCRIPT_NAME']</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
+</dd>
+</dl>
+<p>This is the safest method to determine the “current URI”, since <code class="docutils literal notranslate"><span class="pre">IncomingRequest::$uri</span></code>
+may not be aware of the complete App configuration for base URLs.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="setPath">
+<span class="sig-name descname"><span class="pre">setPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#setPath" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The relative path to use as the current URI</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This Incoming Request</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">IncomingRequest</span></code></span></p>
+</dd>
+</dl>
+<p>Used mostly just for testing purposes, this allows you to set the relative path
+value for the current request instead of relying on URI detection. This will also
+update the underlying <code class="docutils literal notranslate"><span class="pre">URI</span></code> instance with the new path.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="request.html" class="btn btn-neutral float-left" title="Request Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="content_negotiation.html" class="btn btn-neutral float-right" title="Content Negotiation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <!-- Ads Adsense -->    
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+  crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+  style="display:block"
+  data-ad-format="autorelaxed"
+  data-ad-client="ca-pub-5295583488737876"
+  data-ad-slot="5470375331"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <!-- And Ads Adsense -->
+  
+  <div role="contentinfo">
+  <p>&#169; Copyright 2022 CodeIgniter Foundation -<a href="https://www.awdev.eu.org" > Pub Awdev Corporation.
+  <span class="lastupdated">Last updated on Jun 26, 2022.
+  </span></p>
+  </div>
+  
+  Built with <a href="https://devoloper.awdev.eu.org/codeIgniter4">Awdev Corporation CodeIgniter 4</a> Publication By
+  <a href="https://www.awdev.my.id/home.html">Awdev Corporation</a>
+  provided by <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CodeSandbox.html">Read the Docs on Codesandbox</a>.
+  
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
