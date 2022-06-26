@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTP Responses &mdash; CodeIgniter 4.2.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/citheme.js"></script>
+        <script src="../_static/js/carbon.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Response Trait" href="api_responses.html" />
+    <link rel="prev" title="HTML Table Class" href="table.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #DD4814" >
+            <a href="../index.html">
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License Agreement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Composer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Running Your App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Change Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">CodeIgniter Repositories</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Build Your First Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create News Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">CodeIgniter4 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Models, Views, and Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Working With HTTP Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Security Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Building Responses</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_decorators.html">View Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Working With Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Modeling Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Using CodeIgniter's Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Using Entity Classes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Database Commands</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html#file-collections">File Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Testing Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">CLI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Running Controllers via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Creating Spark Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Official Packages</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #DD4814" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/outgoing/response.rst">Edit this page</a>
+
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Building Responses</a> &raquo;</li>
+      <li>HTTP Responses</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="http-responses">
+<h1>HTTP Responses<a class="headerlink" href="#http-responses" title="Permalink to this headline"></a></h1>
+<p>The Response class extends the <a class="reference internal" href="../incoming/message.html"><span class="doc">HTTP Message Class</span></a> with methods only appropriate for
+a server responding to the client that called it.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#working-with-the-response" id="id2">Working with the Response</a></p>
+<ul>
+<li><p><a class="reference internal" href="#setting-the-output" id="id3">Setting the Output</a></p></li>
+<li><p><a class="reference internal" href="#setting-headers" id="id4">Setting Headers</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#force-file-download" id="id5">Force File Download</a></p></li>
+<li><p><a class="reference internal" href="#http-caching" id="id6">HTTP Caching</a></p></li>
+<li><p><a class="reference internal" href="#content-security-policy" id="id7">Content Security Policy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#turning-csp-on" id="id8">Turning CSP On</a></p></li>
+<li><p><a class="reference internal" href="#runtime-configuration" id="id9">Runtime Configuration</a></p></li>
+<li><p><a class="reference internal" href="#inline-content" id="id10">Inline Content</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#class-reference" id="id11">Class Reference</a></p></li>
+</ul>
+</div>
+<section id="working-with-the-response">
+<h2><a class="toc-backref" href="#id2">Working with the Response</a><a class="headerlink" href="#working-with-the-response" title="Permalink to this headline"></a></h2>
+<p>A Response class is instantiated for you and passed into your controllers. It can be accessed through
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;response</span></code>. Many times you will not need to touch the class directly, since CodeIgniter takes care of
+sending the headers and the body for you. This is great if the page successfully created the content it was asked to.
+When things go wrong, or you need to send very specific status codes back, or even take advantage of the
+powerful HTTP caching, it’s there for you.</p>
+<section id="setting-the-output">
+<h3><a class="toc-backref" href="#id3">Setting the Output</a><a class="headerlink" href="#setting-the-output" title="Permalink to this headline"></a></h3>
+<p>When you need to set the output of the script directly, and not rely on CodeIgniter to automatically get it, you
+do it manually with the <code class="docutils literal notranslate"><span class="pre">setBody</span></code> method. This is usually used in conjunction with setting the status code of
+the response:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The reason phrase (‘OK’, ‘Created’, ‘Moved Permanently’) will be automatically added, but you can add custom reasons
+as the second parameter of the <code class="docutils literal notranslate"><span class="pre">setStatusCode()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="s1">&#39;Nope. Not here.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can set format an array into either JSON or XML and set the content type header to the appropriate mime with the
+<code class="docutils literal notranslate"><span class="pre">setJSON</span></code> and <code class="docutils literal notranslate"><span class="pre">setXML</span></code> methods. Typically, you will send an array of data to be converted:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;success&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span>      <span class="o">=&gt;</span> <span class="mi">123</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setJSON</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="c1">// or</span>
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setXML</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-headers">
+<h3><a class="toc-backref" href="#id4">Setting Headers</a><a class="headerlink" href="#setting-headers" title="Permalink to this headline"></a></h3>
+<p>Often, you will need to set headers to be set for the response. The Response class makes this very simple to do,
+with the <code class="docutils literal notranslate"><span class="pre">setHeader()</span></code> method. The first parameter is the name of the header. The second parameter is the value,
+which can be either a string or an array of values that will be combined correctly when sent to the client.
+Using these functions instead of using the native PHP functions allows you to ensure that no headers are sent
+prematurely, causing errors, and makes testing possible.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;WWW-Authenticate&#39;</span><span class="p">,</span> <span class="s1">&#39;Negotiate&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the header exists and can have more than one value, you may use the <code class="docutils literal notranslate"><span class="pre">appendHeader()</span></code> and <code class="docutils literal notranslate"><span class="pre">prependHeader()</span></code>
+methods to add the value to the end or beginning of the values list, respectively. The first parameter is the name
+of the header, while the second is the value to append or prepend.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;Cache-Control&#39;</span><span class="p">,</span> <span class="s1">&#39;no-cache&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">appendHeader</span><span class="p">(</span><span class="s1">&#39;Cache-Control&#39;</span><span class="p">,</span> <span class="s1">&#39;must-revalidate&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Headers can be removed from the response with the <code class="docutils literal notranslate"><span class="pre">removeHeader()</span></code> method, which takes the header name as the only
+parameter. This is not case-sensitive.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">removeHeader</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="force-file-download">
+<h2><a class="toc-backref" href="#id5">Force File Download</a><a class="headerlink" href="#force-file-download" title="Permalink to this headline"></a></h2>
+<p>The Response class provides a simple way to send a file to the client, prompting the browser to download the data
+to your computer. This sets the appropriate headers to make it happen.</p>
+<p>The first parameter is the <strong>name you want the downloaded file to be named</strong>, the second parameter is the
+file data.</p>
+<p>If you set the second parameter to null and <code class="docutils literal notranslate"><span class="pre">$filename</span></code> is an existing, readable
+file path, then its content will be read instead.</p>
+<p>If you set the third parameter to boolean true, then the actual file MIME type
+(based on the filename extension) will be sent, so that if your browser has a
+handler for that type - it can use it.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Here is some text!&#39;</span><span class="p">;</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;mytext.txt&#39;</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">download</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you want to download an existing file from your server you’ll need to
+pass <code class="docutils literal notranslate"><span class="pre">null</span></code> explicitly for the second parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Contents of photo.jpg will be automatically read</span>
+<span class="k">return</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">download</span><span class="p">(</span><span class="s1">&#39;/path/to/photo.jpg&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Use the optional <code class="docutils literal notranslate"><span class="pre">setFileName()</span></code> method to change the filename as it is sent to the client’s browser:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">return</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">download</span><span class="p">(</span><span class="s1">&#39;awkwardEncryptedFileName.fakeExt&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setFileName</span><span class="p">(</span><span class="s1">&#39;expenses.csv&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The response object MUST be returned for the download to be sent to the client. This allows the response
+to be passed through all <strong>after</strong> filters before being sent to the client.</p>
+</div>
+</section>
+<section id="http-caching">
+<h2><a class="toc-backref" href="#id6">HTTP Caching</a><a class="headerlink" href="#http-caching" title="Permalink to this headline"></a></h2>
+<p>Built into the HTTP specification are tools help the client (often the web browser) cache the results. Used correctly,
+this can lead to a huge performance boost to your application because it will tell the client that they don’t need
+to contact the server at all since nothing has changed. And you can’t get faster than that.</p>
+<p>This are handled through the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> and <code class="docutils literal notranslate"><span class="pre">ETag</span></code> headers. This guide is not the proper place for a thorough
+introduction to all of the cache headers power, but you can get a good understanding over at
+<a class="reference external" href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching">Google Developers</a>.</p>
+<p>By default, all response objects sent through CodeIgniter have HTTP caching turned off. The options and exact
+circumstances are too varied for us to be able to create a good default other than turning it off. It’s simple
+to set the Cache values to what you need, through the <code class="docutils literal notranslate"><span class="pre">setCache()</span></code> method:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;max-age&#39;</span>  <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s1">&#39;s-maxage&#39;</span> <span class="o">=&gt;</span> <span class="mi">900</span><span class="p">,</span>
+    <span class="s1">&#39;etag&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;abcde&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setCache</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">$options</span></code> array simply takes an array of key/value pairs that are, with a couple of exceptions, assigned
+to the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> header. You are free to set all of the options exactly as you need for your specific
+situation. While most of the options are applied to the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> header, it intelligently handles
+the <code class="docutils literal notranslate"><span class="pre">etag</span></code> and <code class="docutils literal notranslate"><span class="pre">last-modified</span></code> options to their appropriate header.</p>
+</section>
+<section id="content-security-policy">
+<span id="id1"></span><h2><a class="toc-backref" href="#id7">Content Security Policy</a><a class="headerlink" href="#content-security-policy" title="Permalink to this headline"></a></h2>
+<p>One of the best protections you have against XSS attacks is to implement a Content Security Policy on the site.
+This forces you to whitelist every single source of content that is pulled in from your site’s HTML,
+including images, stylesheets, javascript files, etc. The browser will refuse content from sources that don’t meet
+the whitelist. This whitelist is created within the response’s <code class="docutils literal notranslate"><span class="pre">Content-Security-Policy</span></code> header and has many
+different ways it can be configured.</p>
+<p>This sounds complex, and on some sites, can definitely be challenging. For many simple sites, though, where all content
+is served by the same domain (<a class="reference external" href="http://example.com">http://example.com</a>), it is very simple to integrate.</p>
+<p>As this is a complex subject, this user guide will not go over all of the details. For more information, you should
+visit the following sites:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://content-security-policy.com/">Content Security Policy main site</a></p></li>
+<li><p><a class="reference external" href="https://www.w3.org/TR/CSP">W3C Specification</a></p></li>
+<li><p><a class="reference external" href="https://www.html5rocks.com/en/tutorials/security/content-security-policy/">Introduction at HTML5Rocks</a></p></li>
+<li><p><a class="reference external" href="https://www.sitepoint.com/improving-web-security-with-the-content-security-policy/">Article at SitePoint</a></p></li>
+</ul>
+<section id="turning-csp-on">
+<h3><a class="toc-backref" href="#id8">Turning CSP On</a><a class="headerlink" href="#turning-csp-on" title="Permalink to this headline"></a></h3>
+<p>By default, support for this is off. To enable support in your application, edit the <code class="docutils literal notranslate"><span class="pre">CSPEnabled</span></code> value in
+<strong>app/Config/App.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">App</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$CSPEnabled</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When enabled, the response object will contain an instance of <code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\ContentSecurityPolicy</span></code>. The
+values set in <strong>app/Config/ContentSecurityPolicy.php</strong> are applied to that instance, and if no changes are
+needed during runtime, then the correctly formatted header is sent and you’re all done.</p>
+<p>With CSP enabled, two header lines are added to the HTTP response: a Content-Security-Policy header, with
+policies identifying content types or origins that are explicitly allowed for different
+contexts, and a Content-Security-Policy-Report-Only header, which identifies content types
+or origins that will be allowed but which will also be reported to the destination
+of your choice.</p>
+<p>Our implementation provides for a default treatment, changeable through the <code class="docutils literal notranslate"><span class="pre">reportOnly()</span></code> method.
+When an additional entry is added to a CSP directive, as shown below, it will be added
+to the CSP header appropriate for blocking or preventing. That can be overridden on a per
+call basis, by providing an optional second parameter to the adding method call.</p>
+</section>
+<section id="runtime-configuration">
+<h3><a class="toc-backref" href="#id9">Runtime Configuration</a><a class="headerlink" href="#runtime-configuration" title="Permalink to this headline"></a></h3>
+<p>If your application needs to make changes at run-time, you can access the instance at <code class="docutils literal notranslate"><span class="pre">$response-&gt;CSP</span></code>. The
+class holds a number of methods that map pretty clearly to the appropriate header value that you need to set.
+Examples are shown below, with different combinations of parameters, though all accept either a directive
+name or an array of them:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// specify the default directive treatment</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">reportOnly</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// specify the origin to use if none provided for a directive</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">setDefaultSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+
+<span class="c1">// specify the URL that &quot;report-only&quot; reports get sent to</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">setReportURI</span><span class="p">(</span><span class="s1">&#39;http://example.com/csp/reports&#39;</span><span class="p">);</span>
+
+<span class="c1">// specify that HTTP requests be upgraded to HTTPS</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">upgradeInsecureRequests</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// add types or origins to CSP directives</span>
+<span class="c1">// assuming that the default treatment is to block rather than just report</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addBaseURI</span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// report only</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://youtube.com&#39;</span><span class="p">);</span> <span class="c1">// blocked</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addConnectSrc</span><span class="p">(</span><span class="s1">&#39;https://*.facebook.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// blocked</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addFontSrc</span><span class="p">(</span><span class="s1">&#39;fonts.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addFormAction</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addFrameAncestor</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// report this one</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addImageSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addMediaSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addManifestSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addObjectSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// reject from here</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addPluginType</span><span class="p">(</span><span class="s1">&#39;application/pdf&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// reject this media type</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addScriptSrc</span><span class="p">(</span><span class="s1">&#39;scripts.example.com&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// allow but report requests from here</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addStyleSrc</span><span class="p">(</span><span class="s1">&#39;css.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">CSP</span><span class="o">-&gt;</span><span class="na">addSandbox</span><span class="p">([</span><span class="s1">&#39;allow-forms&#39;</span><span class="p">,</span> <span class="s1">&#39;allow-scripts&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>The first parameter to each of the “add” methods is an appropriate string value,
+or an array of them.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">reportOnly</span></code> method allows you to specify the default reporting treatment
+for subsequent sources, unless over-ridden. For instance, you could specify
+that youtube.com was allowed, and then provide several allowed but reported sources:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://youtube.com&#39;</span><span class="p">);</span> <span class="c1">// allowed</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">reportOnly</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://metube.com&#39;</span><span class="p">);</span> <span class="c1">// allowed but reported</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://ourtube.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// allowed</span>
+</pre></div>
+</div>
+</section>
+<section id="inline-content">
+<h3><a class="toc-backref" href="#id10">Inline Content</a><a class="headerlink" href="#inline-content" title="Permalink to this headline"></a></h3>
+<p>It is possible to set a website to not protect even inline scripts and styles on its own pages, since this might have
+been the result of user-generated content. To protect against this, CSP allows you to specify a nonce within the
+<code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> tags, and to add those values to the response’s header. This is a pain to handle in real
+life, and is most secure when generated on the fly. To make this simple, you can include a <code class="docutils literal notranslate"><span class="pre">{csp-style-nonce}</span></code> or
+<code class="docutils literal notranslate"><span class="pre">{csp-script-nonce}</span></code> placeholder in the tag and it will be handled for you automatically:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Original</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="p">{</span><span class="nx">csp</span><span class="o">-</span><span class="nx">script</span><span class="o">-</span><span class="nx">nonce</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="nx">console</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="s2">&quot;Script won&#39;t run as it doesn&#39;t contain a nonce attribute&quot;</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+
+<span class="c1">// Becomes</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">nonce</span><span class="o">=</span><span class="s2">&quot;Eskdikejidojdk978Ad8jf&quot;</span><span class="o">&gt;</span>
+    <span class="nx">console</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="s2">&quot;Script won&#39;t run as it doesn&#39;t contain a nonce attribute&quot;</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+
+<span class="c1">// OR</span>
+<span class="o">&lt;</span><span class="nx">style</span> <span class="p">{</span><span class="nx">csp</span><span class="o">-</span><span class="nx">style</span><span class="o">-</span><span class="nx">nonce</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="o">&lt;/</span><span class="nx">style</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If an attacker injects a string like <code class="docutils literal notranslate"><span class="pre">&lt;script</span> <span class="pre">{csp-script-nonce}&gt;</span></code>, it might become the real nonce attribute with this functionality. You can customize the placeholder string with the <code class="docutils literal notranslate"><span class="pre">$scriptNonceTag</span></code> and <code class="docutils literal notranslate"><span class="pre">$styleNonceTag</span></code> properties in <strong>app/Config/ContentSecurityPolicy.php</strong>.</p>
+</div>
+<p>If you don’t like this auto replacement functionality, you can turn it off with setting <code class="docutils literal notranslate"><span class="pre">$autoNonce</span> <span class="pre">=</span> <span class="pre">false</span></code> in <strong>app/Config/ContentSecurityPolicy.php</strong>.</p>
+<p>In this case, you can use the functions, <code class="docutils literal notranslate"><span class="pre">csp_script_nonce()</span></code> and <code class="docutils literal notranslate"><span class="pre">csp_style_nonce()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Original</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="o">&lt;?=</span> <span class="nx">csp_script_nonce</span><span class="p">()</span> <span class="cp">?&gt;</span>&gt;
+    console.log(&quot;Script won&#39;t run as it doesn&#39;t contain a nonce attribute&quot;);
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+// Becomes
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">nonce</span><span class="o">=</span><span class="s">&quot;Eskdikejidojdk978Ad8jf&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Script won&#39;t run as it doesn&#39;t contain a nonce attribute&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+// OR
+<span class="p">&lt;</span><span class="nt">style</span> <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">csp_style_nonce</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">.</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="o">.</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="class-reference">
+<h2><a class="toc-backref" href="#id11">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition to the methods listed here, this class inherits the methods from the
+<a class="reference internal" href="../incoming/message.html"><span class="doc">Message Class</span></a>.</p>
+</div>
+<p>The methods provided by the parent class that are available are:</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::body()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setBody()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::populateHeaders()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::headers()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::header()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::headerLine()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::removeHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::appendHeader()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::protocolVersion()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::setProtocolVersion()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateMedia()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateCharset()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateEncoding()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateLanguage()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Message::negotiateLanguage()</span></code></p></li>
+</ul>
+<dl class="php class">
+<dt class="sig sig-object php">
+<span class="sig-name descname"><span class="pre">CodeIgniter\\HTTP\\Response</span></span></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="getStatusCode">
+<span class="sig-name descname"><span class="pre">getStatusCode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getStatusCode" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current HTTP status code for this response</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+<p>Returns the currently status code for this response. If no status code has been set, a BadMethodCallException
+will be thrown:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="setStatusCode">
+<span class="sig-name descname"><span class="pre">setStatusCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$code</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$reason=''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#setStatusCode" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$code</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The HTTP status code</p></li>
+<li><p><strong>$reason</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – An optional reason phrase.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The current Response instance</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Sets the HTTP status code that should be sent with this response:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">404</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The reason phrase will be automatically generated based upon the official lists. If you need to set your own
+for a custom status code, you can pass the reason phrase as the second parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="s1">&#39;Tardis initiated&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getReasonPhrase">
+<span class="sig-name descname"><span class="pre">getReasonPhrase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getReasonPhrase" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current reason phrase.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span></p>
+</dd>
+</dl>
+<p>Returns the current status code for this response. If not status has been set, will return an empty string:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getReasonPhrase</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="setDate">
+<span class="sig-name descname"><span class="pre">setDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#setDate" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$date</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">DateTime</span></code></span>) – A DateTime instance with the time to set for this response.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The current response instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Sets the date used for this response. The <code class="docutils literal notranslate"><span class="pre">$date</span></code> argument must be an instance of <code class="docutils literal notranslate"><span class="pre">DateTime</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$date</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;j-M-Y&#39;</span><span class="p">,</span> <span class="s1">&#39;15-Feb-2016&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setDate</span><span class="p">(</span><span class="nv">$date</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="setContentType">
+<span class="sig-name descname"><span class="pre">setContentType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$mime</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$charset='UTF-8'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#setContentType" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$mime</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The content type this response represents.</p></li>
+<li><p><strong>$charset</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The character set this response uses.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The current response instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Sets the content type this response represents:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By default, the method sets the character set to <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>. If you need to change this, you can
+pass the character set as the second parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> <span class="s1">&#39;x-pig-latin&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="noCache">
+<span class="sig-name descname"><span class="pre">noCache</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#noCache" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current response instance.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Sets the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> header to turn off all HTTP caching. This is the default setting
+of all response messages:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">noCache</span><span class="p">();</span>
+<span class="cm">/*</span>
+<span class="cm"> * Sets the following header:</span>
+<span class="cm"> * Cache-Control: no-store, max-age=0, no-cache</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="setCache">
+<span class="sig-name descname"><span class="pre">setCache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#setCache" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$options</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – An array of key/value cache control settings</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The current response instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Sets the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> headers, including <code class="docutils literal notranslate"><span class="pre">ETags</span></code> and <code class="docutils literal notranslate"><span class="pre">Last-Modified</span></code>. Typical keys are:</p>
+<ul class="simple">
+<li><p>etag</p></li>
+<li><p>last-modified</p></li>
+<li><p>max-age</p></li>
+<li><p>s-maxage</p></li>
+<li><p>private</p></li>
+<li><p>public</p></li>
+<li><p>must-revalidate</p></li>
+<li><p>proxy-revalidate</p></li>
+<li><p>no-transform</p></li>
+</ul>
+<p>When passing the last-modified option, it can be either a date string, or a DateTime object.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="setLastModified">
+<span class="sig-name descname"><span class="pre">setLastModified</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#setLastModified" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$date</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string|DateTime</span></code></span>) – The date to set the Last-Modified header to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The current response instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Sets the <code class="docutils literal notranslate"><span class="pre">Last-Modified</span></code> header. The <code class="docutils literal notranslate"><span class="pre">$date</span></code> object can be either a string or a <code class="docutils literal notranslate"><span class="pre">DateTime</span></code>
+instance:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setLastModified</span><span class="p">(</span><span class="nb">date</span><span class="p">(</span><span class="s1">&#39;D, d M Y H:i:s&#39;</span><span class="p">));</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setLastModified</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="nv">$time</span><span class="p">));</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php">
+<span class="sig-name descname"><span class="pre">send():</span> <span class="pre">Response</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current response instance.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">CodeIgniter\HTTP\Response</span></code></p>
+</dd>
+</dl>
+<p>Tells the response to send everything back to the client. This will first send the headers,
+followed by the response body. For the main application response, you do not need to call
+this as it is handled automatically by CodeIgniter.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="setCookie">
+<span class="sig-name descname"><span class="pre">setCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$value</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$expire</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$domain</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$path</span> <span class="pre">=</span> <span class="pre">'/'</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$secure</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$httponly</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$samesite</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#setCookie" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|Cookie|string</span></code></span>) – Cookie name or an array of parameters or an instance of <code class="docutils literal notranslate"><span class="pre">CodeIgniter\Cookie\Cookie</span></code></p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie value</p></li>
+<li><p><strong>$expire</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Cookie expiration time in seconds</p></li>
+<li><p><strong>$domain</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie domain</p></li>
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie path</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie name prefix. If set to <code class="docutils literal notranslate"><span class="pre">''</span></code>, the default value from <strong>app/Config/Cookie.php</strong> will be used</p></li>
+<li><p><strong>$secure</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to only transfer the cookie through HTTPS</p></li>
+<li><p><strong>$httponly</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to only make the cookie accessible for HTTP requests (no JavaScript)</p></li>
+<li><p><strong>$samesite</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The value for the SameSite cookie parameter. If set to <code class="docutils literal notranslate"><span class="pre">''</span></code>, no SameSite attribute will be set on the cookie. If set to <code class="docutils literal notranslate"><span class="pre">null</span></code>, the default value from <strong>app/Config/Cookie.php</strong> will be used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+<p>Sets a cookie containing the values you specify. There are two ways to
+pass information to this method so that a cookie can be set: Array
+Method, and Discrete Parameters:</p>
+<p><strong>Array Method</strong></p>
+<p>Using this method, an associative array is passed as the first
+parameter:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cookie</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;The Cookie Name&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;value&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;The Value&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;expire&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;86500&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;domain&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;.some-domain.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;path&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prefix&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;myprefix_&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;secure&#39;</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;httponly&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s1">&#39;samesite&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Lax&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setCookie</span><span class="p">(</span><span class="nv">$cookie</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Only the <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> are required. To delete a cookie set it with the
+<code class="docutils literal notranslate"><span class="pre">expire</span></code> blank.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">expire</span></code> is set in <strong>seconds</strong>, which will be added to the current
+time. Do not include the time, but rather only the number of seconds
+from <em>now</em> that you wish the cookie to be valid. If the <code class="docutils literal notranslate"><span class="pre">expire</span></code> is
+set to zero the cookie will only last as long as the browser is open.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>But if the <code class="docutils literal notranslate"><span class="pre">value</span></code> is set to empty string and the <code class="docutils literal notranslate"><span class="pre">expire</span></code> is set to <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+the cookie will be deleted.</p>
+</div>
+<p>For site-wide cookies regardless of how your site is requested, add your
+URL to the <code class="docutils literal notranslate"><span class="pre">domain</span></code> starting with a period, like this:
+.your-domain.com</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">path</span></code> is usually not needed since the method sets a root path.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">prefix</span></code> is only needed if you need to avoid name collisions with
+other identically named cookies for your server.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">secure</span></code> flag is only needed if you want to make it a secure cookie
+by setting it to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">samesite</span></code> value controls how cookies are shared between domains and sub-domains.
+Allowed values are <code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Lax'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Strict'</span></code> or a blank string <code class="docutils literal notranslate"><span class="pre">''</span></code>.
+If set to blank string, default SameSite attribute will be set.</p>
+<p><strong>Discrete Parameters</strong></p>
+<p>If you prefer, you can set the cookie by passing data using individual
+parameters:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">,</span> <span class="nv">$expire</span><span class="p">,</span> <span class="nv">$domain</span><span class="p">,</span> <span class="nv">$path</span><span class="p">,</span> <span class="nv">$prefix</span><span class="p">,</span> <span class="nv">$secure</span><span class="p">,</span> <span class="nv">$httponly</span><span class="p">,</span> <span class="nv">$samesite</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="deleteCookie">
+<span class="sig-name descname"><span class="pre">deleteCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$domain</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$path</span> <span class="pre">=</span> <span class="pre">'/'</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#deleteCookie" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – Cookie name or an array of parameters</p></li>
+<li><p><strong>$domain</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie domain</p></li>
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie path</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie name prefix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+<p>Delete an existing cookie.</p>
+<p>Only the <code class="docutils literal notranslate"><span class="pre">name</span></code> is required.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">prefix</span></code> is only needed if you need to avoid name collisions with
+other identically named cookies for your server.</p>
+<p>Provide a <code class="docutils literal notranslate"><span class="pre">prefix</span></code> if cookies should only be deleted for that subset.
+Provide a <code class="docutils literal notranslate"><span class="pre">domain</span></code> name if cookies should only be deleted for that domain.
+Provide a <code class="docutils literal notranslate"><span class="pre">path</span></code> name if cookies should only be deleted for that path.</p>
+<p>If any of the optional parameters are empty, then the same-named
+cookie will be deleted across all that apply.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">deleteCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="hasCookie">
+<span class="sig-name descname"><span class="pre">hasCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$value</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#hasCookie" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – Cookie name or an array of parameters</p></li>
+<li><p><strong>$value</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cookie value</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie name prefix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+<p>Checks to see if the Response has a specified cookie or not.</p>
+<p><strong>Notes</strong></p>
+<p>Only the <code class="docutils literal notranslate"><span class="pre">name</span></code> is required. If a <code class="docutils literal notranslate"><span class="pre">prefix</span></code> is specified, it will be prepended to the cookie name.</p>
+<p>If no <code class="docutils literal notranslate"><span class="pre">value</span></code> is given, the method just checks for the existence of the named cookie.
+If a <code class="docutils literal notranslate"><span class="pre">value</span></code> is given, then the method checks that the cookie exists, and that it
+has the prescribed value.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">hasCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getCookie">
+<span class="sig-name descname"><span class="pre">getCookie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefix</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getCookie" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie name</p></li>
+<li><p><strong>$prefix</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Cookie name prefix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Cookie|Cookie[]|null</span></code></p>
+</dd>
+</dl>
+<p>Returns the named cookie, if found, or <code class="docutils literal notranslate"><span class="pre">null</span></code>.
+If no <code class="docutils literal notranslate"><span class="pre">name</span></code> is given, returns the array of <code class="docutils literal notranslate"><span class="pre">Cookie</span></code> objects.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cookie</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getCookie</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="getCookies">
+<span class="sig-name descname"><span class="pre">getCookies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getCookies" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Cookie[]</span></code></p>
+</dd>
+</dl>
+<p>Returns all cookies currently set within the Response instance.
+These are any cookies that you have specifically specified to set during the current
+request only.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="table.html" class="btn btn-neutral float-left" title="HTML Table Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api_responses.html" class="btn btn-neutral float-right" title="API Response Trait" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <!-- Ads Adsense -->    
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+  crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+  style="display:block"
+  data-ad-format="autorelaxed"
+  data-ad-client="ca-pub-5295583488737876"
+  data-ad-slot="5470375331"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <!-- And Ads Adsense -->
+  
+  <div role="contentinfo">
+  <p>&#169; Copyright 2022 CodeIgniter Foundation -<a href="https://www.awdev.eu.org" > Pub Awdev Corporation.
+  <span class="lastupdated">Last updated on Jun 26, 2022.
+  </span></p>
+  </div>
+  
+  Built with <a href="https://devoloper.awdev.eu.org/codeIgniter4">Awdev Corporation CodeIgniter 4</a> Publication By
+  <a href="https://www.awdev.my.id/home.html">Awdev Corporation</a>
+  provided by <a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/CodeSandbox.html">Read the Docs on Codesandbox</a>.
+  
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

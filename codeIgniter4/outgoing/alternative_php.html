@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building Responses &mdash; CodeIgniter 4.2.1 documentation</title>
+  <title>Alternate PHP Syntax for View Files &mdash; CodeIgniter 4.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -21,43 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Views" href="views.html" />
-    <link rel="prev" title="RESTful Resource Handling" href="../incoming/restful.html" /> 
-<!--  
-         Hai, selamat datang di proyek "CodeIgniter4 - Awdev Devoloper - Wahyu9kdl",
-         --------------------
-         Author : wahyu9kdl
-         Github : https://wahyu9kdl.github.io
-         Web    : https://devoloper.awdev.eu.org / https://www.awdev.my.id/home.html
-         Email  : cs@awdev.eu.org
-         -->
-         <!-- Global site tag (gtag.js) - Google Analytics -->
-         <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSD8HWB5RG"></script>
-         <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-VSD8HWB5RG');
-         </script>
-         <link rel="shortcut icon" type="image/x-icon" href="https://wahyu9kdl.github.io/Aw-icon.png">         
-         <meta name="google-site-verification" content="Yz_h71MpL-vH2RoECFzJU6NOZZVqSiu81kGfJv2VDXA"/>
-         <meta content='2f898b29394a4156964b39f56d9f579e5a97dd1e' name='Open Collective GraphQL API'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
-         <meta content='3GiQbHPfTGczxZBeUGBkzC4TAiMiapaWih' name='BTC'/>
-         <meta content='FIO8FjBePEMu9XiwBYckrt549r4smxXCq4QNYKejsZEwEe5XxMdCF' name='FIO'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='ETH'/>
-         <meta content='0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877' name='MATIC'/>
-         <meta content="0xfdd2b5ba05c21b1fd387f53ffc001aca512d6877" name="Dai"/>
-         <!-- =======================================================
-         * Template Name: Cool Landing Page Personal - v1.2.2
-         * Template URL: https://www.awdev.my.id
-         * Author: Awdev Corporation
-         * License: https://www.awdev.my.id/license/
-         ======================================================== -->
-         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
-         crossorigin="anonymous"></script>
-         
+    <link rel="next" title="Working With Databases" href="../database/index.html" />
+    <link rel="prev" title="Localization" href="localization.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -150,7 +115,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Building Responses</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Building Responses</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="view_cells.html">View Cells</a></li>
 <li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
@@ -161,7 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="response.html">HTTP Responses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Alternate PHP Syntax for View Files</a></li>
 </ul>
 </li>
 </ul>
@@ -293,12 +258,13 @@
 
       <div class="wy-nav-content">
         <div class="rst-content">
-<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/outgoing/index.rst">Edit this page</a>
+<a class="btn btn-neutral float-right" href="https://github.com/codeigniter4/CodeIgniter4/edit/develop/user_guide_src/source/outgoing/alternative_php.rst">Edit this page</a>
 
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Building Responses</li>
+          <li><a href="index.html">Building Responses</a> &raquo;</li>
+      <li>Alternate PHP Syntax for View Files</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -307,32 +273,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="building-responses">
-<h1>Building Responses<a class="headerlink" href="#building-responses" title="Permalink to this headline"></a></h1>
-<p>View components are used to build what is returned to the user.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="views.html">Views</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view_cells.html">View Cells</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view_layouts.html">View Layouts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view_parser.html">View Parser</a></li>
-<li class="toctree-l1"><a class="reference internal" href="view_decorators.html">View Decorators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="table.html">HTML Table Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="response.html">HTTP Responses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
-<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="alternative_php.html">Alternate PHP Syntax for View Files</a></li>
-</ul>
+  <section id="alternate-php-syntax-for-view-files">
+<h1>Alternate PHP Syntax for View Files<a class="headerlink" href="#alternate-php-syntax-for-view-files" title="Permalink to this headline"></a></h1>
+<p>If you do not utilize a templating engine to simplify output,
+you’ll be using pure PHP in your
+View files. To minimize the PHP code in these files, and to make it
+easier to identify the code blocks it is recommended that you use PHPs
+alternative syntax for control structures and short tag echo statements.
+If you are not familiar with this syntax, it allows you to eliminate the
+braces from your code, and eliminate “echo” statements.</p>
+<section id="alternative-echos">
+<h2>Alternative Echos<a class="headerlink" href="#alternative-echos" title="Permalink to this headline"></a></h2>
+<p>Normally to echo, or print out a variable you would do this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$variable</span><span class="p">;</span> <span class="cp">?&gt;</span>
+</pre></div>
 </div>
+<p>With the alternative syntax you can instead do it this way:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?=</span> <span class="nv">$variable</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="alternative-control-structures">
+<h2>Alternative Control Structures<a class="headerlink" href="#alternative-control-structures" title="Permalink to this headline"></a></h2>
+<p>Controls structures, like if, for, foreach, and while can be written in
+a simplified format as well. Here is an example using <code class="docutils literal notranslate"><span class="pre">foreach</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+
+<span class="o">&lt;?</span><span class="nx">php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$todo</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$item</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Notice that there are no braces. Instead, the end brace is replaced with
+<code class="docutils literal notranslate"><span class="pre">endforeach</span></code>. Each of the control structures listed above has a similar
+closing syntax: <code class="docutils literal notranslate"><span class="pre">endif</span></code>, <code class="docutils literal notranslate"><span class="pre">endfor</span></code>, <code class="docutils literal notranslate"><span class="pre">endforeach</span></code>, and <code class="docutils literal notranslate"><span class="pre">endwhile</span></code></p>
+<p>Also notice that instead of using a semicolon after each structure
+(except the last one), there is a colon. This is important!</p>
+<p>Here is another example, using <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">elseif</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>. Notice the colons:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$username</span> <span class="o">===</span> <span class="s1">&#39;sally&#39;</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Hi Sally<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$username</span> <span class="o">===</span> <span class="s1">&#39;joe&#39;</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Hi Joe<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">else</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Hi unknown user<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../incoming/restful.html" class="btn btn-neutral float-left" title="RESTful Resource Handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="views.html" class="btn btn-neutral float-right" title="Views" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="localization.html" class="btn btn-neutral float-left" title="Localization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../database/index.html" class="btn btn-neutral float-right" title="Working With Databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
