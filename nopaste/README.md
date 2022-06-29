@@ -1,10 +1,12 @@
-[![Intro](https://github.com/bokub/nopaste/raw/images/intro.png)][intro-img]
+[![Intro](http://devoloper.awdev.eu.org/nopaste/favicon.ico)][intro-img]
 
 # What is NoPaste?
 
-[NoPaste](https://nopaste.ml/) is an open-source website similar to Pastebin where you can store any piece of code, and generate links for easy sharing
+[NoPaste](http://devoloper.awdev.eu.org/nopaste/) is an open-source website similar to Pastebin where you can store any piece of code, and generate links for easy sharing
 
 However, what makes NoPaste special is that it works with **no database**, and **no back-end code**. Instead, the data is compressed and **stored entirely in the link** that you share, nowhere else!
+
+---> [Get Started](http://devoloper.awdev.eu.org/nopaste/)
 
 ### Because of this design:
 
@@ -12,7 +14,7 @@ However, what makes NoPaste special is that it works with **no database**, and *
 -   🔞 Your data **cannot be censored**
 -   👁️ The server hosting NoPaste (or any clone of it) **cannot read or access** your data
 -   ⏳ Your data will be accessible **forever** (as long as you have the link)
--   🔀 You can access your data on **every NoPaste clone**, including [your own](https://github.com/bokub/nopaste/wiki/Deploy-your-own-version-of-NoPaste)
+-   🔀 You can access your data on **every NoPaste clone**, including [your own](https://github.com/wahyu9kdl/DEVOLOPER/nopaste/wiki/Deploy-your-own-version-of-NoPaste)
 -   🔍 Google **will not index** your data, even if your link is public
 
 > **Note:** This project is a copy of [Topaz's paste service][topaz-example], with a reworked design and a few additional features (syntax highlighting, line numbers, line wrapping, embedding...)
@@ -36,15 +38,12 @@ You can include NoPaste code snippets into your own website by clicking the _Emb
 Here is an example of generated code and how it looks (click on the screenshot to see the interactive version)
 
 ```html
-<iframe
-    width="100%"
-    height="243"
-    frameborder="0"
-    src="https://nopaste.ml/?l=py#XQAAAQAbAQAAAAAAAAA0m0pnuFI8c+qagMoNTEcTIfyUWbZjtjmBYcmJSzoNwS5iVMWHzvowv3IPM0vOG5cjrtDRTSVP/0biTIrrahfmbkuMQBBeSiSGpaJOqYJiKmUDYn2Gp1RtWE6gm8fLHMB4eyZ3+rEbUQwWyMcmWqvZ7m96RUeFyZdYbE85JGvhghqF8cyPB0ZjV0OQWsDxn5O5ysMrIcL+pKPk89EtLjAHhA1LZL9F3hzAtTx7I+GlyrxhhXGxAN//CvtaAA=="
-></iframe>
+<iframe width="100%" height="1165" 
+frameborder="0" src="http://devoloper.awdev.eu.org/nopaste/index.html#XQAAAQAlDQAAAAAAAAA0HSzgdXPvDKduYGMNU+Rp5y0tpOKQD9ZjQtFmCmaiDpG0I7P7O2oslDs7euSHIILSvGpDf90X1jMRclvgxdFNW4hLMp3kIcfbNR70CyouDgZZ9H1pQ9I1TbfwGXQm/9e0zqMctQwFaTXKzsZJrKX3/FNAsipWLlcqRlJ+jRCdz3BGbnWTuDGBPpFbHYR+ed5AtTM3W1jepo3guMNchwmqv/btAaLGu5jXs0egn9Sn0mhbBd3kwZUdnXQB5wwB3ftrwPnwR0bE6LhJrBu2P7bAsRkFDOyW51oxtTZpe0MR8GcJdmymIjZq7oB0nw5UtwbNCM6NkGWI5tc+6GauHTo61Y835sZr6Xnb2kWl/VD+PtusEBAbzD6bPs+0DFwDFrwRVeBvC0Y4Y0SfgslaDYCGClrI9JxQZTA9C9Z56/qLG23Hvx3GK5Judx/rqffeWut0t1bP95uWK4dK+Q0TEZ+Rt0NKHfDjgzSSn8M3OlpTdnbU/BLa6NgaFc7DHe045rqTgZXXMHW+OA+b4XdD5LVd+nSYDwPM4hm+yi9xRj+Z6p+e9K+h8xhwng5Hv4DhMyyOMtkXYwjMdhnIo9rbR+QvkxwhPAz1p75OFJ++gMO0+Iw5uEzFM7jjPNQuR9nv/TX4XJWWzkGttSx3TCoEekzW9/Jbnb0NI3c/HV5yu7xdvrs0b4ABhykmpQI38S+UtdyXDra0VkeeqTYBjRu2QYkDtdLpJGIIAEl3l8ERzdoK1XuKcbcEzz6mEiR90e6yvD9JCs47WMBFjt+fIIj4t04Sow+PUBdyAZrVph5yyvv3/gYopOINmp2+WNbmTKW2TK3F0Vkeeo3FHLXgF3sPAAfwo1BuyKyfbMA8+F3JcIrVm2loTyylfNgwHFL1CwRRnaMCS1rxLVFSovhHbdYthDoi/OWf+vvLDaA/wUYTyfe5UL2fBRWnuPogIwEO/jD2aNkN9h9ZEsNXiNMf91yoPhsG1Ik6mfiIkn35a4ESI222ZrerJp7FwlHIQRHypVMfEt0XZRq0EqhAUoZd4FPTOEoFOMHdhTFZKzUoYMYK2FFVe8qePzqalS+lPVMWW/5bv2A="></iframe>
+
 ```
 
-[![iframe](https://raw.githubusercontent.com/bokub/nopaste/images/pagerank.png)](https://jsfiddle.net/cqr2kxf5/)
+[![iframe](https://raw.githubusercontent.com/wahyu9kdl/DEVOLOPER/gh-pages/nopaste/index.html)](http://devoloper.awdev.eu.org/nopaste/index.html#XQAAAQAlDQAAAAAAAAA0HSzgdXPvDKduYGMNU+Rp5y0tpOKQD9ZjQtFmCmaiDpG0I7P7O2oslDs7euSHIILSvGpDf90X1jMRclvgxdFNW4hLMp3kIcfbNR70CyouDgZZ9H1pQ9I1TbfwGXQm/9e0zqMctQwFaTXKzsZJrKX3/FNAsipWLlcqRlJ+jRCdz3BGbnWTuDGBPpFbHYR+ed5AtTM3W1jepo3guMNchwmqv/btAaLGu5jXs0egn9Sn0mhbBd3kwZUdnXQB5wwB3ftrwPnwR0bE6LhJrBu2P7bAsRkFDOyW51oxtTZpe0MR8GcJdmymIjZq7oB0nw5UtwbNCM6NkGWI5tc+6GauHTo61Y835sZr6Xnb2kWl/VD+PtusEBAbzD6bPs+0DFwDFrwRVeBvC0Y4Y0SfgslaDYCGClrI9JxQZTA9C9Z56/qLG23Hvx3GK5Judx/rqffeWut0t1bP95uWK4dK+Q0TEZ+Rt0NKHfDjgzSSn8M3OlpTdnbU/BLa6NgaFc7DHe045rqTgZXXMHW+OA+b4XdD5LVd+nSYDwPM4hm+yi9xRj+Z6p+e9K+h8xhwng5Hv4DhMyyOMtkXYwjMdhnIo9rbR+QvkxwhPAz1p75OFJ++gMO0+Iw5uEzFM7jjPNQuR9nv/TX4XJWWzkGttSx3TCoEekzW9/Jbnb0NI3c/HV5yu7xdvrs0b4ABhykmpQI38S+UtdyXDra0VkeeqTYBjRu2QYkDtdLpJGIIAEl3l8ERzdoK1XuKcbcEzz6mEiR90e6yvD9JCs47WMBFjt+fIIj4t04Sow+PUBdyAZrVph5yyvv3/gYopOINmp2+WNbmTKW2TK3F0Vkeeo3FHLXgF3sPAAfwo1BuyKyfbMA8+F3JcIrVm2loTyylfNgwHFL1CwRRnaMCS1rxLVFSovhHbdYthDoi/OWf+vvLDaA/wUYTyfe5UL2fBRWnuPogIwEO/jD2aNkN9h9ZEsNXiNMf91yoPhsG1Ik6mfiIkn35a4ESI222ZrerJp7FwlHIQRHypVMfEt0XZRq0EqhAUoZd4FPTOEoFOMHdhTFZKzUoYMYK2FFVe8qePzqalS+lPVMWW/5bv2A= )
 
 Feel free to edit the `height` and `width` attributes, so they suit your needs
 
@@ -77,21 +76,21 @@ NoPaste links can be created easily from your system's command line:
 
 ```bash
 # Linux
-echo -n 'Hello World' | lzma | base64 -w0 | xargs -0 printf "https://nopaste.ml/#%s"
+echo -n 'Hello World' | lzma | base64 -w0 | xargs -0 printf "https://devoloper.awdev.eu.org/nopaste/#%s"
 
 # Mac
-echo -n 'Hello World' | lzma | base64 | xargs -0 printf "https://nopaste.ml/#%s"
+echo -n 'Hello World' | lzma | base64 | xargs -0 printf "https://devoloper.awdev.eu.org/nopaste/#%s"
 
 # Windows / WSL / Linux
-echo -n 'Hello World' | xz --format=lzma | base64 -w0 | printf "https://nopaste.ml/#%s" "$(cat -)"
+echo -n 'Hello World' | xz --format=lzma | base64 -w0 | printf https://devoloper.awdev.eu.org/nopaste/#%s" "$(cat -)"
 ```
 
 ## Deploy your own version of NoPaste
 
 NoPaste is just a bunch of static files, making it really easy to deploy on any kind of file server.
 
-Read [the wiki](https://github.com/bokub/nopaste/wiki/Deploy-your-own-version-of-NoPaste) to see how you can deploy your own version of NoPaste for free using Github Pages
+Read [the wiki](https://github.com/wahyu9kdl/DEVOLOPER/nopaste/wiki/Deploy-your-own-version-of-NoPaste) to see how you can deploy your own version of NoPaste for free using Github Pages
 
-[intro-img]: https://nopaste.ml/?l=tcl#XQAAAQA6BAAAAAAAAAAFYH9MXlzSsUdj4vga48M86Ff/Bo1HzNmlXzjCWCN1Q/EliRJg00jhrYF9eDKWzDi+Su+Pv1o8yGz3V06CtGOt8u9dUN10KuOrmkUrjI/kUqitUUD34YXmq9twyrkxmOl5kaHPNqE2PWTRhnKWCEntngrOOlXC4kxxnXuGB2v4zJ75fIM0htURHr9ysHH+1nHvSRng4zpcYju3Y/RqpGTIowXGoUcIOeKKG8PpYf/9t33i
-[example]: https://nopaste.ml/?l=css#XQAAAQB2DQAAAAAAAAAXioAj/ZZaukKWizx++f8w08qY+xe+w0AeNB0EtEDMR1jPECOrMSz2rcy5XqUVTzusmFXo407ujwufsB1Va3cy02BV4Chx15I+SbM8Ei2WS8/MaZa0wIOjHf0s6B9Kcwi1J73qYeIcKm39PEWGnBM4Ym5aXFOF1Irrn1N95vEcl4YI+98rydudZHmsNCmt995GvCpLImwH7yj3SlMadWaQA0jHCrY1ZBvhjSJ9mAAdYjCJLduITZuXomgpqtr3sYI1WKeRGNmPSD8J8WRLtCx0BZl3yWZZrUxJbmVod8cYiPJnlO+CzQA03qA/GZnxhMYd9TPc2Xlq8UIhBX6gmvo/xhHJc/WHnuBFB32xJ37O5FZlZuXGy6wFE/lakVteoqEqgvyan4LfaiL0pMfYapWjV8YoPa/KyVGugANNjvtRw0hRr+Z1IgKoVL2a1xqvQiB65vIXkw68/ui82O1ko9HTbsLMHX/2/CgWZ8TkTEvgr0+dzVqQYIpaWpB3hDnUTHMkG2UehM5iJyJXAgODNqk8IiWCJn5k/j2FeFpchSTWdgi7AeaCowubmWnFTNgNFXLf5zzARWBUGQFT55TiC0ah4HL17jG3rY6fXvAXlm6CWc88ne7wF0opHkLnhfPslssDYo75hDmCfYwJ6asQ/YBkSuuLJjdCEXVjF7Pdw2FhsOiiB0gNXC6ehieM28M+PMGSDRqt0Q0KveMgE44YJ8zFOvpu2Gg41qDkrsYS7Xb/iMnHz66tt69I1rGzrHx88PuI2/CZx+kv+z7a+/Eiq4JC3KTDx4IbNUYptmrIOC2bxGrcjd8TBKGe+dNi8a/PEnXrUXc/OD7D680/Awo+scE8VKuRVN5R7OPg0tmKVQSQkyCf+I3//kGmREyhh6/bCv6tvbEc7hNPNE1js2svlVBF001JlLY7g1w6ls2pjxrKxuCLrkjba1n4s5WlfrbwcX18rqgbfL2tVibHggsy3Lgq4i7fXtuO3JifxfauO66YIRjEWFnACrHbZ14FbHDMylN7GMvo5TusxestU0s6+kiibWq2qZVpi7C5JVKURNQrGEabICn5nUDoOPMZSfNrdmlTOhu4qjKW09XdQPNazTMc83KjG1YOKNjRP23i1oav5muBFRGMDkSXt7wCgv5PCpLZM9w2jC5GCa5oHuH92IWJu5d80fvTRw3GxNQzfMRxgjzfH6xxrzu+EghhbzayUhb3U5aSRSxOtPTPfjT9mxgk7j3f1mRlbYheuhko4/LBIKYvfA5CnN2Yr3VyBYqoZ/ZgP871LU0ix8ZLeaecao0SDj6V35bZ6RB53mcU8BRPfcyZhj0H6BrFcrcfXKVwnNVro/cIrwnoG3GwlpCXGYJmDDeUdlbBj2HrVmvMncd3w8SzPtxw5RAWQP9YPJdE4Tc490BMX4zAkPqirRHLcxG/K5ECLtKtGsnCkg24+XwFo4XRcGfMsbkSSYD7oZ2HkD+1NXYqJKgk+7uee+yrYCZF6xbsb0ca/7r3w8nU9DueSa6XPiaCLSeJ+phw8iK1U4+FcCzqLW4LzgfcGjz64+HM+Xst0YuqzrAI2RU80H2Mr0FnC/qL+klbM+p0yNUBxBd4IQ64SJmh6Irgi7fZq2wfuTuVEAI1qKKwGwBQ6x9UDyY/OqkD63mtRL//oHeipA==
-[topaz-example]: https://topaz.github.io/paste/#XQAAAQADAQAAAAAAAAAFFgvDUiqpf8dDPleMqfsqtbQYE28suCtDTB9iyFgGByXgSRMepMuokjoACV4UPgBzwM3p+V/N2rCi8m90FkQfsRuMJ4LrZVFgr81wKDc2okcywbJBz7OGNPpc8xu2lAkpSekqRO+I/OYUUvgB2ckKBp+2avxmAKn6H73WV3t1D5Ip9hwthecGUnLwFSGpPFNI0zb4Ettx7QnIu6NiftBuencR3Bn/l3BNoh8M5NQL2MoInMQAnQ1gGwSQg6uEnIvK70ERxjllyP2v2fH/N5CRAA==
+[intro-img]: http://devoloper.awdev.eu.org/nopaste/favicon.ico
+[example]: http://devoloper.awdev.eu.org/nopaste/index.html#XQAAAQAlDQAAAAAAAAA0HSzgdXPvDKduYGMNU+Rp5y0tpOKQD9ZjQtFmCmaiDpG0I7P7O2oslDs7euSHIILSvGpDf90X1jMRclvgxdFNW4hLMp3kIcfbNR70CyouDgZZ9H1pQ9I1TbfwGXQm/9e0zqMctQwFaTXKzsZJrKX3/FNAsipWLlcqRlJ+jRCdz3BGbnWTuDGBPpFbHYR+ed5AtTM3W1jepo3guMNchwmqv/btAaLGu5jXs0egn9Sn0mhbBd3kwZUdnXQB5wwB3ftrwPnwR0bE6LhJrBu2P7bAsRkFDOyW51oxtTZpe0MR8GcJdmymIjZq7oB0nw5UtwbNCM6NkGWI5tc+6GauHTo61Y835sZr6Xnb2kWl/VD+PtusEBAbzD6bPs+0DFwDFrwRVeBvC0Y4Y0SfgslaDYCGClrI9JxQZTA9C9Z56/qLG23Hvx3GK5Judx/rqffeWut0t1bP95uWK4dK+Q0TEZ+Rt0NKHfDjgzSSn8M3OlpTdnbU/BLa6NgaFc7DHe045rqTgZXXMHW+OA+b4XdD5LVd+nSYDwPM4hm+yi9xRj+Z6p+e9K+h8xhwng5Hv4DhMyyOMtkXYwjMdhnIo9rbR+QvkxwhPAz1p75OFJ++gMO0+Iw5uEzFM7jjPNQuR9nv/TX4XJWWzkGttSx3TCoEekzW9/Jbnb0NI3c/HV5yu7xdvrs0b4ABhykmpQI38S+UtdyXDra0VkeeqTYBjRu2QYkDtdLpJGIIAEl3l8ERzdoK1XuKcbcEzz6mEiR90e6yvD9JCs47WMBFjt+fIIj4t04Sow+PUBdyAZrVph5yyvv3/gYopOINmp2+WNbmTKW2TK3F0Vkeeo3FHLXgF3sPAAfwo1BuyKyfbMA8+F3JcIrVm2loTyylfNgwHFL1CwRRnaMCS1rxLVFSovhHbdYthDoi/OWf+vvLDaA/wUYTyfe5UL2fBRWnuPogIwEO/jD2aNkN9h9ZEsNXiNMf91yoPhsG1Ik6mfiIkn35a4ESI222ZrerJp7FwlHIQRHypVMfEt0XZRq0EqhAUoZd4FPTOEoFOMHdhTFZKzUoYMYK2FFVe8qePzqalS+lPVMWW/5bv2A=
+[topaz-exAMPLE](http://devoloper.awdev.eu.org/nopaste/index.html#XQAAAQAlDQAAAAAAAAA0HSzgdXPvDKduYGMNU+Rp5y0tpOKQD9ZjQtFmCmaiDpG0I7P7O2oslDs7euSHIILSvGpDf90X1jMRclvgxdFNW4hLMp3kIcfbNR70CyouDgZZ9H1pQ9I1TbfwGXQm/9e0zqMctQwFaTXKzsZJrKX3/FNAsipWLlcqRlJ+jRCdz3BGbnWTuDGBPpFbHYR+ed5AtTM3W1jepo3guMNchwmqv/btAaLGu5jXs0egn9Sn0mhbBd3kwZUdnXQB5wwB3ftrwPnwR0bE6LhJrBu2P7bAsRkFDOyW51oxtTZpe0MR8GcJdmymIjZq7oB0nw5UtwbNCM6NkGWI5tc+6GauHTo61Y835sZr6Xnb2kWl/VD+PtusEBAbzD6bPs+0DFwDFrwRVeBvC0Y4Y0SfgslaDYCGClrI9JxQZTA9C9Z56/qLG23Hvx3GK5Judx/rqffeWut0t1bP95uWK4dK+Q0TEZ+Rt0NKHfDjgzSSn8M3OlpTdnbU/BLa6NgaFc7DHe045rqTgZXXMHW+OA+b4XdD5LVd+nSYDwPM4hm+yi9xRj+Z6p+e9K+h8xhwng5Hv4DhMyyOMtkXYwjMdhnIo9rbR+QvkxwhPAz1p75OFJ++gMO0+Iw5uEzFM7jjPNQuR9nv/TX4XJWWzkGttSx3TCoEekzW9/Jbnb0NI3c/HV5yu7xdvrs0b4ABhykmpQI38S+UtdyXDra0VkeeqTYBjRu2QYkDtdLpJGIIAEl3l8ERzdoK1XuKcbcEzz6mEiR90e6yvD9JCs47WMBFjt+fIIj4t04Sow+PUBdyAZrVph5yyvv3/gYopOINmp2+WNbmTKW2TK3F0Vkeeo3FHLXgF3sPAAfwo1BuyKyfbMA8+F3JcIrVm2loTyylfNgwHFL1CwRRnaMCS1rxLVFSovhHbdYthDoi/OWf+vvLDaA/wUYTyfe5UL2fBRWnuPogIwEO/jD2aNkN9h9ZEsNXiNMf91yoPhsG1Ik6mfiIkn35a4ESI222ZrerJp7FwlHIQRHypVMfEt0XZRq0EqhAUoZd4FPTOEoFOMHdhTFZKzUoYMYK2FFVe8qePzqalS+lPVMWW/5bv2A=)
