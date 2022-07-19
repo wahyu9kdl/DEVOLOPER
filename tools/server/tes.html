@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Verify HTTP/2 & HTTP/3 for websites and servers - AWDEV</title>
+ <style>
+    body {
+      background-color: #000;
+      color: #a3a3a3;
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Open Sans","Helvetica Neue", sans-serif;
+      align-items: center;
+      height: 100vh;
+      justify-content: center;
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    a {
+      color: #333;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    h1 {
+      --tw-gradient-from: #ef4444;
+      --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to,rgba(239,68,68,0));
+      --tw-gradient-to: #3b82f6;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(to right,var(--tw-gradient-stops));
+      color: transparent;
+      font-size: 3.75rem;
+      margin: 0;
+      padding-top: 4rem;
+      letter-spacing: -.025em;
+    }
+
+    p {
+      margin: 0;
+      margin-top: .5rem;
+    }
+
+    .desc {
+      font-family: monospace;
+      font-size: 1.25rem;
+      letter-spacing: -.090em;
+    }
+
+    .container {
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 0 2rem;
+    }
+
+    input {
+      background-color: #0d0d0d;
+      border: 1px solid #404040;
+      border-radius: 0.5rem;
+      color: #fff;
+      font-family: monospace;
+      font-size: 1.5rem;
+      outline: 0;
+      padding: 1rem 2rem;
+    }
+
+    .submit {
+      background-color: #fff;
+      color: #000;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+      padding: 1rem 3rem;
+    }
+
+    .submit:hover {
+      background-color: #404040;
+    }
+
+    .result {
+      display: flex;
+      justify-content: center;
+    }
+
+    .result div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .result-content {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      font-size: 1rem;
+      padding-top: .5rem;
+    }
+
+    .result-content svg {
+      margin-right: .5rem;
+    }
+
+    /* sm */
+    @media (min-width: 640px) {
+      body {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 4.5rem;
+        padding-top: 0;
+      }
+
+      .desc, .result-content {
+        font-size: 1.5rem;
+      }
+
+      .form {
+        flex-direction: row;
+      }
+
+      .submit {
+        margin-top: 0;
+        margin-left: .5rem;
+      }
+    }
+
+    /* lg */
+    @media (min-width: 1024px) {
+      h1 {
+        font-size: 6rem;
+      }
+
+      .desc {
+        font-size: 2.25rem;
+      }
+    }
+  </style>
+  <script async defer data-website-id="36fbf7dc-9d00-4832-a526-46c3b15da4c3" src="https://respectedprivacy.com/app"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="https://devoloper.awdev.eu.org"><h1>AWDEV</h1></a>
+      <p class="desc">Verify HTTP/2 &amp; HTTP/3 for websites and servers</p>
+      <p>Awdev Devoloper</p>
+    </header>
+
+    <form class="form">
+      <input class="host" type="text" placeholder="awdev.eu.org" name="host" value="" required>
+      <input class="submit umami--click--check" type="submit" value="Check">
+    </form>
+
+    <div class="result">
+      <div>
+        <p class="result-content result-h2"></p>
+        <p class="result-content result-h3"></p>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+  </div>
+
+  <script src="https://cdn.statically.io/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.statically.io/js/unpkg.com/canvas-confetti@1.4.0/dist/confetti.browser.js"></script>
+  <script>
+    function sanitizeHtml(host){
+      return host.replace(/\&/g, '&amp;')
+        .replace(/\</g, '&lt;')
+        .replace(/\>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/\'/g, '&#x27')
+        .replace(/\//g, '&#x2F');
+    }
+
+    $(document).ready(function () {
+      $('.submit').click(function (e) {
+        e.preventDefault();
+        var host = sanitizeHtml($('.host').val());
+        $.ajax
+          ({
+            type: "GET",
+            url: "https://api.http2.me/v1/check",
+            data: { "host": host },
+            success: function (data) {
+              if (data['result']['h2'] == true) {
+                var icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-.997-6l7.07-7.071-1.414-1.414-5.656 5.657-2.829-2.829-1.414 1.414L11.003 16z" fill="rgba(47,204,113,1)"/></svg>';
+              } else {
+                var icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z" fill="rgba(231,76,60,1)"/></svg>';
+              }
+              
+              if (data['result']['h3'] == true) {
+                var icon_h3 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-.997-6l7.07-7.071-1.414-1.414-5.656 5.657-2.829-2.829-1.414 1.414L11.003 16z" fill="rgba(47,204,113,1)"/></svg>';
+              } else {
+                var icon_h3 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z" fill="rgba(231,76,60,1)"/></svg>';
+              }
+
+              $('.result-h2').html(icon + data['result']['status'] + ' on ' + data['result']['host']);
+              $('.result-h3').html(icon_h3 + data['result']['status_h3'] + ' on ' + data['result']['host']);
+
+              if (data['result']['h2'] == true && data['result']['h3'] == true) {
+                confetti();
+              }
+            }
+          });
+      });
+
+          });
+  </script>
+</body>
+</html>
