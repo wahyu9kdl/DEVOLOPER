@@ -19,7 +19,7 @@
 [https://www.awdev.eu.org](https://www.awdev.eu.org)
 [https://devoloper.awdev.eu.org](https://devoloper.awdev.eu.org)
 [https://www.alhikmah.my.id](https://www.alhikmah.my.id)
-[https://admin.alhikmah.my.id](https://admin.alhikmah.my.id)
+[https://www.awdev.my.id](https://www.awdev.my.id)
 - 💬 Ask me about **react,vue,firabase,bloog,console,cloud,npm**
 
 - 📫 How to reach me **cs@awdev.eu.org**
