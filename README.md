@@ -137,6 +137,34 @@ Table of Contents
 - [Auto Visitor](https://wahyu9kdl.github.io/DASHBOARD/TOOLS/AUTO%20VISITOR/index.html)
 - [404](https://wahyu9kdl.github.io/404.html)
 - [FAQ](https://wahyu9kdl.github.io/faq.html)
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/" target="_blank">HOME PAGE</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/BLOOG/ASTRONOMI/index.html" target="_blank">BLOOG ASTRONOMI</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/BLOOG/AWDEV/index.html" target="_blank">BLOOG AWDEV</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/BLOOG/AWDEV/v1.html" target="_blank">BLOOG AWDEV v.1 </a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/BLOOG/VUE/CRUD.html" target="_blank">BLOOG CRUD EXAMPLE</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/BLOOG/COINBASE/NFT.html" target="_blank">BLOOG NFT</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/BLOOG/iframe.html" target="_blank">IFRAME RANDOM</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/codeIgniter4" target="_blank">CODEIGNITER 4</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/nopaste" target="_blank">No PASTE</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/spreadsheet" target="_blank">SPREADSHEET</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/QR/" target="_blank">TOOLS QR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/collor/Angular-Collor.html" target="_blank">TOOLS ANGULAR COLLOR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/collor/gradien-collor.html" target="_blank">TOOLS GRADIEN COLLOR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/collor/grid-collor.html" target="_blank">TOOLS GRID COLLOR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/collor/ngx-collor.html" target="_blank">TOOLS NGX COLLOR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/collor/rgb-collor.html" target="_blank">TOOLS RGB COLLOR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/html-editor" target="_blank">TOOLS HTML EDITOR</a></li>
+<li><a href="https://devoloper.awdev.eu.org/tools/html-editor/src/index.html" target="_blank">OPPEN HTML EDITOR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/server/tes.html" target="_blank">SERVER TES</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/traffic/fast.html" target="_blank">TRAFFIC FAST</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/Voice-Software.html" target="_blank">TTS SOFTWARE</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/WhatsApp-Spoilers.html" target="_blank">WHATSAPP SPOILERS</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/fb-qr.html" target="_blank">TOOLS FB QR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/wa-link.html" target="_blank">TOOLS WA LINK</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/wa-qr.html" target="_blank">TOOLS WA QR</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/tools/tes-web.html" target="_blank">TOOLS TES WEBSITE</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/devoloper.html" target="_blank">DEVOLOPER</a></li>
+<li><a href="https://wahyu9kdl.github.io/DEVOLOPER/404.html" target="_blank">404</a></li>
 
 
 
